@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Carlos Serra · Desenvolvedor Full Stack Júnior em Palhoça/SC</title>
+  <meta name="description" content="Carlos Serra, desenvolvedor Full Stack Júnior em Palhoça (SC). Sites, cardápios digitais e sistemas que levam o cliente direto ao WhatsApp. Disponível para vaga em qualquer modalidade.">
+  <meta name="author" content="Carlos Alberto Araújo Serra Nunes">
+  <link rel="canonical" href="https://carlosserra-a11y.github.io/LeadPageDevCarlos/">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Carlos Serra">
+  <meta property="og:title" content="Carlos Serra · Desenvolvedor Full Stack Júnior">
+  <meta property="og:description" content="Clareza primeiro. Depois o código. Sites e sistemas que levam o cliente direto ao WhatsApp.">
+  <meta property="og:url" content="https://carlosserra-a11y.github.io/LeadPageDevCarlos/">
+  <meta property="og:image" content="https://carlosserra-a11y.github.io/LeadPageDevCarlos/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Carlos Serra com luz laranja ao fundo e o título Clareza primeiro, depois o código">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Carlos Serra · Desenvolvedor Full Stack Júnior">
+  <meta name="twitter:description" content="Sites e sistemas que levam o cliente direto ao WhatsApp. Disponível para vaga Full Stack Júnior.">
+  <meta name="twitter:image" content="https://carlosserra-a11y.github.io/LeadPageDevCarlos/assets/img/og.jpg">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/hero/carlos-perfil-834.webp" imagesrcset="assets/img/hero/carlos-perfil-620.webp 497w, assets/img/hero/carlos-perfil-834.webp 668w" imagesizes="(max-width: 900px) 90vw, 45vw" fetchpriority="high">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/work.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+
+  <script src="assets/js/boot.js"></script>
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script type="module" src="assets/js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Carlos Alberto Araújo Serra Nunes",
+    "alternateName": "Carlos Serra",
+    "jobTitle": "Desenvolvedor Full Stack Júnior",
+    "description": "Desenvolvedor Full Stack Júnior que cria sites, cardápios digitais e sistemas web para pequenos negócios.",
+    "url": "https://carlosserra-a11y.github.io/LeadPageDevCarlos/",
+    "image": "https://carlosserra-a11y.github.io/LeadPageDevCarlos/assets/img/og.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Palhoça", "addressRegion": "SC", "addressCountry": "BR" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "FMP — Faculdade Municipal de Palhoça" },
+    "sameAs": ["https://github.com/carlosserra-a11y"],
+    "knowsAbout": ["JavaScript", "TypeScript", "React", "Node.js", "Express", "Vite", "Tailwind CSS", "Three.js", "GSAP", "Acessibilidade web", "LGPD"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="preloader" data-preloader aria-hidden="true">
+    <div class="preloader__glow"></div>
+    <p class="preloader__name" data-preloader-name><span>Carlos</span><span>Serra</span></p>
+    <div class="preloader__foot">
+      <span>Desenvolvedor Full Stack Júnior<br>Palhoça · SC</span>
+      <span class="preloader__count" data-preloader-count>00</span>
+    </div>
+  </div>
+
+  <div class="cursor" data-cursor aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" data-progress aria-hidden="true"><span></span></div>
+
+  <header class="header" data-header>
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav__group">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+      </ul>
+      <a class="logo" href="#inicio" aria-label="Carlos Serra, voltar ao início"><span>CARLOS</span><span>SERRA</span></a>
+      <ul class="nav__group nav__group--right">
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#recrutadores">Recrutadores</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
+        <span class="sr-only">Abrir menu</span>
+        <span class="menu-btn__lines" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="menu" id="menu" data-menu hidden>
+    <nav aria-label="Menu do celular">
+      <ul class="menu__list">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#recrutadores">Recrutadores</a></li>
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="menu__foot">
+      <p>Disponível para vaga Full Stack Júnior · junho de 2027</p>
+      <a class="btn btn--light" href="#contato">Iniciar um projeto <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+    </div>
+  </div>
+
+  <main id="conteudo">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio" data-hero aria-labelledby="hero-title" data-anchor-flush>
+      <div class="hero__frame">
+        <div class="hero__glow" data-hero-glow aria-hidden="true"><span class="hero__glow-a"></span><span class="hero__glow-b"></span></div>
+
+        <p class="hero__name" data-hero-name aria-hidden="true"><span class="hero__name-mask"><span>C</span><span>A</span><span>R</span><span>L</span><span>O</span><span>S</span></span></p>
+
+        <div class="hero__photo">
+          <div data-hero-photo>
+            <div data-hero-photo-inner>
+              <img src="assets/img/hero/carlos-perfil-834.webp" srcset="assets/img/hero/carlos-perfil-620.webp 497w, assets/img/hero/carlos-perfil-834.webp 668w" sizes="(max-width: 900px) 90vw, 45vw" width="668" height="834" alt="Carlos Serra de perfil, de óculos, em contraluz laranja" fetchpriority="high" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow" data-hero-fade>Desenvolvedor Full Stack Júnior · Palhoça/SC</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="line"><span>Clareza primeiro.</span></span>
+            <span class="line"><span>Depois o código.</span></span>
+          </h1>
+          <p class="hero__lead" data-hero-fade>Crio sites, cardápios digitais e sistemas web rápidos, bonitos e que levam o cliente direto ao WhatsApp do seu negócio.</p>
+          <div class="hero__ctas" data-hero-fade>
+            <a class="btn btn--light" href="#contato" data-magnetic>Iniciar um projeto <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+            <a class="btn btn--dark" href="#projetos" data-magnetic>Ver meus trabalhos</a>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="hero__side" aria-label="Destaques">
+        <div class="hero-card" data-hero-card data-hero-fade>
+          <img class="hero-card__img" src="assets/img/hero/carlos-card.webp" width="480" height="480" alt="Carlos de perfil, de óculos, em silhueta sobre fundo laranja" decoding="async">
+          <a class="hero-card__corner icon-btn" href="#recrutadores" aria-label="Ir para a seção de recrutadores"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+          <div class="hero-card__body">
+            <div class="hero-card__slides">
+              <div class="hero-card__slide is-active" data-slide>
+                <p class="hero-card__title">Disponível para vaga</p>
+                <p class="hero-card__text">Full Stack Júnior para junho de 2027. Presencial, híbrido ou remoto.</p>
+              </div>
+              <div class="hero-card__slide" data-slide>
+                <p class="hero-card__title">Sites que vendem</p>
+                <p class="hero-card__text">Cardápios e sites que terminam num pedido pronto no WhatsApp do negócio.</p>
+              </div>
+              <div class="hero-card__slide" data-slide>
+                <p class="hero-card__title">Código aberto</p>
+                <p class="hero-card__text">Todos os projetos estão no GitHub: dá para ver como eu programo.</p>
+              </div>
+            </div>
+            <div class="hero-card__foot">
+              <div class="hero-card__progress" aria-hidden="true"><span data-card-progress></span></div>
+              <div class="hero-card__nav">
+                <button class="icon-btn" type="button" data-card-prev aria-label="Destaque anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+                <button class="icon-btn icon-btn--ember" type="button" data-card-next aria-label="Próximo destaque"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+              </div>
+            </div>
+            <p class="sr-only" aria-live="polite" data-card-live></p>
+          </div>
+        </div>
+
+        <dl class="hero-stats" data-hero-fade>
+          <div>
+            <dt><span data-counter="100">100</span>%</dt>
+            <dd>Projetos com código aberto no GitHub. Sem gambiarra escondida.</dd>
+          </div>
+          <div>
+            <dt><span data-counter="360">360</span>°</dt>
+            <dd>Do briefing ao deploy: interface, API, dados e publicação.</dd>
+          </div>
+        </dl>
+        <a class="badge" href="#recrutadores" data-hero-fade aria-label="Disponível para vaga Full Stack Júnior em junho de 2027. Ver detalhes para recrutadores">
+          <svg class="badge__ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="badge-path" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs><text><textPath href="#badge-path" textLength="496" lengthAdjust="spacing">DISPONÍVEL PARA VAGA • FULL STACK JÚNIOR • JUN 2027 •</textPath></text></svg>
+          <span class="badge__center" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+        </a>
+      </aside>
+    </section>
+
+    <!-- ================= TECNOLOGIAS ================= -->
+    <section class="ticker" aria-label="Tecnologias que eu uso">
+      <div class="ticker__band" data-marquee="left">
+        <div class="ticker__inner">
+          <ul class="ticker__list">
+            <li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li><li>Express</li><li>Vite</li><li>Tailwind</li><li>Three.js</li><li>GSAP</li><li>Gemini IA</li><li>Git</li>
+          </ul>
+          <ul class="ticker__list" aria-hidden="true">
+            <li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li><li>Express</li><li>Vite</li><li>Tailwind</li><li>Three.js</li><li>GSAP</li><li>Gemini IA</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ticker__band ticker__band--ghost" data-marquee="right" aria-hidden="true">
+        <div class="ticker__inner">
+          <ul class="ticker__list">
+            <li>Sites que vendem</li><li>Cardápio digital</li><li>Pedido no WhatsApp</li><li>Painel do dono</li><li>Atendente com IA</li><li>LGPD</li>
+          </ul>
+          <ul class="ticker__list">
+            <li>Sites que vendem</li><li>Cardápio digital</li><li>Pedido no WhatsApp</li><li>Painel do dono</li><li>Atendente com IA</li><li>LGPD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE ================= -->
+    <section class="section about" id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <p class="label"><span class="label__num" aria-hidden="true">[ 01 ]</span> Sobre</p>
+        <h2 class="sr-only" id="sobre-title">Sobre mim</h2>
+        <p class="about__manifesto" data-manifesto>Eu transformo o que um negócio já faz bem numa <em>vitrine digital</em> que leva o cliente direto a pedir.</p>
+
+        <div class="about__grid">
+          <figure class="about__photo about__photo--a" data-photo data-speed="-30">
+            <img src="assets/img/about/setup.webp" width="900" height="1125" alt="Carlos sorrindo de óculos escuros no seu setup de trabalho, com parede vermelha" loading="lazy" decoding="async">
+            <figcaption>Meu setup · Palhoça</figcaption>
+          </figure>
+
+          <div class="about__text" data-reveal>
+            <p>Olá, eu sou o <strong>Carlos Alberto Araújo Serra Nunes</strong>. Sou desenvolvedor Full Stack Júnior e estudante de Análise e Desenvolvimento de Sistemas.</p>
+            <p>Desde agosto de 2026 coloco no ar sites e sistemas de verdade para negócios da Grande Florianópolis: pizzaria, hamburgueria, chef de eventos, parrilla e vídeomaker. O objetivo é sempre o mesmo: o cliente final encontrar o que quer e <strong>pedir em poucos toques</strong>.</p>
+            <p>Uso IA no dia a dia para ir mais rápido, sem abrir mão de revisar, testar e entender cada linha que vai para produção.</p>
+            <dl class="facts">
+              <div><dt>Formação</dt><dd>Análise e Desenvolvimento de Sistemas · FMP (cursando)</dd></div>
+              <div><dt>Base</dt><dd>Palhoça · Grande Florianópolis/SC</dd></div>
+              <div><dt>Modalidade</dt><dd>Presencial, híbrido ou remoto</dd></div>
+              <div><dt>Foco</dt><dd>Front-end, Node.js e produtos que geram resultado</dd></div>
+            </dl>
+          </div>
+
+          <figure class="about__photo about__photo--b" data-photo data-speed="40">
+            <img src="assets/img/about/trilha.webp" width="900" height="1125" alt="Carlos numa trilha com a vista da Grande Florianópolis e nuvens ao fundo" loading="lazy" decoding="async">
+            <figcaption>Grande Florianópolis</figcaption>
+          </figure>
+
+          <p class="about__stamp" data-reveal>“Bonito é bom. Bonito que vende é melhor.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVIÇOS ================= -->
+    <section class="section services" id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section__head services__head">
+          <p class="label"><span class="label__num" aria-hidden="true">[ 02 ]</span> Para o seu negócio</p>
+          <h2 class="title" id="servicos-title" data-split>Seu negócio <em>vendendo</em> enquanto você trabalha.</h2>
+          <p class="lead" data-reveal>Do cardápio ao painel do dono, cada projeto é feito sob medida, com identidade própria, e termina num pedido pronto no seu WhatsApp.</p>
+        </div>
+
+        <ul class="services__grid">
+          <li class="service service--featured" data-reveal data-glow>
+            <div class="service__top"><span class="service__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h7"/><path d="m15 15 5 3-5 3z"/></svg></span><span class="service__num">01</span></div>
+            <h3>Cardápio digital com pedido no WhatsApp</h3>
+            <p>O cliente monta o pedido e o site gera a mensagem pronta e organizada: itens, total, endereço e taxa por bairro.</p>
+            <p class="service__example">Ex.: Figaro's Pizzaria · Chef Carlos Jr</p>
+          </li>
+          <li class="service" data-reveal data-glow>
+            <div class="service__top"><span class="service__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></span><span class="service__num">02</span></div>
+            <h3>Landing page e site institucional</h3>
+            <p>Uma página rápida e marcante que apresenta o negócio e transforma visita em contato.</p>
+            <p class="service__example">Ex.: Ingrid Lima · Smartech</p>
+          </li>
+          <li class="service" data-reveal data-glow>
+            <div class="service__top"><span class="service__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="service__num">03</span></div>
+            <h3>Painel do dono e sistemas sob medida</h3>
+            <p>Mude preço, horário e cardápio sozinho e acompanhe os pedidos em tempo real.</p>
+            <p class="service__example">Ex.: Figaro's (painel) · Painel da Vida</p>
+          </li>
+          <li class="service" data-reveal data-glow>
+            <div class="service__top"><span class="service__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v3M5 8l2 2M19 8l-2 2"/><rect x="5" y="11" width="14" height="9" rx="3"/><path d="M9 15h.01M15 15h.01"/></svg></span><span class="service__num">04</span></div>
+            <h3>Atendente com IA</h3>
+            <p>Um assistente que responde sobre o cardápio e os serviços, com resposta de reserva se a IA falhar.</p>
+            <p class="service__example">Ex.: São Cristóvão Burger · Smartech</p>
+          </li>
+          <li class="service" data-reveal data-glow>
+            <div class="service__top"><span class="service__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.2"/><path d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7Z"/></svg></span><span class="service__num">05</span></div>
+            <h3>Portfólio para criativos</h3>
+            <p>Reels, depoimentos e um formulário que vira mensagem no WhatsApp, com visual que impressiona.</p>
+            <p class="service__example">Ex.: Ingrid Lima (vídeomaker)</p>
+          </li>
+          <li class="service" data-reveal data-glow>
+            <div class="service__top"><span class="service__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="service__num">06</span></div>
+            <h3>Cardápio e proposta em PDF</h3>
+            <p>Materiais editáveis para eventos: pacote, o que está incluso, investimento e condições.</p>
+            <p class="service__example">Ex.: Steak Gold Parrilla</p>
+          </li>
+        </ul>
+
+        <div class="includes" data-reveal>
+          <p class="includes__title">Todo site inclui</p>
+          <ul>
+            <li>Funciona bem no celular</li>
+            <li>SEO básico para o Google</li>
+            <li>Prévia bonita no WhatsApp e Instagram</li>
+            <li>LGPD e cookies quando precisa</li>
+            <li>Guia “Como editar” em português simples</li>
+            <li>Publicação no ar</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJETOS (anel 3D) ================= -->
+    <section class="work" id="projetos" data-work aria-labelledby="projetos-title">
+      <div class="work__pin" data-work-pin>
+        <div class="container work__head">
+          <div>
+            <p class="label"><span class="label__num" aria-hidden="true">[ 03 ]</span> Projetos no ar</p>
+            <h2 class="title" id="projetos-title">Trabalhos <em>selecionados</em></h2>
+          </div>
+          <p class="work__hint">Role, arraste ou use <kbd aria-label="seta para a esquerda">←</kbd> <kbd aria-label="seta para a direita">→</kbd></p>
+        </div>
+
+        <div class="work__stage container" data-ring-stage data-cursor-label="Arraste" aria-label="Carrossel 3D de projetos. Use as setas esquerda e direita para trocar de projeto.">
+          <ul class="ring" data-ring>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/Figarus-2.0</span></div>
+                <div class="project-card__shot" data-fallback="Figaro's Pizzaria 2.0">
+                  <img src="assets/img/projects/figaro.webp" width="960" height="600" alt="Página inicial do site da Figaro's Pizzaria com pizza e o título A pizza do Figaro's, quentinha na sua porta" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>01</span> Figaro's Pizzaria 2.0</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>01</span><span data-type>Delivery com checkout</span></p>
+                  <h3>Figaro's Pizzaria 2.0</h3>
+                  <p class="project-card__desc" data-desc>Cardápio com 57 sabores, checkout com CEP, taxa por bairro, pedido mínimo e troco. O pedido chega pronto no WhatsApp da loja, com regras de preço cobertas por testes.</p>
+                  <ul class="chips" data-stack><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li><li>Testes</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/Figarus-2.0/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/Figarus-2.0" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/sao-cristovao-3.0</span></div>
+                <div class="project-card__shot" data-fallback="São Cristóvão Burger 3.0">
+                  <img src="assets/img/projects/saocristovao.webp" width="960" height="600" alt="Site da São Cristóvão Hamburgueria com um smash burger e o título A arte do smash real" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>02</span> São Cristóvão Burger 3.0</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>02</span><span data-type>Cardápio com IA</span></p>
+                  <h3>São Cristóvão Burger 3.0</h3>
+                  <p class="project-card__desc" data-desc>Hero em vídeo, hambúrguer que “explode” em camadas na rolagem, cardápio em abas e atendente com IA (Gemini) com resposta de contingência.</p>
+                  <ul class="chips" data-stack><li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind</li><li>Gemini</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/sao-cristovao-3.0/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/sao-cristovao-3.0" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/smartech-3.0</span></div>
+                <div class="project-card__shot" data-fallback="Smartech 3.0">
+                  <img src="assets/img/projects/smartech.webp" width="960" height="600" alt="Site da Smartech com modelo 3D de uma coifa industrial em inox" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>03</span> Smartech 3.0</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>03</span><span data-type>Showroom 3D industrial</span></p>
+                  <h3>Smartech 3.0</h3>
+                  <p class="project-card__desc" data-desc>Showroom 3D de coifas UV-C com raio-X, corte e ficha técnica, calculadora conforme a NBR 14518 e consultor técnico com IA.</p>
+                  <ul class="chips" data-stack><li>JavaScript</li><li>WebGL 3D</li><li>IA</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/smartech-3.0/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/smartech-3.0" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/ingrid-market</span></div>
+                <div class="project-card__shot" data-fallback="Ingrid Lima">
+                  <img src="assets/img/projects/ingrid.webp" width="960" height="600" alt="Landing page da Ingrid Lima com um olho em close e o título O feed não para" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>04</span> Ingrid Lima</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>04</span><span data-type>Portfólio de criativa</span></p>
+                  <h3>Ingrid Lima</h3>
+                  <p class="project-card__desc" data-desc>Olho interativo em WebGL que segue o mouse, pisca e mergulha na câmera ao rolar; reels, depoimentos e formulário que vira mensagem no WhatsApp.</p>
+                  <ul class="chips" data-stack><li>JavaScript</li><li>WebGL</li><li>Animação</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/ingrid-market/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/ingrid-market" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/CJR-Gastronomia3.0</span></div>
+                <div class="project-card__shot" data-fallback="CJR Gastronomia 3.0">
+                  <img src="assets/img/projects/cjr.webp" width="960" height="600" alt="Site da CJR Gastronomia com a assinatura do Chef Carlos Jr sobre fundo escuro com ingredientes" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>05</span> CJR Gastronomia 3.0</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>05</span><span data-type>Orçamento de eventos</span></p>
+                  <h3>CJR Gastronomia 3.0</h3>
+                  <p class="project-card__desc" data-desc>Sete serviços com galeria e a gaveta “Meu orçamento”, que abre o WhatsApp com o pedido numerado e protocolo. Páginas legais e banner de cookies conforme a LGPD.</p>
+                  <ul class="chips" data-stack><li>HTML</li><li>CSS</li><li>JavaScript</li><li>LGPD</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/CJR-Gastronomia3.0/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/CJR-Gastronomia3.0" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/Chef-Carlos2.0</span></div>
+                <div class="project-card__shot" data-fallback="Chef Carlos Jr · Ceia de Natal">
+                  <img src="assets/img/projects/chefcarlos.webp" width="960" height="600" alt="Site da Ceia de Natal do Chef Carlos Jr com foto do chef de braços cruzados" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>06</span> Chef Carlos Jr · Ceia</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>06</span><span data-type>Encomendas</span></p>
+                  <h3>Chef Carlos Jr · Ceia de Natal</h3>
+                  <p class="project-card__desc" data-desc>Ceias em três tamanhos, adicionais somando ao vivo, pagamento combinado de 50% + 50% e mensagem protegida contra fraude no WhatsApp do chef.</p>
+                  <ul class="chips" data-stack><li>Vite</li><li>TypeScript</li><li>Netlify</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/Chef-Carlos2.0/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/Chef-Carlos2.0" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">painel-vida-bgdq.netlify.app</span></div>
+                <div class="project-card__shot" data-fallback="Painel da Vida">
+                  <img src="assets/img/projects/painel.webp" width="960" height="600" alt="Aplicação Painel da Vida com tarefas do dia, hábitos e gráfico de roda da vida" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>07</span> Painel da Vida</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>07</span><span data-type>Aplicação React</span></p>
+                  <h3>Painel da Vida</h3>
+                  <p class="project-card__desc" data-desc>Sistema pessoal de organização com prioridades do dia, hábitos, metas e gráficos, com os dados salvos no próprio navegador.</p>
+                  <ul class="chips" data-stack><li>React 19</li><li>TypeScript</li><li>Tailwind 4</li><li>Zustand</li><li>Recharts</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://painel-vida-bgdq.netlify.app/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/Painel-Vida" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+            <li class="ring__card" data-ring-card>
+              <article class="project-card">
+                <div class="project-card__browser" aria-hidden="true"><i></i><i></i><i></i><span class="project-card__url">carlosserra-a11y.github.io/Planta_Casa</span></div>
+                <div class="project-card__shot" data-fallback="Casa 6×32">
+                  <img src="assets/img/projects/casa.webp" width="960" height="600" alt="Modelo 3D navegável de um sobrado com painel de opções de câmera e ambientes" loading="lazy" decoding="async" draggable="false">
+                  <p class="project-card__tag" aria-hidden="true"><span>08</span> Casa 6×32</p>
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__meta"><span>08</span><span data-type>Projeto 3D navegável</span></p>
+                  <h3>Casa 6×32</h3>
+                  <p class="project-card__desc" data-desc>Sobrado em 3D para explorar por dentro e por fora, com planta 2D, modo dia e noite e versão leve automática no celular.</p>
+                  <ul class="chips" data-stack><li>Three.js</li><li>JavaScript</li><li>WebGL</li></ul>
+                  <p class="project-card__links"><a class="text-link" href="https://carlosserra-a11y.github.io/Planta_Casa/" target="_blank" rel="noopener noreferrer" data-live>Ver ao vivo ↗</a><a class="text-link" href="https://github.com/carlosserra-a11y/Planta_Casa" target="_blank" rel="noopener noreferrer" data-repo>Código ↗</a></p>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+
+        <div class="container work__panel">
+          <div>
+            <p class="work__count" data-ring-anim><strong data-ring-num>01</strong><span>/ 08</span></p>
+            <h3 class="work__name" data-ring-name data-ring-anim>Figaro's Pizzaria 2.0</h3>
+            <p class="work__type" data-ring-type data-ring-anim>Delivery com checkout</p>
+          </div>
+          <div>
+            <p class="work__desc" data-ring-desc data-ring-anim></p>
+            <ul class="chips" data-ring-stack data-ring-anim></ul>
+          </div>
+          <div class="work__actions">
+            <div class="work__links">
+              <a class="btn btn--light" href="#projetos" target="_blank" rel="noopener noreferrer" data-ring-live data-magnetic>Ver ao vivo <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+              <a class="btn btn--dark" href="#projetos" target="_blank" rel="noopener noreferrer" data-ring-repo>Código</a>
+            </div>
+            <div class="work__controls">
+              <button class="icon-btn icon-btn--ghost" type="button" data-ring-prev aria-label="Projeto anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+              <div class="work__bar" aria-hidden="true"><span data-ring-bar></span></div>
+              <button class="icon-btn icon-btn--ember" type="button" data-ring-next aria-label="Próximo projeto"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+            </div>
+          </div>
+          <p class="sr-only" aria-live="polite" data-ring-status></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RECRUTADORES ================= -->
+    <section class="section hire" id="recrutadores" aria-labelledby="recrutadores-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="label"><span class="label__num" aria-hidden="true">[ 04 ]</span> Para recrutadores</p>
+          <h2 class="title" id="recrutadores-title" data-split>Por que me contratar como <em>Full Stack Júnior</em>.</h2>
+          <p class="lead" data-reveal>Busco minha vaga para junho de 2027, em qualquer modalidade. Trago projetos reais no ar, com cliente usando, e vontade de aprender com um time.</p>
+        </div>
+
+        <div class="hire__grid">
+          <div class="stack-groups">
+            <div class="stack-group" data-reveal>
+              <h3>Front-end</h3>
+              <ul class="chips"><li>HTML semântico</li><li>CSS moderno</li><li>JavaScript</li><li>TypeScript</li><li>React 19</li><li>Vite</li><li>Tailwind</li></ul>
+            </div>
+            <div class="stack-group" data-reveal>
+              <h3>Back-end e integrações</h3>
+              <ul class="chips"><li>Node.js</li><li>Express</li><li>APIs REST</li><li>Gemini (IA)</li><li>Pedidos via WhatsApp</li></ul>
+            </div>
+            <div class="stack-group" data-reveal>
+              <h3>Interação e 3D</h3>
+              <ul class="chips"><li>GSAP</li><li>Three.js</li><li>WebGL</li><li>Zustand</li><li>Recharts</li></ul>
+            </div>
+            <div class="stack-group" data-reveal>
+              <h3>Qualidade e deploy</h3>
+              <ul class="chips"><li>Testes automatizados</li><li>Acessibilidade</li><li>LGPD</li><li>CSP</li><li>Git e GitHub</li><li>Netlify</li><li>GitHub Pages</li></ul>
+            </div>
+          </div>
+
+          <ol class="value-list" data-reveal>
+            <li><p><strong>Entrego produto no ar</strong><span>Oito projetos publicados, vários com cliente real usando.</span></p></li>
+            <li><p><strong>Penso no usuário final</strong><span>Celular primeiro, acessibilidade, desempenho e textos simples.</span></p></li>
+            <li><p><strong>Código que dá para revisar</strong><span>Regras de negócio com testes, README em todo projeto e commits organizados.</span></p></li>
+            <li><p><strong>Aprendo rápido</strong><span>Do primeiro site em ago/2026 a React, TypeScript, Three.js e IA em poucos meses.</span></p></li>
+            <li><p><strong>Converso com o cliente</strong><span>Briefing, proposta, prazo e entrega: sei traduzir negócio em requisito.</span></p></li>
+          </ol>
+        </div>
+
+        <div class="timeline">
+          <h3 class="timeline__title" data-reveal>Linha do tempo</h3>
+          <div class="timeline__list" data-timeline>
+            <span class="timeline__track" aria-hidden="true"></span>
+            <span class="timeline__fill" aria-hidden="true"></span>
+            <ol class="timeline__items">
+              <li class="timeline__item"><span class="timeline__date">Ago 2026</span><p>Primeiro site publicado no GitHub e os primeiros exercícios da faculdade em HTML e CSS.</p></li>
+              <li class="timeline__item"><span class="timeline__date">Out 2026</span><p>Primeiros projetos comerciais: Figaro's Pizzaria, São Cristóvão Burger, Ingrid Lima e o showroom 3D da Smartech.</p></li>
+              <li class="timeline__item"><span class="timeline__date">Out–Nov 2026</span><p>CJR Gastronomia e Chef Carlos Jr: orçamento de eventos, encomendas, LGPD e proposta em PDF.</p></li>
+              <li class="timeline__item"><span class="timeline__date">Nov 2026</span><p>Painel da Vida (React 19 + TypeScript) e Casa 6×32 (Three.js), além desta página.</p></li>
+              <li class="timeline__item timeline__item--next"><span class="timeline__date">Jun 2027</span><p><strong>Próximo passo:</strong> minha vaga de Desenvolvedor Full Stack Júnior. Pode ser no seu time.</p></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="hire__ctas" data-reveal>
+          <a class="btn btn--light" href="#contato" data-set-perfil="recrutador" data-magnetic>Falar sobre uma vaga <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+          <a class="btn btn--dark" href="https://github.com/carlosserra-a11y" target="_blank" rel="noopener noreferrer" data-magnetic>Ver meu GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESSO + FAQ ================= -->
+    <section class="section process" id="processo" aria-labelledby="processo-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="label"><span class="label__num" aria-hidden="true">[ 05 ]</span> Como eu trabalho</p>
+          <h2 class="title" id="processo-title" data-split>Do briefing ao site no ar em <em>1 a 2 semanas</em>.</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step"><span class="step__num" aria-hidden="true">01</span><h3>Conversa e briefing</h3><p>Entendo o que você vende, como o cliente pede hoje e o que mais dá resultado.</p></li>
+          <li class="step"><span class="step__num" aria-hidden="true">02</span><h3>Identidade visual</h3><p>Cada negócio ganha um conceito próprio, nada de modelo genérico.</p></li>
+          <li class="step"><span class="step__num" aria-hidden="true">03</span><h3>Desenvolvimento</h3><p>Código limpo, rápido no celular e com testes nas regras de preço.</p></li>
+          <li class="step"><span class="step__num" aria-hidden="true">04</span><h3>Conferência</h3><p>Reviso com você telefone, preços, fotos e textos antes de publicar.</p></li>
+          <li class="step"><span class="step__num" aria-hidden="true">05</span><h3>Publicação e guia</h3><p>Site no ar e um guia “Como editar” para você mudar o básico sozinho.</p></li>
+        </ol>
+
+        <ul class="terms" data-reveal>
+          <li><strong>Contrato</strong> em todo projeto</li>
+          <li><strong>50%</strong> para começar, <strong>50%</strong> na entrega</li>
+          <li>Prazo médio de <strong>1 a 2 semanas</strong></li>
+          <li>Hospedagem e domínio <strong>no seu nome</strong></li>
+          <li>Alterações depois da entrega <strong>orçadas à parte</strong></li>
+          <li>Atendimento das <strong>8h às 20h</strong></li>
+        </ul>
+
+        <div class="faq" id="faq">
+          <div>
+            <p class="label"><span class="label__num" aria-hidden="true">[ 06 ]</span> Perguntas frequentes</p>
+            <h2 class="title" data-split>Dúvidas <em>comuns</em></h2>
+          </div>
+          <div class="faq__list">
+            <details>
+              <summary>Quanto custa um site?</summary>
+              <p>O valor é fechado por projeto e combinado antes de começar, com contrato. Você paga 50% para começar e 50% na entrega, sem surpresa no meio do caminho.</p>
+            </details>
+            <details>
+              <summary>Em quanto tempo fica pronto?</summary>
+              <p>Em média de 1 a 2 semanas depois que eu recebo o material: textos, fotos, cardápio, logo e o número oficial do WhatsApp.</p>
+            </details>
+            <details>
+              <summary>Vou conseguir mudar preço e horário sozinho?</summary>
+              <p>Sim. Todo site vem com um guia “Como editar” em português simples e, quando faz sentido, um painel do dono para mexer sem programar.</p>
+            </details>
+            <details>
+              <summary>Hospedagem e domínio estão inclusos?</summary>
+              <p>Ficam no seu nome e são pagos por você, assim o site é 100% seu. Eu cuido da publicação e ajudo a escolher a melhor opção.</p>
+            </details>
+            <details>
+              <summary>Você faz tráfego pago e anúncios?</summary>
+              <p>Não. Meu foco é o site que converte: rápido, bonito e que leva ao pedido. Ele funciona muito bem junto com o seu Instagram e o Google.</p>
+            </details>
+            <details>
+              <summary>Você está aberto a vagas?</summary>
+              <p>Sim. Busco uma vaga de Desenvolvedor Full Stack Júnior para junho de 2027, presencial, híbrida ou remota. Fale comigo pelo contato abaixo.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="contact" id="contato" data-contact aria-labelledby="contato-title">
+      <div class="container">
+        <p class="label"><span class="label__num" aria-hidden="true">[ 07 ]</span> Contato</p>
+        <h2 class="contact__title" id="contato-title" data-split>Vamos construir algo que <em>funcione</em>.</h2>
+
+        <div class="contact__grid">
+          <div>
+            <p class="lead contact__intro">Conte rapidinho o que você precisa. A mensagem chega organizada para mim e eu respondo das 8h às 20h.</p>
+
+            <form class="form" data-contact-form novalidate hidden>
+              <fieldset class="segmented">
+                <legend>Quem é você?</legend>
+                <input type="radio" id="perfil-negocio" name="perfil" value="negocio" checked>
+                <label for="perfil-negocio">Tenho um negócio</label>
+                <input type="radio" id="perfil-recrutador" name="perfil" value="recrutador">
+                <label for="perfil-recrutador">Sou recrutador(a)</label>
+              </fieldset>
+
+              <div class="field">
+                <label for="f-nome">Seu nome</label>
+                <input id="f-nome" name="nome" type="text" autocomplete="name" maxlength="80" required aria-describedby="e-nome">
+                <span class="field__error" id="e-nome" aria-live="polite"></span>
+              </div>
+
+              <div class="form__row" data-perfil-group="negocio">
+                <div class="field">
+                  <label for="f-negocio">Nome do negócio</label>
+                  <input id="f-negocio" name="negocio" type="text" autocomplete="organization" maxlength="100">
+                </div>
+                <div class="field">
+                  <label for="f-projeto">O que você precisa</label>
+                  <select id="f-projeto" name="projeto">
+                    <option>Cardápio com pedido no WhatsApp</option>
+                    <option>Landing page ou site institucional</option>
+                    <option>Painel ou sistema sob medida</option>
+                    <option>Atendente com IA</option>
+                    <option>Portfólio</option>
+                    <option>Cardápio ou proposta em PDF</option>
+                    <option>Ainda não sei, quero conversar</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form__row" data-perfil-group="recrutador" hidden>
+                <div class="field">
+                  <label for="f-empresa">Empresa</label>
+                  <input id="f-empresa" name="empresa" type="text" autocomplete="organization" maxlength="100" disabled>
+                </div>
+                <div class="field">
+                  <label for="f-vaga">Vaga ou link da vaga</label>
+                  <input id="f-vaga" name="vaga" type="text" maxlength="120" disabled>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="f-mensagem">Mensagem</label>
+                <textarea id="f-mensagem" name="mensagem" rows="4" maxlength="600" required aria-describedby="e-mensagem" placeholder="Ex.: tenho uma pizzaria em Palhoça e quero receber pedidos pelo WhatsApp."></textarea>
+                <span class="field__count" data-count aria-hidden="true">0/600</span>
+                <span class="field__error" id="e-mensagem" aria-live="polite"></span>
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--light" type="submit" data-send="whatsapp" data-magnetic>Enviar pelo WhatsApp <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></button>
+                <button class="btn btn--dark" type="submit" data-send="email">Enviar por e-mail</button>
+              </div>
+              <p class="form__note">Nada é salvo neste site: a mensagem só é montada aqui e aberta no seu WhatsApp ou e-mail.</p>
+              <p class="form__status" data-form-status role="status"></p>
+            </form>
+
+            <div class="contact__empty" data-contact-empty>
+              <p>Os canais diretos (WhatsApp e e-mail) entram aqui em breve. Enquanto isso, veja meu trabalho e fale comigo pelo GitHub.</p>
+            </div>
+          </div>
+
+          <div>
+            <ul class="channels">
+              <li hidden><a href="#contato" data-channel="whatsapp" target="_blank" rel="noopener noreferrer"><span><small>WhatsApp</small><strong data-channel-value>WhatsApp</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
+              <li hidden><a href="#contato" data-channel="email"><span><small>E-mail</small><strong data-channel-value>E-mail</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
+              <li hidden><a href="#contato" data-channel="linkedin" target="_blank" rel="noopener noreferrer"><span><small>LinkedIn</small><strong data-channel-value>Ver perfil</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
+              <li hidden><a href="#contato" data-channel="instagram" target="_blank" rel="noopener noreferrer"><span><small>Instagram</small><strong data-channel-value>Ver perfil</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
+              <li><a href="https://github.com/carlosserra-a11y" data-channel="github" target="_blank" rel="noopener noreferrer"><span><small>GitHub</small><strong data-channel-value>carlosserra-a11y</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
+            </ul>
+            <p class="contact__hours">Atendimento das <strong>8h às 20h</strong> · Palhoça e Grande Florianópolis, e on-line para todo o Brasil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__name" data-footer-name aria-hidden="true">CARLOS SERRA</p>
+      <div class="footer__grid">
+        <div>
+          <p class="footer__status"><span class="dot" aria-hidden="true"></span> Disponível para vaga Full Stack Júnior · jun/2027</p>
+        </div>
+        <nav aria-label="Rodapé">
+          <h2>Navegar</h2>
+          <ul>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#recrutadores">Recrutadores</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Links</h2>
+          <ul>
+            <li><a href="https://github.com/carlosserra-a11y" data-channel="github" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+            <li hidden><a href="#contato" data-channel="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+            <li hidden><a href="#contato" data-channel="instagram" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> Carlos Alberto Araújo Serra Nunes · Feito à mão com HTML, CSS, JavaScript e GSAP.</p>
+        <a class="to-top" href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

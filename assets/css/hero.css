@@ -1,0 +1,524 @@
+/* ==========================================================================
+   Hero · composição inspirada na referência "Kontour"
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 640px;
+  max-height: 1200px;
+  padding: var(--frame);
+}
+
+.hero__frame {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(245, 242, 237, 0.06);
+  border-radius: var(--radius);
+  background: #070707;
+}
+
+/* luz quente: canto superior esquerdo + atrás do retrato */
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__glow-a,
+.hero__glow-b {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.hero__glow-a {
+  width: 72vw;
+  height: 72vw;
+  left: -26vw;
+  top: -34vw;
+  background: radial-gradient(closest-side, rgba(255, 92, 36, 0.95), rgba(214, 40, 22, 0.6) 42%, rgba(139, 13, 26, 0.2) 66%, transparent 78%);
+}
+
+.hero__glow-b {
+  width: 52vw;
+  height: 52vw;
+  left: 49%;
+  top: 58%;
+  translate: -50% -50%;
+  background: radial-gradient(closest-side, rgba(255, 77, 26, 0.72), rgba(170, 20, 24, 0.45) 46%, rgba(139, 13, 26, 0.12) 68%, transparent 76%);
+  animation: hero-breathe 7s ease-in-out infinite;
+}
+
+@keyframes hero-breathe {
+  50% {
+    opacity: 0.72;
+    scale: 1.08;
+  }
+}
+
+.hero__glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(7, 7, 7, 0.65) 100%);
+}
+
+/* nome gigante atrás do corpo */
+.hero__name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.13em;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 500;
+  font-size: calc((100vw - 2 * var(--frame)) * 0.198);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero__name span {
+  display: inline-block;
+}
+
+.hero__name-mask {
+  display: flex;
+  overflow: hidden;
+  padding-top: 0.04em;
+}
+
+/* retrato */
+/* retrato de perfil em contraluz, como na referência: o corpo cobre o
+   meio do nome e deixa "CAR…LOS" visível dos lados */
+.hero__photo {
+  position: absolute;
+  z-index: 2;
+  left: 55.5%;
+  bottom: 0;
+  height: 86%;
+  max-width: 52vw;
+  aspect-ratio: 668 / 834;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero__photo [data-hero-photo],
+.hero__photo [data-hero-photo-inner] {
+  height: 100%;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+  filter: drop-shadow(-6px -4px 26px rgba(255, 77, 26, 0.35));
+}
+
+/* conteúdo esquerdo */
+.hero__content {
+  position: absolute;
+  z-index: 3;
+  left: clamp(20px, 4.2vw, 68px);
+  top: calc(var(--header-h) + clamp(24px, 6svh, 80px));
+  width: min(43vw, 620px);
+}
+
+.hero__eyebrow {
+  margin-bottom: clamp(0.8rem, 2svh, 1.2rem);
+  font-size: 0.92rem;
+  color: rgba(245, 242, 237, 0.86);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-stretch: 100%;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 1.2rem + 3.9vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.hero__title .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero__title .line > span {
+  display: block;
+}
+
+.hero__lead {
+  max-width: 28rem;
+  margin: clamp(0.9rem, 2.4svh, 1.4rem) 0 0 clamp(0px, 4.4vw, 70px);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: rgba(245, 242, 237, 0.8);
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.2rem, 4svh, 2.6rem);
+}
+
+/* coluna direita: cartão + números */
+.hero__side {
+  position: absolute;
+  z-index: 4;
+  right: calc(var(--frame) + clamp(20px, 3.6vw, 60px));
+  top: calc(var(--frame) + var(--header-h) + clamp(24px, 6svh, 80px));
+  display: grid;
+  gap: clamp(1.4rem, 5svh, 3.2rem);
+  width: min(29vw, 420px);
+}
+
+.hero-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.hero-card__img {
+  width: clamp(92px, 9.5vw, 156px);
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(140deg, #ff6a2b 0%, #e2361c 45%, #8b0d1a 100%);
+  object-fit: cover;
+  box-shadow: 0 18px 50px -20px rgba(255, 77, 26, 0.6);
+}
+
+.hero-card__corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+}
+
+.hero-card__body {
+  padding-top: clamp(1.4rem, 4.4svh, 2.6rem);
+  padding-right: 1.6rem;
+}
+
+.hero-card__slides {
+  display: grid;
+}
+
+.hero-card__slide {
+  grid-area: 1 / 1;
+}
+
+.js .hero-card__slide {
+  transition: opacity 0.35s ease, translate 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.js .hero-card__slide:not(.is-active) {
+  visibility: hidden;
+  opacity: 0;
+  translate: 0 -6px;
+}
+
+.js .hero-card__slide.is-active {
+  visibility: visible;
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 0.5s var(--ease-out) 0.2s, translate 0.5s var(--ease-out) 0.2s, visibility 0s;
+}
+
+.no-js .hero-card__slide:not(:first-child) {
+  display: none;
+}
+
+.hero-card__title {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hero-card__text {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(245, 242, 237, 0.76);
+}
+
+.hero-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.hero-card__progress {
+  width: 72px;
+  height: 2px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.hero-card__progress span {
+  display: block;
+  height: 100%;
+  background: var(--paper);
+  transform: scaleX(0.34);
+  transform-origin: left;
+}
+
+.hero-card__nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.no-js .hero-card__nav {
+  display: none;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.hero-stats dt {
+  font-family: var(--font-display);
+  font-stretch: 100%;
+  font-weight: 300;
+  font-size: clamp(2.6rem, 1rem + 3.6vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stats dd {
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.42;
+  color: rgba(245, 242, 237, 0.76);
+}
+
+/* selo giratório */
+.badge {
+  position: relative;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: clamp(104px, 9.5vw, 148px);
+  aspect-ratio: 1;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.badge__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.badge text {
+  fill: currentColor;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.badge__center {
+  display: grid;
+  place-items: center;
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ember);
+  color: var(--ink);
+  transition: transform 0.45s var(--ease-out);
+}
+
+.badge__center svg {
+  position: static;
+  width: 34%;
+  height: 34%;
+}
+
+.badge:hover .badge__center {
+  transform: scale(1.12) rotate(-45deg);
+}
+
+.badge.is-css-spin .badge__ring {
+  animation: badge-spin 18s linear infinite;
+}
+
+@keyframes badge-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* ---------- notebooks (901–1280 px): mais espaço entre o texto e o rosto ---------- */
+@media (min-width: 901px) and (max-width: 1280px) {
+  .hero__photo {
+    left: 58%;
+  }
+
+  .hero__lead {
+    max-width: 22rem;
+  }
+}
+
+/* ---------- telas médias ---------- */
+@media (max-width: 1180px) {
+  .hero__side {
+    width: min(31vw, 360px);
+  }
+
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card__body {
+    padding-top: 0;
+  }
+
+  .hero__content {
+    width: min(46vw, 560px);
+  }
+}
+
+/* ---------- celular e tablet em pé ---------- */
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .hero__frame {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - 2 * var(--frame));
+  }
+
+  .hero__content {
+    position: relative;
+    order: 1;
+    left: auto;
+    top: auto;
+    width: auto;
+    padding: calc(var(--header-h) + 22px) 22px 0;
+  }
+
+  .hero__lead {
+    margin-left: 0;
+  }
+
+  .hero__photo {
+    position: relative;
+    order: 2;
+    left: auto;
+    align-self: center;
+    width: min(92%, 520px);
+    height: auto;
+    max-width: none;
+    aspect-ratio: auto;
+    margin: auto 0 0;
+    padding-top: 1.5rem;
+    transform: none;
+  }
+
+  .hero__photo [data-hero-photo],
+  .hero__photo [data-hero-photo-inner],
+  .hero__photo img {
+    height: auto;
+  }
+
+
+
+  /* no celular o retrato ocupa a largura toda: o nome sobe para a altura
+     do pescoço e aparece dos dois lados da cabeça */
+  .hero__name {
+    bottom: min((100vw - 2 * var(--frame)) * 0.5, 280px);
+    font-size: calc((100vw - 2 * var(--frame)) * 0.198);
+  }
+
+  .hero__glow-a {
+    width: 150vw;
+    height: 150vw;
+    left: -70vw;
+    top: -80vw;
+  }
+
+  .hero__glow-b {
+    width: 120vw;
+    height: 120vw;
+    top: 72%;
+  }
+
+  .hero__side {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: auto;
+    padding: 2.2rem 22px 0;
+  }
+
+  .hero-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .hero-card__body {
+    padding-top: 0.4rem;
+  }
+
+  .hero__side .badge {
+    width: 96px;
+    margin-top: -0.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero__ctas .btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero__ctas .btn--dark {
+    justify-content: center;
+  }
+
+  .hero-stats dt {
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 760px) {
+  .hero__side .badge {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__glow-b,
+  .badge.is-css-spin .badge__ring {
+    animation: none;
+  }
+}

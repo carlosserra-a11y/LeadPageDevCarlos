@@ -1,0 +1,394 @@
+/* ==========================================================================
+   Contato e rodapé
+   ========================================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+.contact {
+  position: relative;
+  padding-block: var(--section-y) clamp(3rem, 6vw, 5rem);
+  overflow: clip;
+  background:
+    radial-gradient(60% 55% at 90% 0%, rgba(139, 13, 26, 0.5), transparent 70%),
+    radial-gradient(40% 40% at 0% 100%, rgba(255, 77, 26, 0.12), transparent 70%),
+    var(--ink);
+}
+
+.contact__title {
+  max-width: 13ch;
+  margin-top: 1.4rem;
+  font-family: var(--font-display);
+  font-stretch: 116%;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 1rem + 6.2vw, 7.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+.contact__title em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+  color: var(--red);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.contact__intro {
+  margin-bottom: 2rem;
+}
+
+/* ---------- formulário ---------- */
+.form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-self: start;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  min-inline-size: 0;
+}
+
+.segmented legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented label {
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.segmented input:checked + label {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.segmented input:focus-visible + label {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1.05rem;
+  color: var(--paper);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.field select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--paper) 50%), linear-gradient(135deg, var(--paper) 50%, transparent 50%);
+  background-position: calc(100% - 12px) 55%, calc(100% - 7px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.field select option {
+  background: var(--ink-2);
+  color: var(--paper);
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(245, 242, 237, 0.35);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--ember);
+  box-shadow: 0 1px 0 var(--ember);
+}
+
+.field.is-invalid input,
+.field.is-invalid textarea {
+  border-color: var(--red);
+}
+
+.field__error {
+  min-height: 1.1em;
+  font-size: 0.8rem;
+  color: var(--red);
+}
+
+.field__count {
+  justify-self: end;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form__note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.form__status {
+  min-height: 1.4em;
+  font-size: 0.9rem;
+  color: var(--paper-80);
+}
+
+.contact__empty {
+  padding: 1.6rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--paper-80);
+}
+
+/* ---------- canais ---------- */
+.channels {
+  border-top: 1px solid var(--line);
+}
+
+.channels a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: padding 0.4s var(--ease-out), color 0.3s;
+}
+
+.channels a:hover {
+  padding-left: 0.6rem;
+  color: var(--red);
+}
+
+.channels small {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.channels strong {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.channels svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.contact__hours {
+  margin-top: 1.6rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.contact__hours strong {
+  color: var(--paper);
+}
+
+/* ---------- rodapé ---------- */
+.footer {
+  position: relative;
+  padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+  overflow: clip;
+  border-top: 1px solid var(--line);
+}
+
+.footer__name {
+  --fill: 0%;
+  display: block;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 700;
+  font-size: calc((min(100vw, var(--max) + 2 * var(--gutter)) - 2 * var(--gutter)) * 0.1);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 242, 237, 0.4);
+  background: linear-gradient(90deg, var(--paper) var(--fill), transparent var(--fill));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.no-js .footer__name,
+.reduced-motion .footer__name {
+  --fill: 100%;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer__grid h2 {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer__grid ul {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer__grid a {
+  text-decoration: none;
+  color: var(--paper-80);
+  transition: color 0.3s;
+}
+
+.footer__grid a:hover {
+  color: var(--red);
+}
+
+.footer__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3ddc84;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: dot-pulse 2s ease-out infinite;
+}
+
+@keyframes dot-pulse {
+  to {
+    scale: 3;
+    opacity: 0;
+  }
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--paper);
+}
+
+/* ---------- responsivo ---------- */
+@media (max-width: 900px) {
+  .contact__grid,
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .form__actions .btn {
+    width: 100%;
+  }
+
+  .segmented {
+    justify-self: stretch;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot::after {
+    animation: none;
+  }
+}
