@@ -5,6 +5,14 @@
    No celular continua o hero montado em HTML (hero.css).
    ========================================================================== */
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 .hero-art {
   display: none;
 }
@@ -58,6 +66,66 @@
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  /* camadas: fundo (imagem) → luz → nome vetorial → você → textos */
+  .hero-art__glow {
+    position: absolute;
+    left: 30%;
+    top: 22%;
+    width: 46%;
+    height: 82%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255, 92, 36, 0.55), rgba(196, 34, 24, 0.22) 55%, transparent 76%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: art-breathe 6s ease-in-out infinite;
+  }
+
+  @keyframes art-breathe {
+    50% {
+      opacity: 0.55;
+      transform: scale(1.06);
+    }
+  }
+
+  .hero-art__name {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .hero-art__name-text {
+    font-family: 'Montserrat', var(--font-display);
+    font-size: 214px;
+    font-weight: 500;
+    fill: #f5f2ed;
+  }
+
+  .hero-art__person {
+    position: absolute;
+    left: var(--person-left, 33.692%);
+    top: var(--person-top, 4.596%);
+    width: var(--person-width, 40.898%);
+    pointer-events: none;
+  }
+
+  .hero-art__person img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(-4px -2px 18px rgba(255, 77, 26, 0.28));
+  }
+
+  .hero-art__ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 929 / 467;
   }
 
   /* luz que segue o mouse */
@@ -205,5 +273,9 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-art__light {
     display: none;
+  }
+
+  .hero-art__glow {
+    animation: none;
   }
 }

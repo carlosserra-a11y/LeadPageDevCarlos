@@ -8,9 +8,9 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 
 ## O que tem na página
 
-- **Hero com a sua imagem completa** (no computador): a arte inteira, funcional — menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem; entrada animada, paralaxe e inclinação 3D com o mouse. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
+- **Hero em Full HD com a sua imagem** (no computador), montado em camadas: fundo ampliado 4× com IA (Swin2SR, rodando no PC), o nome **CARLOS inteiro em vetor** (nítido em qualquer tela), você recortado na frente e o degradê continuando até o fim do hero. Menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem. Animações: entrada em sequência (fundo → nome → você), brilho que percorre o nome, luz que respira atrás de você, profundidade com o mouse (cada camada se move numa distância) e paralaxe na rolagem. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
 - **Paralaxe** no hero (rolagem e mouse), faixa de tecnologias que inverte com a direção da rolagem, manifesto que acende palavra por palavra e fotos com revelação por máscara.
-- **Portfólio em anel 3D giratório**: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar). Também gira com setas, teclado (← → Home End), clique e arrasto.
+- **Portfólio logo depois do hero**, em anel 3D giratório: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar, em alta resolução 2×). Também gira com setas, teclado (← → Home End), clique e arrasto.
 - Seções para **clientes** (serviços, processo, condições, FAQ) e para **recrutadores** (stack e diferenciais).
 - **WhatsApp (48) 99617-0281** no contato, no menu, no rodapé e num **botão flutuante** que abre a conversa com a mensagem pronta.
 - **Fundo vivo** em todo o site: luzes carmim flutuando e brasas subindo, que aceleram com a rolagem.
@@ -24,11 +24,12 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 | WhatsApp, e-mail, LinkedIn, Instagram | `assets/js/config.js` (campo vazio = botão escondido) |
 | Textos de qualquer seção | `index.html` (cada seção tem um comentário com o nome dela) |
 | Um projeto do portfólio | `index.html`, seção `PROJETOS`: cada `<li class="ring__card">` é um projeto (título, descrição, tecnologias e links). O painel lê tudo de lá. |
-| A captura de um projeto | troque a imagem em `assets/img/projects/` (960 × 600, WebP) |
+| A captura de um projeto | troque as duas imagens em `assets/img/projects/`: `nome.webp` (960 × 600) e `nome-1600.webp` (1600 × 1000), em WebP |
 | A data de disponibilidade | procure por "junho de 2027" e "JUN 2027" no `index.html` |
 | Cores | variáveis no topo de `assets/css/base.css` (`--ember`, `--crimson`, `--red`…) |
 | Tempo de troca do cartão do hero | `heroCardInterval` em `assets/js/config.js` |
-| A imagem do hero no computador | `assets/img/hero/hero-arte-929.webp` e `-1858.webp` (mesma proporção). Se mudar o layout da arte, ajuste as posições das áreas clicáveis em `assets/css/hero-art.css` |
+| A imagem do hero no computador | camadas em `assets/img/hero/`: `hero-fundo-2560/1440.webp` (fundo sem as letras) e `hero-pessoa-1400/800.webp` (você recortado). O nome é texto vetorial no `index.html` (`hero-art__name`). Posições em `assets/css/hero-art.css` |
+| A foto do hero no celular | `assets/img/hero/carlos-perfil-1300.webp` e `-900.webp` |
 | Textos por cima da arte (subtítulo, cartão, legendas) | bloco `hero-art` no `index.html` |
 | Prévia do link no WhatsApp/LinkedIn | `assets/img/og.jpg` (1200 × 630) e as tags `og:` no `<head>` |
 
@@ -93,7 +94,7 @@ ANALISE.md            análise final: bugs corrigidos e melhorias sugeridas
 ## Créditos
 
 - [GSAP](https://gsap.com) (licença padrão GreenSock, gratuita) · [Lenis](https://github.com/darkroomengineering/lenis) (MIT)
-- Fontes: Archivo, Inter e Instrument Serif (SIL Open Font License)
+- Fontes: Archivo, Inter, Instrument Serif e Montserrat (SIL Open Font License)
 - Fotos: do próprio Carlos. Capturas: dos sites dos projetos, feitas por ele.
 
 © 2026 Carlos Alberto Araújo Serra Nunes. Código e imagens deste repositório não podem ser reutilizados sem autorização.

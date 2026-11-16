@@ -65,29 +65,32 @@ O contato tem um seletor **"Sou recrutador(a)" / "Tenho um negócio"** que muda 
 ## 5. Arquitetura da página (ordem, conteúdo e comportamento)
 
 0. **Pré-carregador** (máx. 1,8 s): contador 00→100 e "CARLOS SERRA"; sai com uma cortina. Não aparece com movimento reduzido, nem se o JavaScript falhar (o conteúdo nunca fica preso atrás dele; trava de segurança de 4 s).
-1. **Cabeçalho** dentro da moldura do hero: à esquerda Início, Serviços, Sobre, Projetos; ao centro o logotipo "CARLOS / SERRA" empilhado; à direita Processo, Recrutadores, FAQ, Contato. Ao rolar, vira uma barra fixa compacta com desfoque, que se esconde ao descer e volta ao subir. No celular: menu em tela cheia com foco preso, `Esc` fecha, rolagem travada.
-2. **Hero = a imagem de referência completa (no computador)**: a arte enviada pelo Carlos é o próprio hero, inteira e sem recriação, mas **funcional**:
+1. **Cabeçalho** dentro da moldura do hero: à esquerda Início, Projetos, Serviços, Sobre; ao centro o logotipo "CARLOS / SERRA" empilhado; à direita Processo, Recrutadores, FAQ, Contato. Ao rolar, vira uma barra fixa compacta com desfoque, que se esconde ao descer e volta ao subir. No celular: menu em tela cheia com foco preso, `Esc` fecha, rolagem travada.
+2. **Hero = a imagem de referência completa (no computador), em Full HD e em camadas**: a arte enviada pelo Carlos é o próprio hero, sem recriação, mas **funcional** e nítida em telas grandes:
+   - fundo ampliado 4× com IA rodando no PC (Swin2SR) e exportado em 2560 e 1440 px; o degradê **continua para baixo** até o fim do hero, sem emenda, para o nome não ficar cortado;
+   - o nome **CARLOS inteiro em vetor** (SVG com Montserrat, `textLength` fixo), entre o fundo e a pessoa: nítido em qualquer resolução;
+   - a pessoa recortada (fundo removido localmente) numa camada própria, na frente do nome;
    - apagar da arte o menu e o logo de outra marca ("KONTOUR STUDIOS") e pôr por cima o menu real do site com "CARLOS SERRA";
    - apagar os textos pequenos que a IA gerou com erro ("facedes", "usuaно", "gamblarras") e reescrevê-los por cima, corrigidos, na mesma posição (posições em % e fonte em `cqw`, para acompanhar a largura da arte);
    - áreas clicáveis transparentes exatamente sobre os botões da arte ("Iniciar um Projeto" → contato, "Ver Nosso Trabalho" → projetos, botão redondo → recrutadores, foto do cartão → sobre) e as setas do cartão trocando os destaques de verdade;
-   - entrada com máscara, paralaxe na rolagem, inclinação 3D leve e uma luz que seguem o mouse;
+   - animações: entrada em sequência (moldura abre → nome sobe → pessoa sobe → textos), brilho que percorre o nome de tempos em tempos, luz que respira atrás da pessoa, profundidade com o mouse (fundo, nome e pessoa se movem em distâncias diferentes), luz que segue o mouse e paralaxe por camada na rolagem;
    - `<picture>` com fonte vazia no celular, para o celular não baixar a arte grande.
    **No celular** a arte inteira ficaria ilegível (≈170 px de altura), então o hero é montado em HTML a partir dela:
    - Topo: rótulo "Desenvolvedor Full Stack Júnior", título **"Clareza primeiro. Depois o sistema."**, subtítulo de 2 linhas para os dois públicos, botões "Iniciar um projeto" (pílula clara com seta num círculo escuro) e "Ver meus trabalhos" (pílula escura).
-   - Abaixo: **retrato do Carlos de perfil, de óculos, em contraluz laranja** (fundo removido), na frente do nome gigante **CARLOS**, que fica atrás do corpo. No celular, o nome sobe para a altura do rosto e aparece dos dois lados da cabeça.
+   - Abaixo: **retrato do Carlos de perfil, de óculos, em contraluz laranja** (fundo removido, versão ampliada com IA), na frente do nome gigante **CARLOS**, que fica atrás do corpo. No celular, o nome sobe para a altura do rosto, aparece dos dois lados da cabeça e **cabe inteiro na moldura** (fonte = 18% da largura útil).
    - Depois do retrato: cartão com miniatura quadrada em fundo laranja (o mesmo retrato de perfil), título e texto que trocam por setas (Disponível para vaga · Sites que vendem · Código aberto), barra de progresso; abaixo, **100%** ("Projetos com código aberto no GitHub. Sem gambiarra escondida.") e **360°** ("Do briefing ao deploy: interface, API, dados e publicação.").
    - **Selo giratório** ("giro"): texto circular "DISPONÍVEL PARA VAGA • FULL STACK JÚNIOR • JUNHO 2027 •" girando sem parar; acelera com a velocidade da rolagem.
    - **Paralaxe**: ao rolar, o nome sobe mais devagar que o retrato, o retrato aproxima levemente e o brilho se desloca; o mouse move as camadas em profundidades diferentes (desligado no toque).
-3. **Faixa de tecnologias**: letreiro inclinado em carmim com a stack, que inverte o sentido conforme a direção da rolagem.
-4. **Sobre**: frase-manifesto que acende palavra por palavra com a rolagem ("Eu transformo o que um negócio já faz bem numa vitrine digital que leva o cliente direto a pedir."), texto curto em primeira pessoa (sem datas que reduzam a experiência), fatos rápidos (formação, base, modalidade, foco) e uma frase de destaque num cartão de vidro. **Sem fotos pessoais.**
-5. **Serviços (para empresas)**: 6 cartões com ícone, título e uma frase de resultado: Landing page e site institucional · Cardápio digital com pedido no WhatsApp · Painel do dono / sistema sob medida · Atendente com IA · Portfólio para criativos · Cardápio e proposta em PDF. Brilho que segue o cursor e leve inclinação 3D. Abaixo: "Todo site inclui" (SEO, prévia no WhatsApp/Instagram, LGPD, guia "Como editar", publicação).
-6. **Projetos — carrossel 3D giratório** (ver seção 6 deste prompt).
+3. **Projetos — carrossel 3D giratório, logo depois do hero** (ver seção 6 deste prompt): quem chega dá de cara com os trabalhos.
+4. **Faixa de tecnologias**: letreiro inclinado em carmim com a stack, que inverte o sentido conforme a direção da rolagem.
+5. **Sobre**: frase-manifesto que acende palavra por palavra com a rolagem ("Eu transformo o que um negócio já faz bem numa vitrine digital que leva o cliente direto a pedir."), texto curto em primeira pessoa (sem datas que reduzam a experiência), fatos rápidos (formação, base, modalidade, foco) e uma frase de destaque num cartão de vidro. **Sem fotos pessoais.**
+6. **Serviços (para empresas)**: 6 cartões com ícone, título e uma frase de resultado: Landing page e site institucional · Cardápio digital com pedido no WhatsApp · Painel do dono / sistema sob medida · Atendente com IA · Portfólio para criativos · Cardápio e proposta em PDF. Brilho que segue o cursor e leve inclinação 3D. Abaixo: "Todo site inclui" (SEO, prévia no WhatsApp/Instagram, LGPD, guia "Como editar", publicação).
 7. **Para recrutadores**: stack em grupos (Front-end, Back-end e integrações, Qualidade, Ferramentas e deploy), "O que eu levo para o time" e botões "Falar sobre uma vaga" e "Ver meu GitHub". **Sem linha do tempo** (ela evidenciava pouco tempo de experiência).
-8. **Processo**: 01 Conversa e briefing → 02 Identidade visual → 03 Desenvolvimento → 04 Conferência → 05 Publicação e guia. Condições em pílulas (contrato, 50% + 50%, 1–2 semanas, hospedagem do cliente, 8h–20h). **FAQ** em sanfona acessível (`<details>`).
-9. **Contato**: título gigante "Vamos construir algo que funcione.", seletor de público, formulário curto que monta a mensagem e abre o WhatsApp (ou e-mail). Canais vêm de um arquivo de configuração (WhatsApp **(48) 99617-0281**); **canal vazio = botão escondido**, nunca link quebrado.
+9. **Processo**: 01 Conversa e briefing → 02 Identidade visual → 03 Desenvolvimento → 04 Conferência → 05 Publicação e guia. Condições em pílulas (contrato, 50% + 50%, 1–2 semanas, hospedagem do cliente, 8h–20h). **FAQ** em sanfona acessível (`<details>`).
+10. **Contato**: título gigante "Vamos construir algo que funcione.", seletor de público, formulário curto que monta a mensagem e abre o WhatsApp (ou e-mail). Canais vêm de um arquivo de configuração (WhatsApp **(48) 99617-0281**); **canal vazio = botão escondido**, nunca link quebrado.
    **Botão flutuante do WhatsApp** (canto inferior direito, com pulso) que abre a conversa com a mensagem "Olá, Carlos! Vim pelo seu site e quero conversar."; aparece depois do topo e some sobre o portfólio e o contato para não cobrir botões.
-11. **Fundo vivo em todo o site**: manchas de luz carmim que flutuam devagar (CSS) e brasas que sobem num `<canvas>` fixo, acelerando com a rolagem; seções transparentes para o fundo aparecer. Desligado com movimento reduzido.
-10. **Rodapé**: nome gigante em contorno, links, "voltar ao topo", ano automático e "Feito à mão com HTML, CSS, JavaScript e GSAP".
+12. **Fundo vivo em todo o site**: manchas de luz carmim que flutuam devagar (CSS) e brasas que sobem num `<canvas>` fixo, acelerando com a rolagem; seções transparentes para o fundo aparecer. Desligado com movimento reduzido.
+11. **Rodapé**: nome gigante em contorno, links, "voltar ao topo", ano automático e "Feito à mão com HTML, CSS, JavaScript e GSAP".
 
 ## 6. Portfólio 3D giratório (o "diferente")
 
@@ -96,7 +99,7 @@ O contato tem um seletor **"Sou recrutador(a)" / "Tenho um negócio"** que muda 
 - O cartão da frente fica nítido e em escala 1; os de trás escurecem (opacidade calculada pelo cosseno do ângulo).
 - Painel de detalhes atualiza com o projeto ativo: número `01 / 08`, nome, tipo, descrição de uma frase, chips da stack, **"Ver ao vivo ↗"** e **"Código ↗"**.
 - **Uma única fonte de verdade:** o ângulo vem sempre da posição da rolagem. Setas, teclado (← →), clique num cartão lateral e arrastar com o mouse/dedo apenas **rolam a página** até a posição daquele projeto — assim o pin nunca dessincroniza.
-- Cada cartão mostra a captura real do site numa moldura de navegador.
+- Cada cartão mostra a captura real do site numa moldura de navegador, em 960 e 1600 px (`srcset`, capturadas em 2×), nítida em telas Full HD e Retina.
 - Barra de progresso + contador. Fundo de reserva com o nome do projeto se a imagem falhar.
 - **Movimento reduzido ou sem JS:** vira uma grade normal de cartões, sem pin.
 
@@ -115,7 +118,7 @@ Projetos (todos públicos no GitHub, com URL ao vivo):
 
 ## 7. Tratamento das fotos
 
-- **Hero no computador:** a imagem de referência completa (1024 px) → limpar menu, logo e textos com erro preenchendo com o próprio fundo (interpolação coluna a coluna), recortar dentro da moldura e exportar 1× e 2× em WebP (< 70 KB).
+- **Hero no computador (Full HD):** a imagem de referência completa (1024 px) → limpar menu, logo, textos com erro **e as letras do CARLOS** (preenchidas com o próprio fundo) → ampliar 4× com IA no PC (Swin2SR, em blocos com sobreposição) → recortar dentro da moldura, prolongar o degradê para baixo (média de uma faixa acima da borda, fusão das últimas linhas e escurecimento suave até a cor da moldura) e exportar o fundo em 2560 e 1440 px (WebP < 80 KB). A pessoa sai da mesma ampliação, com fundo removido localmente, numa camada separada (1400 e 800 px).
 - **Hero no celular:** retrato de perfil, de óculos, em contraluz laranja (a própria imagem de referência editada com o rosto do Carlos) → recortar a pessoa, remover o fundo localmente (WebP com transparência), limpar resíduos das letras do fundo e reforçar o brilho de contorno via `drop-shadow`. Duas larguras (`srcset`), < 60 KB cada.
 - **Cartão do hero:** o mesmo retrato, cabeça e ombros, sobre quadrado laranja em gradiente (como a miniatura do Kontour).
 - Todas as imagens com `width`/`height` definidos (sem CLS), `alt` descritivo e `decoding="async"`.

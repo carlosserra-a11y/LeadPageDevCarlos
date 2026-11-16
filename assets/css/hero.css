@@ -80,7 +80,7 @@
   font-family: var(--font-display);
   font-stretch: 125%;
   font-weight: 500;
-  font-size: calc((100vw - 2 * var(--frame)) * 0.198);
+  font-size: calc((100vw - 2 * var(--frame)) * 0.18);
   line-height: 0.8;
   letter-spacing: -0.02em;
   color: var(--paper);
@@ -109,7 +109,7 @@
   bottom: 0;
   height: 86%;
   max-width: 52vw;
-  aspect-ratio: 668 / 834;
+  aspect-ratio: 1185 / 1300;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -457,7 +457,7 @@
      do pescoço e aparece dos dois lados da cabeça */
   .hero__name {
     bottom: min((100vw - 2 * var(--frame)) * 0.5, 280px);
-    font-size: calc((100vw - 2 * var(--frame)) * 0.198);
+    font-size: calc((100vw - 2 * var(--frame)) * 0.18);
   }
 
   .hero__glow-a {

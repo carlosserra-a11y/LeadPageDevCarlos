@@ -7,7 +7,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 | Verificação | Como | Resultado |
 |---|---|---|
 | Lógica pura (mensagem, validação, anel 3D) | `npm test` (20 testes, Node) | 20/20 passando · 100% das linhas e 94% dos ramos de `assets/js/lib` |
-| Desktop 1440 × 900 | navegador, seção por seção | hero, faixa, sobre, serviços, anel 3D, recrutadores, processo, FAQ, contato e rodapé ok |
+| Desktop 1440 × 900 e Full HD 1920 × 1080 | navegador, seção por seção | hero, anel 3D, faixa, sobre, serviços, recrutadores, processo, FAQ, contato e rodapé ok |
 | Celular 375 × 812 | navegador | sem rolagem horizontal; hero, anel e painel cabem na tela |
 | Anel 3D | rolagem, botões, tecla End, arrasto com o mouse, âncora `#projetos` | gira, encaixa no projeto mais próximo e o painel acompanha |
 | Movimento reduzido | Chrome automatizado com `prefers-reduced-motion` | sem pré-carregador, anel vira grade, nenhum bloco escondido, 0 erros |
@@ -53,12 +53,22 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 28. **Botão flutuante cobriria as setas do portfólio e o botão do formulário.** Ele some enquanto essas seções ocupam a tela.
 29. Fotos pessoais do "Sobre" e a linha do tempo removidas a pedido; textos sem datas que reduzem a experiência.
 
+### Pedido seguinte: hero em Full HD, nome inteiro e projetos logo depois do hero
+30. **Hero borrado em telas grandes** (a arte veio de um print de 1024 px). O fundo foi ampliado 4× com IA no próprio PC (Swin2SR) e exportado em 2560 px; a pessoa foi para uma camada própria, recortada da mesma ampliação.
+31. **Letras do "CARLOS" serrilhadas e cortadas embaixo.** As letras foram apagadas da imagem e o nome voltou como **texto vetorial** (SVG, Montserrat), inteiro e nítido em qualquer resolução.
+32. **Degradê terminava seco na base do hero.** A imagem foi prolongada para baixo e o degradê continua até o fim da moldura.
+33. **Emenda escura na extensão.** A última linha da ampliação vem escura; a extensão passou a partir da média de uma faixa acima da borda, com as últimas linhas fundidas, sem linha visível.
+34. **Celular: o "S" do CARLOS passava da borda da moldura** (o nome tinha 103% da largura). Fonte recalculada para 18% da largura útil: o nome cabe inteiro, com folga, de 320 a 900 px.
+35. **Capturas dos projetos suaves em telas Retina/Full HD.** Recapturadas em 2× e servidas em 960 e 1600 px (`srcset`).
+36. **Projetos ficavam no meio da página.** O portfólio subiu para logo depois do hero (menu e numeração das seções acompanharam).
+37. **Hero com mais vida:** entrada em sequência por camadas, brilho que percorre o nome, luz que respira atrás da pessoa e profundidade com o mouse por camada (sem mexer na imagem nem no fundo).
+
 ## 3. Análise do prompt
 
 **Pontos fortes:** objetivo duplo claro (vaga + clientes), fatos reais do Carlos (sem números inventados), tokens de cor com contraste conferido, especificação detalhada do portfólio em anel com "uma única fonte de verdade" (a rolagem), lista de bugs conhecidos e critérios de aceite testáveis.
 
 **O que mudou durante a construção (e já está no prompt):**
-- O hero passou a seguir a referência Kontour à risca, com o retrato de perfil em contraluz que você enviou.
+- O hero passou a seguir a referência Kontour à risca, com o retrato de perfil em contraluz que você enviou, e depois virou uma versão Full HD em camadas (fundo ampliado com IA, nome vetorial, pessoa recortada).
 - Foram acrescentadas as armadilhas reais encontradas (Lenis com `scroll-padding`, limite do Lenis depois do pin, `batch` após salto por âncora).
 
 **Lacunas que só você pode preencher:** WhatsApp, e-mail e LinkedIn; confirmação da data de disponibilidade; depoimentos e números reais de clientes.
@@ -70,7 +80,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 2. ~~Ativar o GitHub Pages~~ — feito: publicado pela branch `gh-pages` em https://carlosserra-a11y.github.io/LeadPageDevCarlos/.
 3. **Currículo em PDF** com botão "Baixar currículo" na seção de recrutadores: é a primeira coisa que o RH pede.
 4. **LinkedIn** com o mesmo título e a mesma foto, e o link dele no `config.js`.
-5. **Arte em alta resolução.** A imagem do hero veio de um print com 1024 px de largura e foi ampliada 2×; em monitores grandes fica um pouco suave. Se você tiver o arquivo original da edição (idealmente 2400 px ou mais), mande que eu troco — as áreas clicáveis continuam no lugar se a proporção for a mesma.
+5. ~~Arte em alta resolução~~ — feito: fundo ampliado 4× com IA (2560 px), nome vetorial e pessoa em camada própria. Se um dia tiver o arquivo original da edição, dá para trocar o fundo sem mexer no resto.
 6. **Confirmar "junho de 2027".** Se você pode começar antes, "Disponível agora" converte mais.
 
 ### Média prioridade (aumentam conversão)
@@ -90,7 +100,8 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 ## 5. Critérios de aceite
 
 - [x] Sem erros no console (Chrome; testes automatizados e manuais)
-- [x] Sem rolagem horizontal em 375 px e 1440 px
+- [x] Sem rolagem horizontal em 375 px, 1440 px e 1920 px
+- [x] Nome "CARLOS" inteiro no computador e no celular (320–900 px)
 - [x] Âncoras chegam à seção certa
 - [x] Anel gira com rolagem, botões, teclado, arrasto e clique; o painel acompanha
 - [x] Movimento reduzido: sem pré-carregador, sem pin, tudo legível
