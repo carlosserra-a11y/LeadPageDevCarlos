@@ -2,7 +2,7 @@
 
 Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois objetivos: conseguir uma vaga de **Desenvolvedor Full Stack Júnior** (junho de 2027, qualquer modalidade) e **captar donos de pequenos negócios** que precisam de site, cardápio digital ou sistema com pedido no WhatsApp.
 
-**Site:** https://carlosserra-a11y.github.io/LeadPageDevCarlos/ (depois de ativar o GitHub Pages, veja abaixo)
+**Site:** https://carlosserra-a11y.github.io/LeadPageDevCarlos/
 
 ![Prévia do hero](assets/img/og.jpg)
 
@@ -45,18 +45,26 @@ Roda os testes da lógica pura (montagem da mensagem, validação e matemática 
 
 ## Publicar no GitHub Pages
 
-1. No GitHub, abra **Settings → Pages** deste repositório.
-2. Em **Build and deployment**, escolha **Deploy from a branch**, branch **`main`**, pasta **`/ (root)`**, e salve.
-3. Em 1 a 2 minutos o site fica em https://carlosserra-a11y.github.io/LeadPageDevCarlos/.
+O site é publicado a partir da branch **`gh-pages`** (o GitHub ativou o Pages sozinho quando ela foi enviada). Depois de editar e salvar na `main`, publique assim:
 
-O arquivo `.nojekyll` já está na raiz, então o GitHub serve tudo como está.
+```bash
+git push origin main
+```
+
+```bash
+git push origin main:gh-pages
+```
+
+Em 1 a 2 minutos a nova versão aparece em https://carlosserra-a11y.github.io/LeadPageDevCarlos/.
+
+Se preferir publicar direto da `main` (um comando só), em **Settings → Pages** troque a branch para **`main`**, pasta **`/ (root)`**, e salve. O arquivo `.nojekyll` já está na raiz, então o GitHub serve tudo como está.
 
 ## Confira antes de divulgar
 
 - [ ] Preencher `whatsapp` e `email` em `assets/js/config.js` (sem eles, o formulário fica oculto e só o GitHub aparece no contato).
 - [ ] Preencher `linkedin` (recrutadores procuram).
 - [ ] Confirmar a data "junho de 2027"; se puder começar antes, trocar por "Disponível agora".
-- [ ] Ativar o GitHub Pages e testar o link no WhatsApp (a prévia deve mostrar o hero).
+- [ ] Testar o link no WhatsApp (a prévia deve mostrar o hero).
 - [ ] Conferir se todos os 8 projetos continuam no ar.
 
 ## Tecnologia

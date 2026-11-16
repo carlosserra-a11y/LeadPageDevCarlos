@@ -59,7 +59,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 
 ### Alta prioridade (antes de mandar o link)
 1. **Preencher os contatos** em `assets/js/config.js`. Sem WhatsApp/e-mail o formulário fica oculto e o site perde a principal conversão. A página antiga (`leadpagecarlos`) já publica o seu WhatsApp e e-mail; se quiser os mesmos, é só colar.
-2. **Ativar o GitHub Pages** (Settings → Pages → `main` / raiz).
+2. ~~Ativar o GitHub Pages~~ — feito: publicado pela branch `gh-pages` em https://carlosserra-a11y.github.io/LeadPageDevCarlos/.
 3. **Currículo em PDF** com botão "Baixar currículo" na seção de recrutadores: é a primeira coisa que o RH pede.
 4. **LinkedIn** com o mesmo título e a mesma foto, e o link dele no `config.js`.
 5. **Arte em alta resolução.** A imagem do hero veio de um print com 1024 px de largura e foi ampliada 2×; em monitores grandes fica um pouco suave. Se você tiver o arquivo original da edição (idealmente 2400 px ou mais), mande que eu troco — as áreas clicáveis continuam no lugar se a proporção for a mesma.
