@@ -63,7 +63,8 @@
     "image": "https://carlosserra-a11y.github.io/LeadPageDevCarlos/assets/img/og.jpg",
     "address": { "@type": "PostalAddress", "addressLocality": "Palhoça", "addressRegion": "SC", "addressCountry": "BR" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "FMP — Faculdade Municipal de Palhoça" },
-    "sameAs": ["https://github.com/carlosserra-a11y"],
+    "telephone": "+55-48-99617-0281",
+    "sameAs": ["https://github.com/carlosserra-a11y", "https://wa.me/5548996170281"],
     "knowsAbout": ["JavaScript", "TypeScript", "React", "Node.js", "Express", "Vite", "Tailwind CSS", "Three.js", "GSAP", "Acessibilidade web", "LGPD"]
   }
   </script>
@@ -81,6 +82,12 @@
   </div>
 
   <div class="cursor" data-cursor aria-hidden="true"><span class="cursor__ring"><span class="cursor__label"></span></span></div>
+  <div class="bg-fx" aria-hidden="true">
+    <span class="bg-fx__orb bg-fx__orb--a"></span>
+    <span class="bg-fx__orb bg-fx__orb--b"></span>
+    <span class="bg-fx__orb bg-fx__orb--c"></span>
+    <canvas class="bg-fx__embers" data-bg-embers></canvas>
+  </div>
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" data-progress aria-hidden="true"><span></span></div>
 
@@ -120,6 +127,7 @@
     </nav>
     <div class="menu__foot">
       <p>Disponível para vaga Full Stack Júnior · junho de 2027</p>
+      <p hidden><a class="text-link" href="#contato" data-channel="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp <span data-channel-value>(48) 99617-0281</span> ↗</a></p>
       <a class="btn btn--light" href="#contato">Iniciar um projeto <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
     </div>
   </div>
@@ -277,14 +285,9 @@
         <p class="about__manifesto" data-manifesto>Eu transformo o que um negócio já faz bem numa <em>vitrine digital</em> que leva o cliente direto a pedir.</p>
 
         <div class="about__grid">
-          <figure class="about__photo about__photo--a" data-photo data-speed="-30">
-            <img src="assets/img/about/setup.webp" width="900" height="1125" alt="Carlos sorrindo de óculos escuros no seu setup de trabalho, com parede vermelha" loading="lazy" decoding="async">
-            <figcaption>Meu setup · Palhoça</figcaption>
-          </figure>
-
           <div class="about__text" data-reveal>
             <p>Olá, eu sou o <strong>Carlos Alberto Araújo Serra Nunes</strong>. Sou desenvolvedor Full Stack Júnior e estudante de Análise e Desenvolvimento de Sistemas.</p>
-            <p>Desde agosto de 2026 coloco no ar sites e sistemas de verdade para negócios da Grande Florianópolis: pizzaria, hamburgueria, chef de eventos, parrilla e vídeomaker. O objetivo é sempre o mesmo: o cliente final encontrar o que quer e <strong>pedir em poucos toques</strong>.</p>
+            <p>Coloco no ar sites e sistemas de verdade para negócios da Grande Florianópolis: pizzaria, hamburgueria, chef de eventos, parrilla e vídeomaker. O objetivo é sempre o mesmo: o cliente final encontrar o que quer e <strong>pedir em poucos toques</strong>.</p>
             <p>Uso IA no dia a dia para ir mais rápido, sem abrir mão de revisar, testar e entender cada linha que vai para produção.</p>
             <dl class="facts">
               <div><dt>Formação</dt><dd>Análise e Desenvolvimento de Sistemas · FMP (cursando)</dd></div>
@@ -293,11 +296,6 @@
               <div><dt>Foco</dt><dd>Front-end, Node.js e produtos que geram resultado</dd></div>
             </dl>
           </div>
-
-          <figure class="about__photo about__photo--b" data-photo data-speed="40">
-            <img src="assets/img/about/trilha.webp" width="900" height="1125" alt="Carlos numa trilha com a vista da Grande Florianópolis e nuvens ao fundo" loading="lazy" decoding="async">
-            <figcaption>Grande Florianópolis</figcaption>
-          </figure>
 
           <p class="about__stamp" data-reveal>“Bonito é bom. Bonito que vende é melhor.”</p>
         </div>
@@ -374,7 +372,7 @@
             <p class="label"><span class="label__num" aria-hidden="true">[ 03 ]</span> Projetos no ar</p>
             <h2 class="title" id="projetos-title">Trabalhos <em>selecionados</em></h2>
           </div>
-          <p class="work__hint">Role, arraste ou use <kbd aria-label="seta para a esquerda">←</kbd> <kbd aria-label="seta para a direita">→</kbd></p>
+          <p class="work__hint"><span class="work__hint-scroll">Role, arraste ou use <kbd aria-label="seta para a esquerda">←</kbd> <kbd aria-label="seta para a direita">→</kbd></span><span class="work__hint-swipe">Deslize para os lados <span aria-hidden="true">← →</span></span></p>
         </div>
 
         <div class="work__stage container" data-ring-stage data-cursor-label="Arraste" aria-label="Carrossel 3D de projetos. Use as setas esquerda e direita para trocar de projeto.">
@@ -569,24 +567,9 @@
             <li><p><strong>Entrego produto no ar</strong><span>Oito projetos publicados, vários com cliente real usando.</span></p></li>
             <li><p><strong>Penso no usuário final</strong><span>Celular primeiro, acessibilidade, desempenho e textos simples.</span></p></li>
             <li><p><strong>Código que dá para revisar</strong><span>Regras de negócio com testes, README em todo projeto e commits organizados.</span></p></li>
-            <li><p><strong>Aprendo rápido</strong><span>Do primeiro site em ago/2026 a React, TypeScript, Three.js e IA em poucos meses.</span></p></li>
+            <li><p><strong>Aprendo rápido</strong><span>Levo o que estudo direto para projetos reais: React, TypeScript, Three.js e IA já estão no ar.</span></p></li>
             <li><p><strong>Converso com o cliente</strong><span>Briefing, proposta, prazo e entrega: sei traduzir negócio em requisito.</span></p></li>
           </ol>
-        </div>
-
-        <div class="timeline">
-          <h3 class="timeline__title" data-reveal>Linha do tempo</h3>
-          <div class="timeline__list" data-timeline>
-            <span class="timeline__track" aria-hidden="true"></span>
-            <span class="timeline__fill" aria-hidden="true"></span>
-            <ol class="timeline__items">
-              <li class="timeline__item"><span class="timeline__date">Ago 2026</span><p>Primeiro site publicado no GitHub e os primeiros exercícios da faculdade em HTML e CSS.</p></li>
-              <li class="timeline__item"><span class="timeline__date">Out 2026</span><p>Primeiros projetos comerciais: Figaro's Pizzaria, São Cristóvão Burger, Ingrid Lima e o showroom 3D da Smartech.</p></li>
-              <li class="timeline__item"><span class="timeline__date">Out–Nov 2026</span><p>CJR Gastronomia e Chef Carlos Jr: orçamento de eventos, encomendas, LGPD e proposta em PDF.</p></li>
-              <li class="timeline__item"><span class="timeline__date">Nov 2026</span><p>Painel da Vida (React 19 + TypeScript) e Casa 6×32 (Three.js), além desta página.</p></li>
-              <li class="timeline__item timeline__item--next"><span class="timeline__date">Jun 2027</span><p><strong>Próximo passo:</strong> minha vaga de Desenvolvedor Full Stack Júnior. Pode ser no seu time.</p></li>
-            </ol>
-          </div>
         </div>
 
         <div class="hire__ctas" data-reveal>
@@ -605,11 +588,11 @@
         </div>
 
         <ol class="steps">
-          <li class="step"><span class="step__num" aria-hidden="true">01</span><h3>Conversa e briefing</h3><p>Entendo o que você vende, como o cliente pede hoje e o que mais dá resultado.</p></li>
-          <li class="step"><span class="step__num" aria-hidden="true">02</span><h3>Identidade visual</h3><p>Cada negócio ganha um conceito próprio, nada de modelo genérico.</p></li>
-          <li class="step"><span class="step__num" aria-hidden="true">03</span><h3>Desenvolvimento</h3><p>Código limpo, rápido no celular e com testes nas regras de preço.</p></li>
-          <li class="step"><span class="step__num" aria-hidden="true">04</span><h3>Conferência</h3><p>Reviso com você telefone, preços, fotos e textos antes de publicar.</p></li>
-          <li class="step"><span class="step__num" aria-hidden="true">05</span><h3>Publicação e guia</h3><p>Site no ar e um guia “Como editar” para você mudar o básico sozinho.</p></li>
+          <li class="step" data-reveal><span class="step__num" aria-hidden="true">01</span><h3>Conversa e briefing</h3><p>Entendo o que você vende, como o cliente pede hoje e o que mais dá resultado.</p></li>
+          <li class="step" data-reveal><span class="step__num" aria-hidden="true">02</span><h3>Identidade visual</h3><p>Cada negócio ganha um conceito próprio, nada de modelo genérico.</p></li>
+          <li class="step" data-reveal><span class="step__num" aria-hidden="true">03</span><h3>Desenvolvimento</h3><p>Código limpo, rápido no celular e com testes nas regras de preço.</p></li>
+          <li class="step" data-reveal><span class="step__num" aria-hidden="true">04</span><h3>Conferência</h3><p>Reviso com você telefone, preços, fotos e textos antes de publicar.</p></li>
+          <li class="step" data-reveal><span class="step__num" aria-hidden="true">05</span><h3>Publicação e guia</h3><p>Site no ar e um guia “Como editar” para você mudar o básico sozinho.</p></li>
         </ol>
 
         <ul class="terms" data-reveal>
@@ -746,6 +729,12 @@
     </section>
   </main>
 
+  <a class="wa-float" href="#contato" data-channel="whatsapp" data-channel-text="Olá, Carlos! Vim pelo seu site e quero conversar." data-wa-float target="_blank" rel="noopener noreferrer" aria-label="Conversar com o Carlos no WhatsApp" hidden>
+    <span class="wa-float__ring" aria-hidden="true"></span>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3 29l6.5-2c1.9 1 4.1 1.6 6.5 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.3c-2.1 0-4.1-.6-5.8-1.7l-.4-.2-3.9 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.6 11-10.6s11 4.7 11 10.6-4.9 10.8-10.9 10.8z"/><path fill="currentColor" d="M21.6 18.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.2 1.4 3.4 2.4 3.6 5.7 5c.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.8-.7 2.1-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg>
+    <span class="wa-float__label">Fale comigo</span>
+  </a>
+
   <footer class="footer">
     <div class="container">
       <p class="footer__name" data-footer-name aria-hidden="true">CARLOS SERRA</p>
@@ -765,6 +754,7 @@
         <div>
           <h2>Links</h2>
           <ul>
+            <li hidden><a href="#contato" data-channel="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp <span data-channel-value>(48) 99617-0281</span> ↗</a></li>
             <li><a href="https://github.com/carlosserra-a11y" data-channel="github" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
             <li hidden><a href="#contato" data-channel="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
             <li hidden><a href="#contato" data-channel="instagram" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>

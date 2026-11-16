@@ -9,6 +9,7 @@ import { initScrollFx } from './modules/scroll-fx.js';
 import { initPointerFx } from './modules/pointer-fx.js';
 import { initRing } from './modules/ring.js';
 import { initContact } from './modules/contact.js';
+import { initEmbers, initWhatsFloat } from './modules/ambient.js';
 
 const root = document.documentElement;
 
@@ -46,6 +47,7 @@ async function start() {
   safely('ano', setYear);
   safely('imagens', guardImages);
   safely('contato', () => initContact(CONFIG.contact, CONFIG.emailSubject));
+  safely('whatsapp', initWhatsFloat);
   safely('cartao', () => initHeroCard({ interval: CONFIG.heroCardInterval, autoplay: !reduced }));
 
   /* sem GSAP (bloqueado ou falhou): página estática, porém completa */
@@ -71,6 +73,7 @@ async function start() {
     hero = safely('hero', () => initHero({ gsap, ScrollTrigger, finePointer, velocity }));
     heroArt = safely('hero-arte', () => initHeroArt({ gsap, finePointer }));
     safely('efeitos', () => initScrollFx({ gsap, ScrollTrigger, velocity }));
+    safely('fundo', () => initEmbers({ gsap, velocity }));
     if (finePointer) safely('ponteiro', () => initPointerFx({ gsap }));
   }
 

@@ -23,7 +23,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 2. **A rolagem "travava" antes do contato.** O Lenis guardava a altura antiga da página; o portfólio fixado acrescenta ~3.800 px. Agora o Lenis remede a página a cada `refresh` do ScrollTrigger e antes de cada salto por âncora.
 3. **Blocos invisíveis ao abrir por link direto** (ex.: `#recrutadores`). O `ScrollTrigger.batch` não disparava depois do salto. As revelações passaram a usar `IntersectionObserver`, que dispara também para o que já está na tela.
 4. **Arrasto do anel não funcionava nas pontas** (no primeiro e no último projeto o ScrollTrigger não fica "ativo"). Trocado por uma checagem do intervalo de rolagem com tolerância.
-5. **Pontos da linha do tempo não reacendiam ao voltar a rolagem.** Agora o estado vem da posição, nos dois sentidos.
+5. **Pontos da linha do tempo não reacendiam ao voltar a rolagem.** Corrigido (depois a linha do tempo foi removida a pedido).
 6. **Retrato cobria quase todo o nome "CARLOS" e tinha bordas duras.** Resolvido de vez com o novo retrato de perfil (fiel à referência): "CAR" e "OS" ficam visíveis dos lados.
 7. **Texto encostando no rosto em notebooks (901–1280 px).** Retrato deslocado e parágrafo mais estreito nessa faixa.
 8. **Selo giratório colidia com os números em telas baixas e o texto se sobrepunha na emenda.** O selo entrou no fluxo da coluna direita, o texto foi ajustado ao círculo (`textLength`) e ele some em telas com menos de 760 px de altura.
@@ -45,6 +45,14 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 22. **Arte ilegível no celular.** Abaixo de 901 px entra o hero em HTML feito a partir da mesma imagem; o celular nem baixa a arte grande (`<picture>` com fonte vazia).
 23. **Limpeza da arte criou faixas verticais acima das setas do cartão.** A área passou a ser preenchida só com a cor de cima (fundo liso).
 
+### Pedido seguinte: celular, WhatsApp e animações
+24. **No celular o portfólio "travava"**: era preciso rolar várias telas para baixo para girar o anel. Em telas de toque o anel não fica mais preso à rolagem: gira deslizando para os lados (testado com toque real: arrasto avança 1, gesto vertical rola a página, o anel dá a volta).
+25. **Gesto rápido pulava 3 projetos** (inércia sem limite). Agora o arrasto decide quantos andar e um gesto curto e rápido anda só 1.
+26. **Toques rápidos em "anterior/próximo" se perdiam** (cada toque partia do projeto ainda na tela). Agora se acumulam a partir do último destino pedido.
+27. **Trackpad horizontal não girava o anel no computador.** Deslizar dois dedos para os lados agora gira.
+28. **Botão flutuante cobriria as setas do portfólio e o botão do formulário.** Ele some enquanto essas seções ocupam a tela.
+29. Fotos pessoais do "Sobre" e a linha do tempo removidas a pedido; textos sem datas que reduzem a experiência.
+
 ## 3. Análise do prompt
 
 **Pontos fortes:** objetivo duplo claro (vaga + clientes), fatos reais do Carlos (sem números inventados), tokens de cor com contraste conferido, especificação detalhada do portfólio em anel com "uma única fonte de verdade" (a rolagem), lista de bugs conhecidos e critérios de aceite testáveis.
@@ -58,7 +66,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 ## 4. Melhorias recomendadas
 
 ### Alta prioridade (antes de mandar o link)
-1. **Preencher os contatos** em `assets/js/config.js`. Sem WhatsApp/e-mail o formulário fica oculto e o site perde a principal conversão. A página antiga (`leadpagecarlos`) já publica o seu WhatsApp e e-mail; se quiser os mesmos, é só colar.
+1. ~~Preencher o WhatsApp~~ — feito: (48) 99617-0281, com botão flutuante. Falta só o e-mail (opcional).
 2. ~~Ativar o GitHub Pages~~ — feito: publicado pela branch `gh-pages` em https://carlosserra-a11y.github.io/LeadPageDevCarlos/.
 3. **Currículo em PDF** com botão "Baixar currículo" na seção de recrutadores: é a primeira coisa que o RH pede.
 4. **LinkedIn** com o mesmo título e a mesma foto, e o link dele no `config.js`.

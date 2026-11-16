@@ -800,3 +800,111 @@ html.lenis body {
 html.menu-open {
   overflow: hidden;
 }
+
+/* ---------- fundo vivo do site inteiro (luzes que flutuam + brasas no canvas) ---------- */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-fx__orb {
+  position: absolute;
+  width: 62vmax;
+  height: 62vmax;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.bg-fx__orb--a {
+  left: -22vmax;
+  top: 8vh;
+  background: radial-gradient(closest-side, rgba(139, 13, 26, 0.42), transparent 72%);
+  animation: orb-a 38s ease-in-out infinite alternate;
+}
+
+.bg-fx__orb--b {
+  right: -26vmax;
+  top: 38vh;
+  background: radial-gradient(closest-side, rgba(255, 77, 26, 0.16), transparent 72%);
+  animation: orb-b 46s ease-in-out infinite alternate;
+}
+
+.bg-fx__orb--c {
+  left: 28vw;
+  bottom: -34vmax;
+  background: radial-gradient(closest-side, rgba(139, 13, 26, 0.3), transparent 72%);
+  animation: orb-c 54s ease-in-out infinite alternate;
+}
+
+@keyframes orb-a {
+  to {
+    transform: translate3d(32vw, 34vh, 0) scale(1.15);
+  }
+}
+
+@keyframes orb-b {
+  to {
+    transform: translate3d(-36vw, -26vh, 0) scale(0.88);
+  }
+}
+
+@keyframes orb-c {
+  to {
+    transform: translate3d(-22vw, -42vh, 0) scale(1.2);
+  }
+}
+
+.bg-fx__embers {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* brilho que passa de tempos em tempos no botão principal */
+.btn--light {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn--light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.85) 50%, transparent 65%);
+  transform: translateX(-130%);
+  animation: btn-shine 6s ease-in-out 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes btn-shine {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  18%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-fx__orb,
+  .btn--light::before {
+    animation: none;
+  }
+
+  .bg-fx__embers {
+    display: none;
+  }
+}

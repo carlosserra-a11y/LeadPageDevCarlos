@@ -28,7 +28,7 @@ Cada decisão de design, texto e código precisa servir a um desses dois objetiv
 
 | Público | Pergunta na cabeça | A página responde com |
 |---|---|---|
-| Recrutador(a) / tech lead | "Ele sabe programar de verdade? Aprende rápido? Vai dar trabalho?" | Projetos reais no ar com código aberto, stack clara, linha do tempo de evolução, cuidados de qualidade (testes, acessibilidade, segurança), disponibilidade e modalidade. |
+| Recrutador(a) / tech lead | "Ele sabe programar de verdade? Aprende rápido? Vai dar trabalho?" | Projetos reais no ar com código aberto, stack clara, cuidados de qualidade (testes, acessibilidade, segurança), disponibilidade e modalidade. |
 | Dono(a) de pequeno negócio | "Isso vai me trazer pedido? Quanto tempo? Vou conseguir mexer?" | Serviços em linguagem simples, resultados visíveis, processo em 5 passos, prazo, forma de pagamento, FAQ honesto e um botão que abre o WhatsApp com a mensagem pronta. |
 
 O contato tem um seletor **"Sou recrutador(a)" / "Tenho um negócio"** que muda os campos e o texto da mensagem.
@@ -79,17 +79,20 @@ O contato tem um seletor **"Sou recrutador(a)" / "Tenho um negócio"** que muda 
    - **Selo giratório** ("giro"): texto circular "DISPONÍVEL PARA VAGA • FULL STACK JÚNIOR • JUNHO 2027 •" girando sem parar; acelera com a velocidade da rolagem.
    - **Paralaxe**: ao rolar, o nome sobe mais devagar que o retrato, o retrato aproxima levemente e o brilho se desloca; o mouse move as camadas em profundidades diferentes (desligado no toque).
 3. **Faixa de tecnologias**: letreiro inclinado em carmim com a stack, que inverte o sentido conforme a direção da rolagem.
-4. **Sobre**: frase-manifesto que acende palavra por palavra com a rolagem ("Eu transformo o que um negócio já faz bem numa vitrine digital que leva o cliente direto a pedir."), duas fotos com paralaxe e revelação por máscara (setup de parede carmim e a vista da Grande Florianópolis), e fatos rápidos: formação, base, modalidade, foco.
+4. **Sobre**: frase-manifesto que acende palavra por palavra com a rolagem ("Eu transformo o que um negócio já faz bem numa vitrine digital que leva o cliente direto a pedir."), texto curto em primeira pessoa (sem datas que reduzam a experiência), fatos rápidos (formação, base, modalidade, foco) e uma frase de destaque num cartão de vidro. **Sem fotos pessoais.**
 5. **Serviços (para empresas)**: 6 cartões com ícone, título e uma frase de resultado: Landing page e site institucional · Cardápio digital com pedido no WhatsApp · Painel do dono / sistema sob medida · Atendente com IA · Portfólio para criativos · Cardápio e proposta em PDF. Brilho que segue o cursor e leve inclinação 3D. Abaixo: "Todo site inclui" (SEO, prévia no WhatsApp/Instagram, LGPD, guia "Como editar", publicação).
 6. **Projetos — carrossel 3D giratório** (ver seção 6 deste prompt).
-7. **Para recrutadores**: stack em grupos (Front-end, Back-end e integrações, Qualidade, Ferramentas e deploy), "O que eu levo para o time" e **linha do tempo** com datas reais (ago/2026 primeiro site → out/2026 primeiros clientes → nov/2026 React + Three.js → jun/2027 vaga Full Stack Júnior), com a linha se desenhando na rolagem.
+7. **Para recrutadores**: stack em grupos (Front-end, Back-end e integrações, Qualidade, Ferramentas e deploy), "O que eu levo para o time" e botões "Falar sobre uma vaga" e "Ver meu GitHub". **Sem linha do tempo** (ela evidenciava pouco tempo de experiência).
 8. **Processo**: 01 Conversa e briefing → 02 Identidade visual → 03 Desenvolvimento → 04 Conferência → 05 Publicação e guia. Condições em pílulas (contrato, 50% + 50%, 1–2 semanas, hospedagem do cliente, 8h–20h). **FAQ** em sanfona acessível (`<details>`).
-9. **Contato**: título gigante "Vamos construir algo que funcione.", seletor de público, formulário curto que monta a mensagem e abre o WhatsApp (ou e-mail). Canais vêm de um arquivo de configuração; **canal vazio = botão escondido**, nunca link quebrado.
+9. **Contato**: título gigante "Vamos construir algo que funcione.", seletor de público, formulário curto que monta a mensagem e abre o WhatsApp (ou e-mail). Canais vêm de um arquivo de configuração (WhatsApp **(48) 99617-0281**); **canal vazio = botão escondido**, nunca link quebrado.
+   **Botão flutuante do WhatsApp** (canto inferior direito, com pulso) que abre a conversa com a mensagem "Olá, Carlos! Vim pelo seu site e quero conversar."; aparece depois do topo e some sobre o portfólio e o contato para não cobrir botões.
+11. **Fundo vivo em todo o site**: manchas de luz carmim que flutuam devagar (CSS) e brasas que sobem num `<canvas>` fixo, acelerando com a rolagem; seções transparentes para o fundo aparecer. Desligado com movimento reduzido.
 10. **Rodapé**: nome gigante em contorno, links, "voltar ao topo", ano automático e "Feito à mão com HTML, CSS, JavaScript e GSAP".
 
 ## 6. Portfólio 3D giratório (o "diferente")
 
-- Seção fixada (pin) durante ~3 alturas de tela. **A rolagem gira um anel 3D** com os 8 projetos (cartões em `rotateY(i·360/n) translateZ(r)`), raio calculado pela largura do cartão: `r = (w/2) / tan(π/n) + folga`.
+- **Dois modos (via `gsap.matchMedia`)**: no computador com mouse, a seção fica fixada e **a rolagem gira o anel** (também arrastando com o mouse ou deslizando dois dedos no trackpad); **em telas de toque (celular, tablet) não há fixação**: a página rola normal e o anel **gira deslizando para os lados**, com inércia limitada a um projeto por gesto rápido, volta infinita (do 08 para o 01) e toque num cartão lateral para girar até ele. Gesto vertical sobre o anel continua rolando a página.
+- Modo rolagem: seção fixada durante ~3 alturas de tela. **A rolagem gira um anel 3D** com os 8 projetos (cartões em `rotateY(i·360/n) translateZ(r)`), raio calculado pela largura do cartão: `r = (w/2) / tan(π/n) + folga`.
 - O cartão da frente fica nítido e em escala 1; os de trás escurecem (opacidade calculada pelo cosseno do ângulo).
 - Painel de detalhes atualiza com o projeto ativo: número `01 / 08`, nome, tipo, descrição de uma frase, chips da stack, **"Ver ao vivo ↗"** e **"Código ↗"**.
 - **Uma única fonte de verdade:** o ângulo vem sempre da posição da rolagem. Setas, teclado (← →), clique num cartão lateral e arrastar com o mouse/dedo apenas **rolam a página** até a posição daquele projeto — assim o pin nunca dessincroniza.
@@ -115,7 +118,6 @@ Projetos (todos públicos no GitHub, com URL ao vivo):
 - **Hero no computador:** a imagem de referência completa (1024 px) → limpar menu, logo e textos com erro preenchendo com o próprio fundo (interpolação coluna a coluna), recortar dentro da moldura e exportar 1× e 2× em WebP (< 70 KB).
 - **Hero no celular:** retrato de perfil, de óculos, em contraluz laranja (a própria imagem de referência editada com o rosto do Carlos) → recortar a pessoa, remover o fundo localmente (WebP com transparência), limpar resíduos das letras do fundo e reforçar o brilho de contorno via `drop-shadow`. Duas larguras (`srcset`), < 60 KB cada.
 - **Cartão do hero:** o mesmo retrato, cabeça e ombros, sobre quadrado laranja em gradiente (como a miniatura do Kontour).
-- **Sobre:** a foto do setup (parede carmim) e a da trilha com vista para a Grande Florianópolis, em duotom preto/carmim que volta à cor real no hover.
 - Todas as imagens com `width`/`height` definidos (sem CLS), `alt` descritivo e `decoding="async"`.
 
 ## 8. Stack técnica e estrutura

@@ -11,7 +11,10 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 - **Hero com a sua imagem completa** (no computador): a arte inteira, funcional — menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem; entrada animada, paralaxe e inclinação 3D com o mouse. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
 - **Paralaxe** no hero (rolagem e mouse), faixa de tecnologias que inverte com a direção da rolagem, manifesto que acende palavra por palavra e fotos com revelação por máscara.
 - **Portfólio em anel 3D giratório**: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar). Também gira com setas, teclado (← → Home End), clique e arrasto.
-- Seções para **clientes** (serviços, processo, condições, FAQ) e para **recrutadores** (stack, diferenciais, linha do tempo).
+- Seções para **clientes** (serviços, processo, condições, FAQ) e para **recrutadores** (stack e diferenciais).
+- **WhatsApp (48) 99617-0281** no contato, no menu, no rodapé e num **botão flutuante** que abre a conversa com a mensagem pronta.
+- **Fundo vivo** em todo o site: luzes carmim flutuando e brasas subindo, que aceleram com a rolagem.
+- **No celular, o portfólio gira deslizando para os lados** (sem prender a rolagem); no computador, gira com a rolagem, o mouse ou o trackpad.
 - **Contato** que monta a mensagem e abre o WhatsApp ou o e-mail. Nada é salvo nem enviado a servidor.
 
 ## Como editar
@@ -61,7 +64,8 @@ Se preferir publicar direto da `main` (um comando só), em **Settings → Pages*
 
 ## Confira antes de divulgar
 
-- [ ] Preencher `whatsapp` e `email` em `assets/js/config.js` (sem eles, o formulário fica oculto e só o GitHub aparece no contato).
+- [x] WhatsApp preenchido em `assets/js/config.js`.
+- [ ] Preencher `email` em `assets/js/config.js` (opcional: liga o botão "Enviar por e-mail").
 - [ ] Preencher `linkedin` (recrutadores procuram).
 - [ ] Confirmar a data "junho de 2027"; se puder começar antes, trocar por "Disponível agora".
 - [ ] Testar o link no WhatsApp (a prévia deve mostrar o hero).

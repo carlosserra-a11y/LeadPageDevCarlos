@@ -99,67 +99,7 @@ function manifesto(gsap) {
   );
 }
 
-/** Fotos do "Sobre": revelação por máscara + paralaxe da imagem. */
-function aboutPhotos(gsap) {
-  const radius = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--radius')) || 24;
-  document.querySelectorAll('[data-photo]').forEach((photo) => {
-    gsap.fromTo(
-      photo,
-      { clipPath: `inset(100% 0% 0% 0% round ${radius}px)` },
-      {
-        clipPath: `inset(0% 0% 0% 0% round ${radius}px)`,
-        duration: 1.4,
-        ease: 'expo.inOut',
-        scrollTrigger: { trigger: photo, start: 'top 85%', once: true },
-      },
-    );
-    const img = photo.querySelector('img');
-    if (img) {
-      gsap.fromTo(
-        img,
-        { yPercent: -7 },
-        {
-          yPercent: 7,
-          ease: 'none',
-          scrollTrigger: { trigger: photo, start: 'top bottom', end: 'bottom top', scrub: true },
-        },
-      );
-    }
-    const speed = Number(photo.dataset.speed || 0);
-    if (speed) {
-      gsap.to(photo, {
-        y: speed,
-        ease: 'none',
-        scrollTrigger: { trigger: photo, start: 'top bottom', end: 'bottom top', scrub: true },
-      });
-    }
-  });
-}
 
-/** Linha do tempo: a linha se desenha e os pontos acendem. */
-function timeline(gsap, ScrollTrigger) {
-  const list = document.querySelector('[data-timeline]');
-  if (!list) return;
-  const fill = list.querySelector('.timeline__fill');
-  if (fill) {
-    gsap.to(fill, {
-      scaleY: 1,
-      ease: 'none',
-      scrollTrigger: { trigger: list, start: 'top 70%', end: 'bottom 55%', scrub: true },
-    });
-  }
-  list.querySelectorAll('.timeline__item').forEach((item) => {
-    const sync = (self) => item.classList.toggle('is-on', self.progress > 0);
-    ScrollTrigger.create({
-      trigger: item,
-      start: 'top 68%',
-      end: 'max',
-      onUpdate: sync,
-      onToggle: sync,
-      onRefresh: sync,
-    });
-  });
-}
 
 /** Etapas do processo: a linha laranja de cada etapa cresce em sequência. */
 function steps() {
@@ -173,6 +113,73 @@ function steps() {
       window.setTimeout(() => step.classList.add('is-in'), i * 140);
     }),
   );
+}
+
+/** Rótulos "[ 01 ] Sobre": as letras se embaralham e "decodificam" ao entrar na tela. */
+function scrambleLabels() {
+  const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#/*+';
+  const DURATION = 650;
+  const labels = Array.from(document.querySelectorAll('main .label')).filter((label) => !label.closest('[data-hero]'));
+  const items = labels
+    .map((label) => {
+      const node = Array.from(label.childNodes).find((n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+      return node ? { label, node, text: node.textContent } : null;
+    })
+    .filter(Boolean);
+  if (!items.length || !('IntersectionObserver' in window)) return;
+
+  const run = ({ node, text }) => {
+    const start = performance.now();
+    const frame = (now) => {
+      const progress = Math.min(1, (now - start) / DURATION);
+      const shown = Math.floor(progress * text.length);
+      node.textContent = Array.from(text, (ch, i) =>
+        i < shown || ch === ' ' ? ch : GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+      ).join('');
+      if (progress < 1) requestAnimationFrame(frame);
+      else node.textContent = text;
+    };
+    requestAnimationFrame(frame);
+  };
+
+  const byLabel = new Map(items.map((item) => [item.label, item]));
+  onFirstView(
+    items.map((item) => item.label),
+    (batch) => batch.forEach((label, i) => window.setTimeout(() => run(byLabel.get(label)), i * 90)),
+  );
+}
+
+/** FAQ: as respostas abrem e fecham deslizando (o <details> continua acessível). */
+function faqAccordion(gsap) {
+  document.querySelectorAll('.faq details').forEach((details) => {
+    const summary = details.querySelector('summary');
+    const body = details.querySelector('p');
+    if (!summary || !body) return;
+    summary.addEventListener('click', (event) => {
+      event.preventDefault();
+      gsap.killTweensOf(body);
+      if (details.open) {
+        gsap.to(body, {
+          height: 0,
+          paddingBottom: 0,
+          opacity: 0,
+          duration: 0.35,
+          ease: 'power2.in',
+          onComplete: () => {
+            details.open = false;
+            gsap.set(body, { clearProps: 'height,paddingBottom,opacity,overflow' });
+          },
+        });
+      } else {
+        details.open = true;
+        gsap.fromTo(
+          body,
+          { height: 0, paddingBottom: 0, opacity: 0, overflow: 'hidden' },
+          { height: 'auto', paddingBottom: '1.4rem', opacity: 1, duration: 0.55, ease: 'power3.out', clearProps: 'height,paddingBottom,overflow' },
+        );
+      }
+    });
+  });
 }
 
 /** Nome do rodapé: o contorno vai sendo preenchido. */
@@ -197,8 +204,8 @@ export function initScrollFx({ gsap, ScrollTrigger, velocity }) {
     () => splitTitles(gsap),
     () => revealBlocks(gsap),
     () => manifesto(gsap),
-    () => aboutPhotos(gsap),
-    () => timeline(gsap, ScrollTrigger),
+    () => scrambleLabels(),
+    () => faqAccordion(gsap),
     () => steps(),
     () => footerName(gsap),
   ];

@@ -32,8 +32,9 @@ function openExternal(url) {
 function renderChannels(links, labels) {
   document.querySelectorAll('[data-channel]').forEach((anchor) => {
     const key = anchor.dataset.channel;
-    const href = links[key];
-    const holder = anchor.closest('li') ?? anchor;
+    const text = anchor.dataset.channelText;
+    const href = key === 'whatsapp' && text && links.whatsapp ? `${links.whatsapp}?text=${encodeURIComponent(text)}` : links[key];
+    const holder = anchor.closest('li, p') ?? anchor;
     holder.hidden = !href;
     if (!href) return;
     anchor.href = href;

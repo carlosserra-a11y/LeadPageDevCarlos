@@ -12,8 +12,7 @@
   overflow: clip;
   background:
     radial-gradient(60% 55% at 90% 0%, rgba(139, 13, 26, 0.5), transparent 70%),
-    radial-gradient(40% 40% at 0% 100%, rgba(255, 77, 26, 0.12), transparent 70%),
-    var(--ink);
+    radial-gradient(40% 40% at 0% 100%, rgba(255, 77, 26, 0.12), transparent 70%);
 }
 
 .contact__title {
@@ -389,6 +388,98 @@
 
 @media (prefers-reduced-motion: reduce) {
   .dot::after {
+    animation: none;
+  }
+}
+
+/* ---------- botão flutuante do WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  z-index: 580;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 58px;
+  padding: 0 1.15rem 0 0.95rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #0b0b0b;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 16px 40px -12px rgba(37, 211, 102, 0.6);
+  opacity: 0;
+  transform: translateY(140%) scale(0.85);
+  transition: transform 0.6s var(--ease-out), opacity 0.4s ease, box-shadow 0.3s ease;
+}
+
+.wa-float.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.wa-float.is-visible:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 20px 50px -12px rgba(37, 211, 102, 0.8);
+}
+
+.wa-float:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 4px;
+}
+
+.wa-float svg {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.wa-float__label {
+  position: relative;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.wa-float__ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #25d366;
+  border-radius: inherit;
+  animation: wa-pulse 2.4s ease-out infinite;
+}
+
+@keyframes wa-pulse {
+  from {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@media (max-width: 600px) {
+  .wa-float {
+    width: 58px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .wa-float__label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float {
+    transition: none;
+  }
+
+  .wa-float__ring {
     animation: none;
   }
 }

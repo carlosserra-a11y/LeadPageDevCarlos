@@ -11,7 +11,7 @@
  */
 export const CONFIG = Object.freeze({
   contact: Object.freeze({
-    whatsapp: '',
+    whatsapp: '48996170281',
     email: '',
     linkedin: '',
     instagram: '',
