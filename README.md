@@ -8,7 +8,7 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 
 ## O que tem na página
 
-- **Hero** no estilo da referência "Kontour": retrato de perfil em contraluz laranja na frente do nome gigante **CARLOS**, cartão de destaques com setas, números e um **selo giratório** que acelera com a rolagem.
+- **Hero com a sua imagem completa** (no computador): a arte inteira, funcional — menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem; entrada animada, paralaxe e inclinação 3D com o mouse. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
 - **Paralaxe** no hero (rolagem e mouse), faixa de tecnologias que inverte com a direção da rolagem, manifesto que acende palavra por palavra e fotos com revelação por máscara.
 - **Portfólio em anel 3D giratório**: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar). Também gira com setas, teclado (← → Home End), clique e arrasto.
 - Seções para **clientes** (serviços, processo, condições, FAQ) e para **recrutadores** (stack, diferenciais, linha do tempo).
@@ -25,6 +25,8 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 | A data de disponibilidade | procure por "junho de 2027" e "JUN 2027" no `index.html` |
 | Cores | variáveis no topo de `assets/css/base.css` (`--ember`, `--crimson`, `--red`…) |
 | Tempo de troca do cartão do hero | `heroCardInterval` em `assets/js/config.js` |
+| A imagem do hero no computador | `assets/img/hero/hero-arte-929.webp` e `-1858.webp` (mesma proporção). Se mudar o layout da arte, ajuste as posições das áreas clicáveis em `assets/css/hero-art.css` |
+| Textos por cima da arte (subtítulo, cartão, legendas) | bloco `hero-art` no `index.html` |
 | Prévia do link no WhatsApp/LinkedIn | `assets/img/og.jpg` (1200 × 630) e as tags `og:` no `<head>` |
 
 ## Rodar no computador

@@ -1,15 +1,17 @@
 import { mod } from '../lib/ring-math.js';
 
 /**
- * Cartão do hero com destaques que trocam (setas e troca automática).
+ * Cartões de destaques do hero (o da arte no computador e o do celular):
+ * trocam pelas setas e sozinhos.
  * A troca automática pausa com o mouse/foco em cima, com a aba oculta
  * e não existe para quem prefere menos movimento.
  * @param {{ interval: number, autoplay: boolean }} options
  */
 export function initHeroCard({ interval, autoplay }) {
-  const card = document.querySelector('[data-hero-card]');
-  if (!card) return;
+  document.querySelectorAll('[data-hero-card]').forEach((card) => initOne(card, { interval, autoplay }));
+}
 
+function initOne(card, { interval, autoplay }) {
   const slides = Array.from(card.querySelectorAll('[data-slide]'));
   const bar = card.querySelector('[data-card-progress]');
   const prev = card.querySelector('[data-card-prev]');

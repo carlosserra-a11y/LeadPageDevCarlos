@@ -3,6 +3,7 @@ import { initSmooth, createVelocity } from './modules/smooth.js';
 import { initNav } from './modules/nav.js';
 import { runPreloader } from './modules/preloader.js';
 import { initHero } from './modules/hero.js';
+import { initHeroArt } from './modules/hero-art.js';
 import { initHeroCard } from './modules/hero-card.js';
 import { initScrollFx } from './modules/scroll-fx.js';
 import { initPointerFx } from './modules/pointer-fx.js';
@@ -64,9 +65,11 @@ async function start() {
   safely('portfolio', () => initRing({ gsap, ScrollTrigger, lenis, reduced }));
 
   let hero;
+  let heroArt;
   if (!reduced) {
     const velocity = safely('velocidade', () => createVelocity({ gsap, ScrollTrigger }));
     hero = safely('hero', () => initHero({ gsap, ScrollTrigger, finePointer, velocity }));
+    heroArt = safely('hero-arte', () => initHeroArt({ gsap, finePointer }));
     safely('efeitos', () => initScrollFx({ gsap, ScrollTrigger, velocity }));
     if (finePointer) safely('ponteiro', () => initPointerFx({ gsap }));
   }
@@ -79,6 +82,7 @@ async function start() {
   } finally {
     lenis?.start();
     safely('entrada', () => hero?.intro());
+    safely('entrada-arte', () => heroArt?.intro());
   }
 
   const refresh = () => ScrollTrigger.refresh();

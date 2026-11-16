@@ -18,12 +18,12 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Carlos Serra">
   <meta property="og:title" content="Carlos Serra · Desenvolvedor Full Stack Júnior">
-  <meta property="og:description" content="Clareza primeiro. Depois o código. Sites e sistemas que levam o cliente direto ao WhatsApp.">
+  <meta property="og:description" content="Clareza primeiro. Depois o sistema. Sites e sistemas que levam o cliente direto ao WhatsApp.">
   <meta property="og:url" content="https://carlosserra-a11y.github.io/LeadPageDevCarlos/">
   <meta property="og:image" content="https://carlosserra-a11y.github.io/LeadPageDevCarlos/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Carlos Serra com luz laranja ao fundo e o título Clareza primeiro, depois o código">
+  <meta property="og:image:alt" content="Carlos Serra de perfil em contraluz laranja e o título Clareza primeiro, depois o sistema">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Carlos Serra · Desenvolvedor Full Stack Júnior">
   <meta name="twitter:description" content="Sites e sistemas que levam o cliente direto ao WhatsApp. Disponível para vaga Full Stack Júnior.">
@@ -35,10 +35,12 @@
 
   <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/hero/carlos-perfil-834.webp" imagesrcset="assets/img/hero/carlos-perfil-620.webp 497w, assets/img/hero/carlos-perfil-834.webp 668w" imagesizes="(max-width: 900px) 90vw, 45vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero/hero-arte-1858.webp" imagesrcset="assets/img/hero/hero-arte-929.webp 929w, assets/img/hero/hero-arte-1858.webp 1858w" imagesizes="100vw" media="(min-width: 901px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero/carlos-perfil-834.webp" imagesrcset="assets/img/hero/carlos-perfil-620.webp 497w, assets/img/hero/carlos-perfil-834.webp 668w" imagesizes="90vw" media="(max-width: 900px)" fetchpriority="high">
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/hero-art.css">
   <link rel="stylesheet" href="assets/css/sections.css">
   <link rel="stylesheet" href="assets/css/work.css">
   <link rel="stylesheet" href="assets/css/contact.css">
@@ -124,8 +126,48 @@
 
   <main id="conteudo">
     <!-- ================= HERO ================= -->
-    <section class="hero" id="inicio" data-hero aria-labelledby="hero-title" data-anchor-flush>
+    <section class="hero hero--art" id="inicio" data-hero aria-labelledby="hero-title" data-anchor-flush>
       <div class="hero__frame">
+        <!-- computador: a imagem completa do hero, com textos corrigidos e áreas clicáveis por cima -->
+        <div class="hero-art" data-hero-art>
+          <div class="hero-art__inner" data-hero-art-inner>
+            <picture class="hero-art__img">
+              <source media="(max-width: 900px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+              <img src="assets/img/hero/hero-arte-1858.webp" srcset="assets/img/hero/hero-arte-929.webp 929w, assets/img/hero/hero-arte-1858.webp 1858w" sizes="100vw" width="1858" height="934" alt="Carlos Serra de perfil, de óculos, em contraluz laranja, na frente do nome CARLOS" fetchpriority="high" decoding="async" draggable="false">
+            </picture>
+            <span class="hero-art__light" aria-hidden="true"></span>
+
+            <p class="hero-art__lead" data-art-fade aria-hidden="true">Engenharia de software robusta e design de sistemas focados na performance e na experiência do usuário.</p>
+
+            <div class="hero-art__card" data-hero-card>
+              <div class="hero-card__slides hero-art__slides" data-art-fade>
+                <div class="hero-card__slide is-active" data-slide>
+                  <p class="hero-card__title">Reconhecimento</p>
+                  <p class="hero-card__text">Entrego soluções de código limpo e arquiteturas sólidas, deixando as plataformas claras e eficientes.</p>
+                </div>
+                <div class="hero-card__slide" data-slide>
+                  <p class="hero-card__title">Disponível para vaga</p>
+                  <p class="hero-card__text">Full Stack Júnior para junho de 2027. Presencial, híbrido ou remoto.</p>
+                </div>
+                <div class="hero-card__slide" data-slide>
+                  <p class="hero-card__title">Código aberto</p>
+                  <p class="hero-card__text">Todos os projetos estão no GitHub: dá para ver como eu programo.</p>
+                </div>
+              </div>
+              <button class="hotspot hotspot--prev" type="button" data-card-prev aria-label="Destaque anterior"></button>
+              <button class="hotspot hotspot--next" type="button" data-card-next aria-label="Próximo destaque"></button>
+              <p class="sr-only" aria-live="polite" data-card-live></p>
+            </div>
+
+            <p class="hero-art__cap hero-art__cap--a" data-art-fade><span class="sr-only">100%: </span>Sem gambiarras. Apenas sistemas claros e escaláveis para desempenho.</p>
+            <p class="hero-art__cap hero-art__cap--b" data-art-fade><span class="sr-only">360°: </span>Visão completa de ponta a ponta. Da estratégia de API à interface final.</p>
+
+            <a class="hotspot hotspot--start" href="#contato" data-cursor-label="Iniciar"><span class="sr-only">Iniciar um projeto</span></a>
+            <a class="hotspot hotspot--work" href="#projetos" data-cursor-label="Ver"><span class="sr-only">Ver meus trabalhos</span></a>
+            <a class="hotspot hotspot--corner" href="#recrutadores" aria-label="Ir para a seção de recrutadores"></a>
+            <a class="hotspot hotspot--photo" href="#sobre" aria-label="Sobre o Carlos"></a>
+          </div>
+        </div>
         <div class="hero__glow" data-hero-glow aria-hidden="true"><span class="hero__glow-a"></span><span class="hero__glow-b"></span></div>
 
         <p class="hero__name" data-hero-name aria-hidden="true"><span class="hero__name-mask"><span>C</span><span>A</span><span>R</span><span>L</span><span>O</span><span>S</span></span></p>
@@ -133,7 +175,10 @@
         <div class="hero__photo">
           <div data-hero-photo>
             <div data-hero-photo-inner>
-              <img src="assets/img/hero/carlos-perfil-834.webp" srcset="assets/img/hero/carlos-perfil-620.webp 497w, assets/img/hero/carlos-perfil-834.webp 668w" sizes="(max-width: 900px) 90vw, 45vw" width="668" height="834" alt="Carlos Serra de perfil, de óculos, em contraluz laranja" fetchpriority="high" decoding="async">
+              <picture>
+                <source media="(min-width: 901px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                <img src="assets/img/hero/carlos-perfil-834.webp" srcset="assets/img/hero/carlos-perfil-620.webp 497w, assets/img/hero/carlos-perfil-834.webp 668w" sizes="(max-width: 900px) 90vw, 45vw" width="668" height="834" alt="Carlos Serra de perfil, de óculos, em contraluz laranja" fetchpriority="high" decoding="async">
+              </picture>
             </div>
           </div>
         </div>
@@ -142,7 +187,7 @@
           <p class="hero__eyebrow" data-hero-fade>Desenvolvedor Full Stack Júnior · Palhoça/SC</p>
           <h1 class="hero__title" id="hero-title">
             <span class="line"><span>Clareza primeiro.</span></span>
-            <span class="line"><span>Depois o código.</span></span>
+            <span class="line"><span>Depois o sistema.</span></span>
           </h1>
           <p class="hero__lead" data-hero-fade>Crio sites, cardápios digitais e sistemas web rápidos, bonitos e que levam o cliente direto ao WhatsApp do seu negócio.</p>
           <div class="hero__ctas" data-hero-fade>

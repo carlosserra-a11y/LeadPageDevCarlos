@@ -38,6 +38,13 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 17. **Nome do rodapé estourando a largura.** Tamanho recalculado.
 18. **Leitores de tela ignoravam o rótulo do carrossel.** O palco ganhou `role="group"` e `aria-roledescription="carrossel"`.
 
+### Hero com a imagem completa (pedido seguinte)
+19. **A imagem trazia o logo de outra marca ("KONTOUR STUDIOS") e links que não existem no site.** A faixa do menu foi apagada da arte e o menu real fica por cima.
+20. **Textos da imagem com erros gerados pela IA** ("facedes", "usuaно", "gamblarras", "cddigo"). Apagados e reescritos por cima, corrigidos, na mesma posição.
+21. **Botões da imagem não clicavam.** Áreas clicáveis alinhadas aos botões, à foto e às setas (as setas trocam os destaques de verdade), com foco visível pelo teclado.
+22. **Arte ilegível no celular.** Abaixo de 901 px entra o hero em HTML feito a partir da mesma imagem; o celular nem baixa a arte grande (`<picture>` com fonte vazia).
+23. **Limpeza da arte criou faixas verticais acima das setas do cartão.** A área passou a ser preenchida só com a cor de cima (fundo liso).
+
 ## 3. Análise do prompt
 
 **Pontos fortes:** objetivo duplo claro (vaga + clientes), fatos reais do Carlos (sem números inventados), tokens de cor com contraste conferido, especificação detalhada do portfólio em anel com "uma única fonte de verdade" (a rolagem), lista de bugs conhecidos e critérios de aceite testáveis.
@@ -55,7 +62,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 2. **Ativar o GitHub Pages** (Settings → Pages → `main` / raiz).
 3. **Currículo em PDF** com botão "Baixar currículo" na seção de recrutadores: é a primeira coisa que o RH pede.
 4. **LinkedIn** com o mesmo título e a mesma foto, e o link dele no `config.js`.
-5. **Retrato em alta resolução.** A imagem do hero veio de um print com 1024 px de largura; em telas de alta densidade fica um pouco suave. Se você tiver o arquivo original da edição, mande que eu troco.
+5. **Arte em alta resolução.** A imagem do hero veio de um print com 1024 px de largura e foi ampliada 2×; em monitores grandes fica um pouco suave. Se você tiver o arquivo original da edição (idealmente 2400 px ou mais), mande que eu troco — as áreas clicáveis continuam no lugar se a proporção for a mesma.
 6. **Confirmar "junho de 2027".** Se você pode começar antes, "Disponível agora" converte mais.
 
 ### Média prioridade (aumentam conversão)

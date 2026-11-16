@@ -39,7 +39,7 @@ O contato tem um seletor **"Sou recrutador(a)" / "Tenho um negócio"** que muda 
 
 **Referências de apoio** (seções internas): "Rayhan Aditya" (vermelho e preto, caixa alta condensada), "FORMA" (tipografia expandida gigante), "EGO Lab" (cartazes vermelhos com grão), "LEAFTECH" (grade técnica, rótulos entre colchetes) e a paleta "Clean · Premium · Timeless".
 
-**Conceito:** *"Clareza primeiro. Depois o código."* Estúdio noturno: fundo quase preto, uma única fonte de luz quente que respira, tipografia enorme e precisa, detalhes técnicos discretos (rótulos `[ 01 ]`, linhas de grade).
+**Conceito:** *"Clareza primeiro. Depois o sistema."* Estúdio noturno: fundo quase preto, uma única fonte de luz quente que respira, tipografia enorme e precisa, detalhes técnicos discretos (rótulos `[ 01 ]`, linhas de grade).
 
 **Tokens de cor** (contraste conferido para WCAG AA):
 
@@ -66,10 +66,16 @@ O contato tem um seletor **"Sou recrutador(a)" / "Tenho um negócio"** que muda 
 
 0. **Pré-carregador** (máx. 1,8 s): contador 00→100 e "CARLOS SERRA"; sai com uma cortina. Não aparece com movimento reduzido, nem se o JavaScript falhar (o conteúdo nunca fica preso atrás dele; trava de segurança de 4 s).
 1. **Cabeçalho** dentro da moldura do hero: à esquerda Início, Serviços, Sobre, Projetos; ao centro o logotipo "CARLOS / SERRA" empilhado; à direita Processo, Recrutadores, FAQ, Contato. Ao rolar, vira uma barra fixa compacta com desfoque, que se esconde ao descer e volta ao subir. No celular: menu em tela cheia com foco preso, `Esc` fecha, rolagem travada.
-2. **Hero (fiel ao Kontour)**:
-   - Esquerda: rótulo "Desenvolvedor Full Stack Júnior", título **"Clareza primeiro. Depois o código."**, subtítulo de 2 linhas para os dois públicos, botões "Iniciar um projeto" (pílula clara com seta num círculo escuro) e "Ver meus trabalhos" (pílula escura).
-   - Centro: **retrato do Carlos de perfil, de óculos, em contraluz laranja** (fundo removido), na frente do nome gigante **CARLOS**, que fica atrás do corpo. No celular, o nome sobe para a altura do rosto e aparece dos dois lados da cabeça.
-   - Direita: cartão com miniatura quadrada em fundo laranja (o mesmo retrato de perfil), título e texto que trocam por setas (Disponível para vaga · Sites que vendem · Código aberto), barra de progresso; abaixo, **100%** ("Projetos com código aberto no GitHub. Sem gambiarra escondida.") e **360°** ("Do briefing ao deploy: interface, API, dados e publicação.").
+2. **Hero = a imagem de referência completa (no computador)**: a arte enviada pelo Carlos é o próprio hero, inteira e sem recriação, mas **funcional**:
+   - apagar da arte o menu e o logo de outra marca ("KONTOUR STUDIOS") e pôr por cima o menu real do site com "CARLOS SERRA";
+   - apagar os textos pequenos que a IA gerou com erro ("facedes", "usuaно", "gamblarras") e reescrevê-los por cima, corrigidos, na mesma posição (posições em % e fonte em `cqw`, para acompanhar a largura da arte);
+   - áreas clicáveis transparentes exatamente sobre os botões da arte ("Iniciar um Projeto" → contato, "Ver Nosso Trabalho" → projetos, botão redondo → recrutadores, foto do cartão → sobre) e as setas do cartão trocando os destaques de verdade;
+   - entrada com máscara, paralaxe na rolagem, inclinação 3D leve e uma luz que seguem o mouse;
+   - `<picture>` com fonte vazia no celular, para o celular não baixar a arte grande.
+   **No celular** a arte inteira ficaria ilegível (≈170 px de altura), então o hero é montado em HTML a partir dela:
+   - Topo: rótulo "Desenvolvedor Full Stack Júnior", título **"Clareza primeiro. Depois o sistema."**, subtítulo de 2 linhas para os dois públicos, botões "Iniciar um projeto" (pílula clara com seta num círculo escuro) e "Ver meus trabalhos" (pílula escura).
+   - Abaixo: **retrato do Carlos de perfil, de óculos, em contraluz laranja** (fundo removido), na frente do nome gigante **CARLOS**, que fica atrás do corpo. No celular, o nome sobe para a altura do rosto e aparece dos dois lados da cabeça.
+   - Depois do retrato: cartão com miniatura quadrada em fundo laranja (o mesmo retrato de perfil), título e texto que trocam por setas (Disponível para vaga · Sites que vendem · Código aberto), barra de progresso; abaixo, **100%** ("Projetos com código aberto no GitHub. Sem gambiarra escondida.") e **360°** ("Do briefing ao deploy: interface, API, dados e publicação.").
    - **Selo giratório** ("giro"): texto circular "DISPONÍVEL PARA VAGA • FULL STACK JÚNIOR • JUNHO 2027 •" girando sem parar; acelera com a velocidade da rolagem.
    - **Paralaxe**: ao rolar, o nome sobe mais devagar que o retrato, o retrato aproxima levemente e o brilho se desloca; o mouse move as camadas em profundidades diferentes (desligado no toque).
 3. **Faixa de tecnologias**: letreiro inclinado em carmim com a stack, que inverte o sentido conforme a direção da rolagem.
@@ -106,7 +112,8 @@ Projetos (todos públicos no GitHub, com URL ao vivo):
 
 ## 7. Tratamento das fotos
 
-- **Hero:** retrato de perfil, de óculos, em contraluz laranja (a própria imagem de referência editada com o rosto do Carlos) → recortar a pessoa, remover o fundo localmente (WebP com transparência), limpar resíduos das letras do fundo e reforçar o brilho de contorno via `drop-shadow`. Duas larguras (`srcset`), < 60 KB cada.
+- **Hero no computador:** a imagem de referência completa (1024 px) → limpar menu, logo e textos com erro preenchendo com o próprio fundo (interpolação coluna a coluna), recortar dentro da moldura e exportar 1× e 2× em WebP (< 70 KB).
+- **Hero no celular:** retrato de perfil, de óculos, em contraluz laranja (a própria imagem de referência editada com o rosto do Carlos) → recortar a pessoa, remover o fundo localmente (WebP com transparência), limpar resíduos das letras do fundo e reforçar o brilho de contorno via `drop-shadow`. Duas larguras (`srcset`), < 60 KB cada.
 - **Cartão do hero:** o mesmo retrato, cabeça e ombros, sobre quadrado laranja em gradiente (como a miniatura do Kontour).
 - **Sobre:** a foto do setup (parede carmim) e a da trilha com vista para a Grande Florianópolis, em duotom preto/carmim que volta à cor real no hover.
 - Todas as imagens com `width`/`height` definidos (sem CLS), `alt` descritivo e `decoding="async"`.

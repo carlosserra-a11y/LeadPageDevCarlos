@@ -4,7 +4,9 @@ const SAFETY_MS = 3200;
 /** Resolve quando as fontes e o retrato do hero estão prontos (ou após o tempo máximo). */
 function assetsReady() {
   const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
-  const hero = document.querySelector('[data-hero-photo] img');
+  // a imagem do hero que está visível nesta tela (arte no computador, retrato no celular)
+  const candidates = Array.from(document.querySelectorAll('[data-hero-art] img, [data-hero-photo] img'));
+  const hero = candidates.find((img) => img.getClientRects().length > 0) ?? candidates[0];
   const image = hero && typeof hero.decode === 'function' ? hero.decode().catch(() => undefined) : Promise.resolve();
   const timeout = new Promise((resolve) => setTimeout(resolve, MAX_WAIT_MS));
   return Promise.race([Promise.all([fonts, image]), timeout]);
