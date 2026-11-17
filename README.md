@@ -11,10 +11,12 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 - **Hero em Full HD com a sua imagem** (no computador), montado em camadas: fundo ampliado 4× com IA (Swin2SR, rodando no PC), o nome **CARLOS inteiro em vetor** (nítido em qualquer tela), você recortado na frente e o degradê continuando até o fim do hero. Menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem. Título **"Código que vira cliente."** com a última palavra girando (pedido, venda, resultado) e a sua foto nova no cartão. Animações: entrada em sequência (fundo → nome → você), brilho que percorre o nome, luz que respira atrás de você, profundidade com o mouse (cada camada se move numa distância) e paralaxe na rolagem. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
 - **Paralaxe** no hero (rolagem e mouse), faixa de tecnologias que inverte com a direção da rolagem, manifesto que acende palavra por palavra e fotos com revelação por máscara.
 - **Portfólio logo depois do hero**, em anel 3D giratório: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar, em alta resolução 2×). Também gira com setas, teclado (← → Home End), clique e arrasto.
-- **Para recrutadores logo depois dos projetos**, com o destaque **Especialista em Claude Code**, stack e diferenciais.
+- **Para recrutadores logo depois dos projetos**: disponível com início imediato, destaque **Especialista em Claude Code**, stack e diferenciais.
 - **Serviços como vitrine**: cada serviço abre mostrando um projeto real, o que vem incluso, prazo e o botão "Quero um orçamento disso".
 - Processo, condições e FAQ para **clientes**.
-- **WhatsApp (48) 99617-0281** no contato, no menu, no rodapé e num **botão flutuante** que abre a conversa com a mensagem pronta.
+- **WhatsApp (48) 99617-0281**, **e-mail** e **Instagram** no contato e no rodapé, e um **botão flutuante do WhatsApp** visível na página inteira.
+- **Abertura animada**: o nome se "decodifica" a partir de símbolos de código e um anel laranja abre o hero.
+- Hero no computador com **textos e botões reais** (rótulo, botões, 100%/360°, setas): nítidos em qualquer tela.
 - **Fundo vivo** em todo o site: luzes carmim flutuando e brasas subindo, que aceleram com a rolagem.
 - **No celular, o portfólio gira deslizando para os lados** (sem prender a rolagem); no computador, gira com a rolagem, o mouse ou o trackpad.
 - **Orçamento em 4 etapas** (o que precisa → negócio → detalhes → conferir) que monta a mensagem organizada e abre o WhatsApp ou o e-mail. Recrutadores têm uma etapa só. Nada é salvo nem enviado a servidor.
@@ -27,7 +29,8 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 | Textos de qualquer seção | `index.html` (cada seção tem um comentário com o nome dela) |
 | Um projeto do portfólio | `index.html`, seção `PROJETOS`: cada `<li class="ring__card">` é um projeto (título, descrição, tecnologias e links). O painel lê tudo de lá. |
 | A captura de um projeto | troque as duas imagens em `assets/img/projects/`: `nome.webp` (960 × 600) e `nome-1600.webp` (1600 × 1000), em WebP |
-| A data de disponibilidade | procure por "junho de 2027" e "JUN 2027" no `index.html` |
+| A disponibilidade | procure por "Disponível agora" e "INÍCIO IMEDIATO" no `index.html` |
+| Ícone da aba e do celular | `assets/img/favicon-*.png`, `icon-*.png` e `favicon.svg` |
 | Cores | variáveis no topo de `assets/css/base.css` (`--ember`, `--crimson`, `--red`…) |
 | Tempo de troca do cartão do hero | `heroCardInterval` em `assets/js/config.js` |
 | A imagem do hero no computador | camadas em `assets/img/hero/`: `hero-fundo-2560/1440.webp` (fundo sem as letras) e `hero-pessoa-1400/800.webp` (você recortado). O nome é texto vetorial no `index.html` (`hero-art__name`). Posições em `assets/css/hero-art.css` |
@@ -72,9 +75,9 @@ Se preferir publicar direto da `main` (um comando só), em **Settings → Pages*
 ## Confira antes de divulgar
 
 - [x] WhatsApp preenchido em `assets/js/config.js`.
-- [ ] Preencher `email` em `assets/js/config.js` (opcional: liga o botão "Enviar por e-mail").
+- [x] E-mail e Instagram preenchidos em `assets/js/config.js`.
 - [ ] Preencher `linkedin` (recrutadores procuram).
-- [ ] Confirmar a data "junho de 2027"; se puder começar antes, trocar por "Disponível agora".
+- [x] Disponibilidade: início imediato.
 - [ ] Testar o link no WhatsApp (a prévia deve mostrar o hero).
 - [ ] Conferir se todos os 8 projetos continuam no ar.
 

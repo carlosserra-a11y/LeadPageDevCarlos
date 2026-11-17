@@ -191,7 +191,11 @@
   height: 100svh;
   padding: calc(var(--header-h) + 18px) 0 clamp(14px, 3svh, 30px);
   overflow: clip;
-  background: radial-gradient(50% 45% at 50% 52%, rgba(139, 13, 26, 0.35), transparent 70%);
+  position: relative;
+  z-index: 3;
+  background:
+    radial-gradient(50% 45% at 50% 52%, rgba(139, 13, 26, 0.35), transparent 70%),
+    var(--ink);
 }
 
 .work.is-ring .work__head {

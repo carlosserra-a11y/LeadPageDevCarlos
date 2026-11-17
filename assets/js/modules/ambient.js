@@ -77,35 +77,14 @@ export function initEmbers({ gsap, velocity }) {
   });
 }
 
+const WA_ENTER_DELAY_MS = 1200;
+
 /**
- * Botão flutuante do WhatsApp: aparece depois do topo e some enquanto o
- * portfólio ou o contato estão na tela (para não cobrir os botões deles).
+ * Botão flutuante do WhatsApp: visível na página inteira. Entra com uma
+ * animação logo depois da abertura do site.
  */
 export function initWhatsFloat() {
   const button = document.querySelector('[data-wa-float]');
   if (!button || button.hidden) return;
-  const blockers = ['[data-hero]', '[data-work]', '[data-contact]']
-    .map((selector) => document.querySelector(selector))
-    .filter(Boolean);
-
-  if (!('IntersectionObserver' in window) || !blockers.length) {
-    button.classList.add('is-visible');
-    return;
-  }
-
-  /* "cobre a tela" = ocupa mais de 35% da altura visível (funciona também
-     para seções muito altas, como o portfólio fixado) */
-  const covering = new Set();
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const viewport = entry.rootBounds?.height || window.innerHeight;
-        if (entry.isIntersecting && entry.intersectionRect.height > viewport * 0.35) covering.add(entry.target);
-        else covering.delete(entry.target);
-      });
-      button.classList.toggle('is-visible', covering.size === 0);
-    },
-    { threshold: Array.from({ length: 21 }, (_, i) => i / 20) },
-  );
-  blockers.forEach((el) => observer.observe(el));
+  window.setTimeout(() => button.classList.add('is-visible'), WA_ENTER_DELAY_MS);
 }

@@ -72,6 +72,17 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 43. **Formulário confuso** (campos soltos, mensagem obrigatória): virou orçamento em 4 etapas com cartões de escolha, validação por etapa e prévia da mensagem antes de enviar. Lógica nova coberta por testes (27 no total).
 44. **Rótulo do topo quebrava em duas linhas no celular**: "Especialista em Claude Code" virou um selo.
 
+### Pedido seguinte: revisão completa, intro, nitidez e contatos
+45. **Portfólio "embaralhava" com a seção de baixo ao rolar** (barra de rolagem ou teclado fazem o navegador mover a página antes do script soltar o portfólio fixado). O portfólio fixado ganhou fundo sólido e fica por cima: a seção seguinte passa por baixo, sem misturar textos. Testado com roda do mouse, menu, rolagem rápida e redimensionamento.
+46. **Letras borradas no hero em tela cheia**: rótulo, botões "Iniciar um projeto"/"Ver meus trabalhos", 100%/360° e setas do cartão eram parte da imagem. Foram apagados da arte (difusão, sem tocar na pessoa nem no fundo) e viraram texto e botões reais. A entrada do hero também passou a terminar em escala 1 (antes 1,02, que deixava o texto levemente suave).
+47. **Claude Code**: saiu do topo do site (selo e cartão do hero) e da frase "Este site foi feito assim"; fica só na seção de recrutadores.
+48. **Disponibilidade**: "junho de 2027" trocado por **início imediato** em todo o site (cartão, selo giratório, recrutadores, FAQ, rodapé, menu e metadados).
+49. **Botão do WhatsApp** agora fica visível na página inteira; no celular o rodapé ganhou espaço para ele.
+50. **E-mail e Instagram** ligados (botão "Enviar por e-mail" e canais no contato e no rodapé).
+51. **Ícone da aba** trocado: era só "CS"; agora é a foto do Carlos sobre o laranja do site (aba, celular e app).
+52. **Abertura nova**: terminal digitando, nome que decodifica, contador e anel que abre o hero. A abertura completa dura ~3 s (antes ~2,3 s).
+53. **Varredura automática** em 9 larguras (320 a 1920 px): sem rolagem lateral, sem erros no console, sem imagens faltando, sem âncoras quebradas, sem ids repetidos.
+
 ## 3. Análise do prompt
 
 **Pontos fortes:** objetivo duplo claro (vaga + clientes), fatos reais do Carlos (sem números inventados), tokens de cor com contraste conferido, especificação detalhada do portfólio em anel com "uma única fonte de verdade" (a rolagem), lista de bugs conhecidos e critérios de aceite testáveis.
@@ -109,7 +120,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 ## 5. Critérios de aceite
 
 - [x] Sem erros no console (Chrome; testes automatizados e manuais)
-- [x] Sem rolagem horizontal em 375 px, 1440 px e 1920 px
+- [x] Sem rolagem horizontal de 320 a 1920 px (9 larguras testadas)
 - [x] Nome "CARLOS" inteiro no computador e no celular (320–900 px)
 - [x] Âncoras chegam à seção certa
 - [x] Anel gira com rolagem, botões, teclado, arrasto e clique; o painel acompanha

@@ -40,7 +40,8 @@ export function initHeroArt({ gsap, finePointer }) {
   const intro = () => {
     const tl = gsap
       .timeline({ defaults: { ease: 'expo.out' } })
-      .to(inner, { autoAlpha: 1, scale: 1.02, clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1.7 }, 0)
+      /* termina em escala 1 e sem transform: textos e botões ficam nítidos em tela cheia */
+      .to(inner, { autoAlpha: 1, scale: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1.7, clearProps: 'transform,clipPath' }, 0)
       .to(fades, { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.07 }, 0.9)
       .add(sweep, 2.2);
     if (nameText?.length) tl.to(nameText, { yPercent: 0, autoAlpha: 1, duration: 1.5 }, 0.45);

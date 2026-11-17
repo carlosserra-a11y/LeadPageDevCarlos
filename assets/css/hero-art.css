@@ -145,6 +145,8 @@
 
   /* ---------- textos por cima da arte (corrigidos) ---------- */
   .hero-art__title,
+  .hero-art__eyebrow,
+  .hero-art__stat,
   .hero-art__lead,
   .hero-art__slides,
   .hero-art__cap {
@@ -180,6 +182,137 @@
     letter-spacing: 0;
     color: #ffe1cc;
     text-shadow: 0 0 26px rgba(255, 180, 130, 0.45);
+  }
+
+  /* rótulo nítido (antes era parte da imagem) + selo de disponibilidade */
+  .hero-art__eyebrow {
+    left: 3.98%;
+    top: 13.1%;
+    display: flex;
+    align-items: center;
+    gap: 0.9cqw;
+    font-size: 1.12cqw;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #ffe3d2;
+    white-space: nowrap;
+  }
+
+  .hero-art__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    padding: 0.38em 0.9em;
+    border: 1px solid rgba(61, 220, 132, 0.5);
+    border-radius: 999px;
+    background: rgba(11, 11, 11, 0.42);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    font-size: 0.78em;
+    color: var(--paper);
+  }
+
+  .hero-art__status .dot {
+    width: 0.6em;
+    height: 0.6em;
+  }
+
+  /* botões reais no lugar dos que eram imagem */
+  .hero-art__ctas {
+    position: absolute;
+    left: 3.98%;
+    top: 52.9%;
+    display: flex;
+    align-items: center;
+    gap: 0.75cqw;
+  }
+
+  .hero-art__ctas .btn {
+    min-height: 4.15cqw;
+    gap: 1cqw;
+    padding: 0 1.9cqw;
+    font-size: 1.12cqw;
+  }
+
+  .hero-art__ctas .btn--light {
+    padding: 0.32cqw 0.32cqw 0.32cqw 1.9cqw;
+    box-shadow: 0 0 0 0.3cqw rgba(245, 242, 237, 0.16);
+  }
+
+  .hero-art__ctas .btn__icon {
+    width: 3.5cqw;
+    height: 3.5cqw;
+  }
+
+  .hero-art__ctas .btn__icon svg {
+    width: 1.15cqw;
+    height: 1.15cqw;
+  }
+
+  /* números grandes (texto real, nítido) */
+  .hero-art__stat {
+    top: 44.4%;
+    font-family: 'Montserrat', var(--font-display);
+    font-size: 4.95cqw;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: #f7f3ee;
+  }
+
+  .hero-art__stat--a {
+    left: 69.8%;
+  }
+
+  .hero-art__stat--b {
+    left: 85.8%;
+  }
+
+  /* botões redondos do cartão */
+  .hero-art__icon {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 2.15%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s;
+  }
+
+  .hero-art__icon svg {
+    width: 46%;
+    height: 46%;
+  }
+
+  .hero-art__icon:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 3px rgba(255, 77, 26, 0.45);
+  }
+
+  .hero-art__icon:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+  }
+
+  .hero-art__icon--corner {
+    left: 93.3%;
+    top: 15.7%;
+  }
+
+  .hero-art__icon--prev {
+    left: 91.2%;
+    top: 35.1%;
+  }
+
+  .hero-art__icon--next {
+    left: 93.4%;
+    top: 35.1%;
+    background: var(--ember);
   }
 
   /* foto nova sobre o quadrado do cartão da arte */
@@ -263,43 +396,6 @@
   .hotspot:focus-visible {
     outline: 2px solid var(--red);
     outline-offset: 4px;
-  }
-
-  .hotspot--start {
-    left: 3.95%;
-    top: 52.6%;
-    width: 15.2%;
-    height: 8.9%;
-  }
-
-  .hotspot--work {
-    left: 19.7%;
-    top: 52.6%;
-    width: 12.95%;
-    height: 8.9%;
-  }
-
-  .hotspot--corner,
-  .hotspot--prev,
-  .hotspot--next {
-    width: 2.1%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-  }
-
-  .hotspot--corner {
-    left: 93.4%;
-    top: 15.6%;
-  }
-
-  .hotspot--prev {
-    left: 91.25%;
-    top: 35%;
-  }
-
-  .hotspot--next {
-    left: 93.3%;
-    top: 35%;
   }
 
   .hotspot--photo {

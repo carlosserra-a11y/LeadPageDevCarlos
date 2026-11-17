@@ -728,6 +728,12 @@
   transition: transform 0.6s var(--ease-out), opacity 0.4s ease, box-shadow 0.3s ease;
 }
 
+@media (max-width: 600px) {
+  .footer {
+    padding-bottom: 88px;
+  }
+}
+
 .wa-float.is-visible {
   opacity: 1;
   transform: none;
