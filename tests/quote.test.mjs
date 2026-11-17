@@ -66,3 +66,9 @@ test('buildMessage limita listas e textos longos', () => {
   assert.ok(text.length < LIMITS.mensagem + 1500);
   assert.doesNotMatch(text, /Item 20/);
 });
+
+test('buildMessage informa o pacote escolhido nos "Quero este"', () => {
+  const text = buildMessage({ ...quote, pacote: 'Profissional' });
+  assert.match(text, /\*Pacote:\* Profissional/);
+  assert.doesNotMatch(buildMessage(quote), /Pacote/);
+});

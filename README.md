@@ -13,6 +13,10 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 - **Portfólio logo depois do hero**, em anel 3D giratório: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar, em alta resolução 2×). Também gira com setas, teclado (← → Home End), clique e arrasto.
 - **Para recrutadores logo depois dos projetos**: disponível com início imediato, destaque **Especialista em Claude Code**, stack e diferenciais.
 - **Serviços como vitrine**: cada serviço abre mostrando um projeto real, o que vem incluso, prazo e o botão "Quero um orçamento disso".
+- **Pacotes a partir de R$ 500** (Essencial, Profissional e Sob medida), com **30 dias de garantia** para ajustes e bugs e **demonstração ao vivo** na entrega. O botão "Quero este" já leva o pacote para o orçamento.
+- Números reais no hero: **30+ sites feitos** e **5 no ar com clientes usando**.
+- **Currículo em PDF** para recrutadores (botão na seção de recrutadores e no rodapé).
+- **Avaliações no Google** e **Google Analytics com aviso de cookies (LGPD)**, prontos para ligar no `config.js`.
 - Processo, condições e FAQ para **clientes**.
 - **WhatsApp (48) 99617-0281**, **e-mail** e **Instagram** no contato e no rodapé, e um **botão flutuante do WhatsApp** visível na página inteira.
 - **Abertura animada**: o nome se "decodifica" a partir de símbolos de código e um anel laranja abre o hero.
@@ -39,6 +43,10 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 | Palavras que giram no título | `rotator__word` no `index.html` (duas vezes: computador e celular) |
 | Foto do cartão do hero | `assets/img/hero/carlos-card.webp` (600 × 600) |
 | Um serviço (texto, itens, captura) | `index.html`, seção `SERVIÇOS`: cada `<details class="offer">` |
+| Pacotes e preços | `index.html`, bloco `pacotes` (dentro de SERVIÇOS) |
+| Currículo | edite `scripts/curriculo.html` e gere o PDF no Chrome (Ctrl+P → Salvar como PDF, A4, sem margens, com gráficos de fundo) em `assets/docs/curriculo-carlos-serra.pdf` |
+| Link de avaliação no Google | `googleReview` em `assets/js/config.js` (vazio = botão escondido) |
+| Google Analytics | `analytics.googleId` em `assets/js/config.js` (ID `G-…`; vazio = nada carrega) |
 | Opções do orçamento | `index.html`, `<form data-contact-form>`; a mensagem é montada em `assets/js/lib/message.js` |
 | Prévia do link no WhatsApp/LinkedIn | `assets/img/og.jpg` (1200 × 630) e as tags `og:` no `<head>` |
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Carlos Serra · Desenvolvedor Full Stack Júnior em Palhoça/SC</title>
@@ -29,12 +29,12 @@
   <meta name="twitter:description" content="Sites e sistemas que levam o cliente direto ao WhatsApp. Disponível agora para vaga Full Stack Júnior.">
   <meta name="twitter:image" content="https://carlosserra-a11y.github.io/LeadPageDevCarlos/assets/img/og.jpg">
 
-  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/img/favicon-48.png" type="image/png" sizes="48x48">
-  <link rel="icon" href="assets/img/favicon-96.png" type="image/png" sizes="96x96">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="assets/img/favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon-48.png?v=3" type="image/png" sizes="48x48">
+  <link rel="icon" href="assets/img/favicon-96.png?v=3" type="image/png" sizes="96x96">
+  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png?v=3">
+  <link rel="manifest" href="site.webmanifest?v=3">
 
   <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -197,8 +197,8 @@
               <p class="sr-only" aria-live="polite" data-card-live></p>
             </div>
 
-            <p class="hero-art__cap hero-art__cap--a" data-art-fade><span class="sr-only">100%: </span>Sem gambiarras. Apenas sistemas claros e escaláveis para desempenho.</p>
-            <p class="hero-art__cap hero-art__cap--b" data-art-fade><span class="sr-only">360°: </span>Visão completa de ponta a ponta. Da estratégia de API à interface final.</p>
+            <p class="hero-art__cap hero-art__cap--a" data-art-fade><span class="sr-only">Mais de 30: </span>Sites e sistemas desenvolvidos para negócios reais.</p>
+            <p class="hero-art__cap hero-art__cap--b" data-art-fade><span class="sr-only">5: </span>Sites no ar com clientes usando todos os dias.</p>
 
             <img class="hero-art__photo" src="assets/img/hero/carlos-card.webp" width="600" height="600" alt="" decoding="async" draggable="false">
 
@@ -206,8 +206,8 @@
               <a class="btn btn--light" href="#contato" data-magnetic>Iniciar um projeto <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
               <a class="btn btn--dark" href="#projetos" data-magnetic>Ver meus trabalhos</a>
             </div>
-            <p class="hero-art__stat hero-art__stat--a" data-art-fade aria-hidden="true">100%</p>
-            <p class="hero-art__stat hero-art__stat--b" data-art-fade aria-hidden="true">360°</p>
+            <p class="hero-art__stat hero-art__stat--a" data-art-fade aria-hidden="true">30+</p>
+            <p class="hero-art__stat hero-art__stat--b" data-art-fade aria-hidden="true">5</p>
             <a class="hero-art__icon hero-art__icon--corner" href="#recrutadores" aria-label="Ir para a seção de recrutadores"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
             <a class="hotspot hotspot--photo" href="#sobre" aria-label="Sobre o Carlos"></a>
             </div>
@@ -275,12 +275,12 @@
 
         <dl class="hero-stats" data-hero-fade>
           <div>
-            <dt><span data-counter="100">100</span>%</dt>
-            <dd>Projetos com código aberto no GitHub. Sem gambiarra escondida.</dd>
+            <dt><span data-counter="30">30</span>+</dt>
+            <dd>Sites e sistemas desenvolvidos para negócios reais.</dd>
           </div>
           <div>
-            <dt><span data-counter="360">360</span>°</dt>
-            <dd>Do briefing ao deploy: interface, API, dados e publicação.</dd>
+            <dt><span data-counter="5">5</span></dt>
+            <dd>Sites no ar com clientes usando todos os dias.</dd>
           </div>
         </dl>
         <a class="badge" href="#recrutadores" data-hero-fade aria-label="Disponível agora para vaga Full Stack Júnior, com início imediato. Ver detalhes para recrutadores">
@@ -500,7 +500,7 @@
           </div>
 
           <ol class="value-list" data-reveal>
-            <li><p><strong>Entrego produto no ar</strong><span>Oito projetos publicados, vários com cliente real usando.</span></p></li>
+            <li><p><strong>Entrego produto no ar</strong><span>Mais de 30 sites feitos e 5 no ar com clientes reais usando todos os dias.</span></p></li>
             <li><p><strong>Penso no usuário final</strong><span>Celular primeiro, acessibilidade, desempenho e textos simples.</span></p></li>
             <li><p><strong>Código que dá para revisar</strong><span>Regras de negócio com testes, README em todo projeto e commits organizados.</span></p></li>
             <li><p><strong>Aprendo rápido</strong><span>Levo o que estudo direto para projetos reais: React, TypeScript, Three.js e IA já estão no ar.</span></p></li>
@@ -510,6 +510,7 @@
 
         <div class="hire__ctas" data-reveal>
           <a class="btn btn--light" href="#contato" data-set-perfil="recrutador" data-magnetic>Falar sobre uma vaga <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+          <a class="btn btn--dark" href="assets/docs/curriculo-carlos-serra.pdf" download="Curriculo-Carlos-Serra.pdf" data-cv data-magnetic>Baixar currículo (PDF)</a>
           <a class="btn btn--dark" href="https://github.com/carlosserra-a11y" target="_blank" rel="noopener noreferrer" data-magnetic>Ver meu GitHub ↗</a>
         </div>
       </div>
@@ -747,6 +748,60 @@
           </details>
         </div>
 
+        <div class="pricing" id="pacotes">
+          <div class="pricing__head" data-reveal>
+            <p class="label"><span class="label__num" aria-hidden="true">[ R$ ]</span> Pacotes e investimento</p>
+            <h3 class="pricing__title">Projetos a partir de <em>R$ 500</em>.</h3>
+            <p class="pricing__lead">O valor cresce conforme o que o seu negócio precisa. Você recebe o preço fechado antes de começar, com contrato: 50% para começar e 50% na entrega.</p>
+          </div>
+          <ul class="pricing__perks" data-reveal>
+            <li><span class="pricing__perk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12.2 2.2 2.2 4.4-4.6"/></svg></span><p><strong>30 dias de garantia</strong>Depois da entrega, faço ajustes e corrijo qualquer bug sem custo.</p></li>
+            <li><span class="pricing__perk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/><path d="m10.5 8 4 2.5-4 2.5z"/></svg></span><p><strong>Demonstração ao vivo</strong>Mostro como o seu site funciona e ensino você a usar e editar o básico sozinho.</p></li>
+          </ul>
+          <ul class="plans">
+            <li class="plan" data-reveal>
+              <p class="plan__name">Essencial</p>
+              <p class="plan__price"><small>a partir de</small>R$ 500</p>
+              <p class="plan__desc">Página única para apresentar o negócio ou cardápio digital simples.</p>
+              <ul class="plan__list">
+                <li>Design exclusivo, nada de modelo pronto</li>
+                <li>Botão direto para o seu WhatsApp</li>
+                <li>Funciona bem no celular</li>
+                <li>Publicação no ar</li>
+                <li>30 dias de garantia</li>
+              </ul>
+              <a class="btn btn--dark plan__cta" href="#contato" data-plan="Essencial">Quero este</a>
+            </li>
+            <li class="plan plan--featured" data-reveal>
+              <p class="plan__tag">Mais completo para vender</p>
+              <p class="plan__name">Profissional</p>
+              <p class="plan__price"><small>valor conforme o projeto</small>Sob orçamento</p>
+              <p class="plan__desc">Cardápio com pedido completo no WhatsApp ou site com várias páginas.</p>
+              <ul class="plan__list">
+                <li>Tudo do Essencial</li>
+                <li>Carrinho, taxa por bairro e troco</li>
+                <li>SEO para aparecer no Google</li>
+                <li>Prévia bonita no WhatsApp e Instagram</li>
+                <li>Demonstração ao vivo e treinamento</li>
+              </ul>
+              <a class="btn btn--light plan__cta" href="#contato" data-plan="Profissional">Quero este <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+            </li>
+            <li class="plan" data-reveal>
+              <p class="plan__name">Sob medida</p>
+              <p class="plan__price"><small>valor conforme o projeto</small>Sob orçamento</p>
+              <p class="plan__desc">Painel do dono, sistemas e atendente com IA para o seu negócio.</p>
+              <ul class="plan__list">
+                <li>Painel para editar preços e horários</li>
+                <li>Integrações e IA no atendimento</li>
+                <li>Regras do negócio com testes</li>
+                <li>Demonstração ao vivo e treinamento</li>
+                <li>30 dias de garantia</li>
+              </ul>
+              <a class="btn btn--dark plan__cta" href="#contato" data-plan="Sob medida">Quero este</a>
+            </li>
+          </ul>
+        </div>
+
         <div class="includes" data-reveal>
           <p class="includes__title">Todo site inclui</p>
           <ul>
@@ -756,6 +811,8 @@
             <li>LGPD e cookies quando precisa</li>
             <li>Guia “Como editar” em português simples</li>
             <li>Publicação no ar</li>
+            <li>Demonstração ao vivo e treinamento</li>
+            <li>30 dias de garantia para ajustes e bugs</li>
           </ul>
         </div>
       </div>
@@ -774,7 +831,7 @@
           <li class="step" data-reveal><span class="step__num" aria-hidden="true">02</span><h3>Identidade visual</h3><p>Cada negócio ganha um conceito próprio, nada de modelo genérico.</p></li>
           <li class="step" data-reveal><span class="step__num" aria-hidden="true">03</span><h3>Desenvolvimento</h3><p>Código limpo, rápido no celular e com testes nas regras de preço.</p></li>
           <li class="step" data-reveal><span class="step__num" aria-hidden="true">04</span><h3>Conferência</h3><p>Reviso com você telefone, preços, fotos e textos antes de publicar.</p></li>
-          <li class="step" data-reveal><span class="step__num" aria-hidden="true">05</span><h3>Publicação e guia</h3><p>Site no ar e um guia “Como editar” para você mudar o básico sozinho.</p></li>
+          <li class="step" data-reveal><span class="step__num" aria-hidden="true">05</span><h3>Entrega ao vivo e garantia</h3><p>Site no ar, demonstração ao vivo ensinando você a usar e 30 dias de garantia para ajustes e bugs.</p></li>
         </ol>
 
         <ul class="terms" data-reveal>
@@ -782,7 +839,8 @@
           <li><strong>50%</strong> para começar, <strong>50%</strong> na entrega</li>
           <li>Prazo médio de <strong>1 a 2 semanas</strong></li>
           <li>Hospedagem e domínio <strong>no seu nome</strong></li>
-          <li>Alterações depois da entrega <strong>orçadas à parte</strong></li>
+          <li><strong>30 dias de garantia</strong> para ajustes e bugs</li>
+          <li>Projetos a partir de <strong>R$ 500</strong></li>
           <li>Atendimento das <strong>8h às 20h</strong></li>
         </ul>
 
@@ -794,7 +852,11 @@
           <div class="faq__list">
             <details>
               <summary>Quanto custa um site?</summary>
-              <p>O valor é fechado por projeto e combinado antes de começar, com contrato. Você paga 50% para começar e 50% na entrega, sem surpresa no meio do caminho.</p>
+              <p>Os projetos começam em R$ 500 e o valor cresce conforme o que o seu negócio precisa. O preço é fechado antes de começar, com contrato: 50% para começar e 50% na entrega, sem surpresa no meio do caminho.</p>
+            </details>
+            <details>
+              <summary>E se der algum problema depois da entrega?</summary>
+              <p>Você tem 30 dias de garantia: faço os ajustes e corrijo qualquer bug sem custo. Na entrega, faço uma demonstração ao vivo e ensino você a usar o próprio site.</p>
             </details>
             <details>
               <summary>Em quanto tempo fica pronto?</summary>
@@ -842,6 +904,7 @@
 
               <!-- negócio: orçamento em 4 etapas -->
               <div class="quote__flow" data-perfil-group="negocio" data-quote-flow>
+                <input type="hidden" name="pacote" value="" data-pacote>
                 <ol class="quote__steps" aria-hidden="true">
                   <li class="is-current" data-step-dot><span>1</span>Projeto</li>
                   <li data-step-dot><span>2</span>Negócio</li>
@@ -1001,6 +1064,12 @@
               <li hidden><a href="#contato" data-channel="instagram" target="_blank" rel="noopener noreferrer"><span><small>Instagram</small><strong data-channel-value>Ver perfil</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
               <li><a href="https://github.com/carlosserra-a11y" data-channel="github" target="_blank" rel="noopener noreferrer"><span><small>GitHub</small><strong data-channel-value>carlosserra-a11y</strong></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a></li>
             </ul>
+            <div class="review" data-review hidden>
+              <p class="review__stars" aria-hidden="true">★★★★★</p>
+              <p class="review__title">Já fez um site comigo?</p>
+              <p class="review__text">Conte como foi no Google. Sua avaliação ajuda outros negócios a me encontrarem.</p>
+              <a class="btn btn--light review__cta" href="#contato" data-channel="googleReview" target="_blank" rel="noopener noreferrer">Avaliar no Google <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+            </div>
             <p class="contact__hours">Atendimento das <strong>8h às 20h</strong> · Palhoça e Grande Florianópolis, e on-line para todo o Brasil.</p>
           </div>
         </div>
@@ -1013,6 +1082,14 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3 29l6.5-2c1.9 1 4.1 1.6 6.5 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.3c-2.1 0-4.1-.6-5.8-1.7l-.4-.2-3.9 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.6 11-10.6s11 4.7 11 10.6-4.9 10.8-10.9 10.8z"/><path fill="currentColor" d="M21.6 18.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.2 1.4 3.4 2.4 3.6 5.7 5c.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.8-.7 2.1-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg>
     <span class="wa-float__label">Fale comigo</span>
   </a>
+
+  <div class="consent" data-consent role="region" aria-label="Cookies de análise" hidden>
+    <p>Uso cookies do Google Analytics só para entender quais partes do site ajudam mais. Nenhum dado pessoal do formulário é enviado. Você aceita?</p>
+    <div class="consent__actions">
+      <button class="btn btn--light" type="button" data-consent-accept>Aceitar</button>
+      <button class="btn btn--dark" type="button" data-consent-deny>Recusar</button>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -1035,6 +1112,9 @@
           <ul>
             <li hidden><a href="#contato" data-channel="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp <span data-channel-value>(48) 99617-0281</span> ↗</a></li>
             <li><a href="https://github.com/carlosserra-a11y" data-channel="github" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+            <li><a href="assets/docs/curriculo-carlos-serra.pdf" download="Curriculo-Carlos-Serra.pdf" data-cv>Currículo (PDF) ↓</a></li>
+            <li hidden><a href="#contato" data-channel="googleReview" target="_blank" rel="noopener noreferrer">Avaliar no Google ↗</a></li>
+            <li hidden><button class="footer__link" type="button" data-consent-open>Preferências de cookies</button></li>
             <li hidden><a href="#contato" data-channel="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
             <li hidden><a href="#contato" data-channel="instagram" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
           </ul>

@@ -11,6 +11,7 @@ import { initRing } from './modules/ring.js';
 import { initContact } from './modules/contact.js';
 import { initEmbers, initWhatsFloat } from './modules/ambient.js';
 import { initRotator } from './modules/rotator.js';
+import { initAnalytics } from './modules/analytics.js';
 
 const root = document.documentElement;
 
@@ -48,6 +49,7 @@ async function start() {
   safely('ano', setYear);
   safely('imagens', guardImages);
   safely('contato', () => initContact(CONFIG.contact, CONFIG.emailSubject));
+  safely('analytics', () => initAnalytics(CONFIG.analytics?.googleId));
   safely('whatsapp', initWhatsFloat);
   safely('cartao', () => initHeroCard({ interval: CONFIG.heroCardInterval, autoplay: !reduced }));
   safely('palavras', () => initRotator({ interval: 2600, autoplay: !reduced }));

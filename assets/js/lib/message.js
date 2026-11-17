@@ -13,6 +13,7 @@ export const LIMITS = Object.freeze({
   cidade: 60,
   link: 120,
   prazo: 40,
+  pacote: 40,
   item: 60,
   itens: 10,
 });
@@ -170,6 +171,7 @@ export function buildMessage(data) {
         ['Cidade', clean(data.cidade, LIMITS.cidade)],
         ['Site ou Instagram', clean(data.link, LIMITS.link)],
         [legacy ? 'Projeto' : 'Preciso de', servicesOf(data).join(', ')],
+        ['Pacote', clean(data.pacote, LIMITS.pacote)],
         ['Recursos', list(data.recursos)],
         ['Prazo', clean(data.prazo, LIMITS.prazo)],
         ['Já tenho', list(data.material)],

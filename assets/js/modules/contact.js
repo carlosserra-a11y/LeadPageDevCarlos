@@ -176,6 +176,7 @@ function initCounters(form) {
 export function initContact(contact, subjects) {
   const phone = normalizePhone(contact.whatsapp);
   const email = isValidEmail(contact.email) ? String(contact.email) : '';
+  const googleReview = safeHttpUrl(contact.googleReview);
   renderChannels(
     {
       whatsapp: phone ? `https://wa.me/${phone}` : '',
@@ -183,6 +184,7 @@ export function initContact(contact, subjects) {
       linkedin: safeHttpUrl(contact.linkedin),
       instagram: safeHttpUrl(contact.instagram),
       github: safeHttpUrl(contact.github),
+      googleReview,
     },
     {
       whatsapp: phone ? formatPhone(phone) : '',
@@ -192,6 +194,10 @@ export function initContact(contact, subjects) {
       github: 'carlosserra-a11y',
     },
   );
+  /* bloco "Avaliar no Google": só aparece com o link do Perfil da Empresa */
+  document.querySelectorAll('[data-review]').forEach((block) => {
+    block.hidden = !googleReview;
+  });
 
   const form = document.querySelector('[data-contact-form]');
   const empty = document.querySelector('[data-contact-empty]');
@@ -245,6 +251,16 @@ export function initContact(contact, subjects) {
       setPerfil('negocio');
       const box = Array.from(form.querySelectorAll('input[name="servicos"]')).find((input) => input.value === link.dataset.quote);
       if (box) box.checked = true;
+      quote?.go(0, { focus: false });
+    });
+  });
+
+  /* "Quero este" (pacotes) leva o nome do pacote junto no orçamento */
+  const pacote = form.querySelector('[data-pacote]');
+  document.querySelectorAll('[data-plan]').forEach((link) => {
+    link.addEventListener('click', () => {
+      setPerfil('negocio');
+      if (pacote) pacote.value = link.dataset.plan;
       quote?.go(0, { focus: false });
     });
   });

@@ -16,6 +16,16 @@ export const CONFIG = Object.freeze({
     linkedin: '',
     instagram: 'https://www.instagram.com/karlossz_/',
     github: 'https://github.com/carlosserra-a11y',
+    /* Link "Pedir avaliações" do seu Perfil da Empresa no Google
+       (ex.: 'https://g.page/r/XXXXXXXX/review'). Vazio = botão escondido. */
+    googleReview: '',
+  }),
+
+  /* Google Analytics 4: cole o "ID da métrica" (ex.: 'G-ABC123XYZ9').
+     Vazio = nada é carregado. Com ID, o visitante vê o aviso de cookies e
+     o Analytics só liga depois do "Aceitar" (LGPD). */
+  analytics: Object.freeze({
+    googleId: '',
   }),
 
   /* Assunto do e-mail quando o visitante escolhe "Enviar por e-mail". */

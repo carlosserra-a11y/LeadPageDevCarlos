@@ -1,0 +1,190 @@
+<!doctype html>
+<!--
+  Currículo do Carlos Serra (fonte editável).
+  Para gerar o PDF: abra este arquivo no Chrome → Ctrl+P → "Salvar como PDF",
+  papel A4, margens "Nenhuma", marque "Gráficos de plano de fundo".
+  Salve como assets/docs/curriculo-carlos-serra.pdf (é o arquivo que o site baixa).
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carlos Serra · Currículo · Desenvolvedor Full Stack Júnior</title>
+<style>
+  @font-face { font-family: 'Inter'; src: url('../assets/fonts/inter-var.woff2') format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Archivo'; src: url('../assets/fonts/archivo-var.woff2') format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; }
+  @page { size: A4; margin: 0; }
+  :root { --ink: #0b0b0b; --ember: #ff4d1a; --crimson: #8b0d1a; --text: #1d1d1f; --muted: #5d5a57; --line: #e6e1dc; --soft: #fbf7f4; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { position: relative; width: 210mm; height: 297mm; overflow: hidden; font-family: 'Inter', Arial, sans-serif; font-size: 8.1pt; line-height: 1.36; color: var(--text); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  ul { list-style: none; }
+  a { color: inherit; text-decoration: none; }
+
+  .head { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 6mm; padding: 7.5mm 12mm 6mm; background: var(--ink); color: #f5f2ed; overflow: hidden; }
+  .head::before { content: ''; position: absolute; inset: -40% auto auto -10%; width: 120mm; height: 90mm; background: radial-gradient(closest-side, rgba(255, 77, 26, 0.55), transparent); }
+  .head > * { position: relative; }
+  .name { font-family: 'Archivo', Arial, sans-serif; font-stretch: 125%; font-weight: 700; font-size: 23pt; line-height: 1; letter-spacing: -0.02em; }
+  .role { margin-top: 2.2mm; font-size: 10.5pt; font-weight: 600; line-height: 1.3; color: #ffb08a; }
+  .role b { color: #fff; }
+  .avail { display: inline-flex; align-items: center; gap: 1.8mm; margin-top: 3mm; padding: 1mm 3mm; border: 1px solid rgba(61, 220, 132, 0.6); border-radius: 99px; font-size: 7.8pt; font-weight: 600; color: #fff; }
+  .avail::before { content: ''; width: 2mm; height: 2mm; border-radius: 50%; background: #3ddc84; }
+  .contact { display: grid; align-content: center; gap: 1.2mm; text-align: right; font-size: 8.2pt; color: #e9e3dc; }
+  .contact span { color: var(--ember); font-weight: 700; margin-right: 1.5mm; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); background: var(--soft); }
+  .stats div { padding: 2.4mm 4mm; border-right: 1px solid var(--line); }
+  .stats div:first-child { padding-left: 12mm; }
+  .stats div:last-child { border-right: 0; padding-right: 12mm; }
+  .stats strong { display: block; font-family: 'Archivo', Arial, sans-serif; font-stretch: 112%; font-size: 14.5pt; font-weight: 700; line-height: 1; color: var(--ember); }
+  .stats small { display: block; margin-top: 1mm; font-size: 7.4pt; color: var(--muted); line-height: 1.25; }
+
+  .body { display: grid; grid-template-columns: 1fr 60mm; align-items: start; gap: 7mm; padding: 5mm 12mm 0; }
+  h2 { display: flex; align-items: center; gap: 2mm; margin: 0 0 1.6mm; font-family: 'Archivo', Arial, sans-serif; font-stretch: 112%; font-size: 9.6pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+  h2::after { content: ''; flex: 1; height: 1.2px; background: linear-gradient(90deg, var(--ember), transparent); }
+  section + section { margin-top: 3.3mm; }
+  .lead { color: #2b2b2e; }
+  .lead b { color: var(--ink); }
+
+  .job-top { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .job-top strong { font-size: 9.2pt; color: var(--ink); }
+  .job-top em { font-style: normal; font-size: 7.8pt; font-weight: 600; color: var(--ember); white-space: nowrap; }
+  .bul li { position: relative; padding-left: 3.6mm; margin-top: 0.7mm; }
+  .bul li::before { content: ''; position: absolute; left: 0; top: 1.55mm; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--ember); }
+
+  .claude { padding: 2.4mm 3.4mm; border: 1px solid rgba(255, 77, 26, 0.45); border-radius: 3mm; background: linear-gradient(135deg, #fff1ea, #fff); }
+  .claude h2 { margin-bottom: 1.4mm; }
+
+  .proj + .proj { margin-top: 1.8mm; }
+  .proj-top { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .proj-top strong { font-size: 8.9pt; color: var(--ink); }
+  .proj-top em { font-style: normal; font-size: 7.4pt; color: var(--muted); white-space: nowrap; }
+  .tags { display: flex; flex-wrap: wrap; gap: 1mm; margin: 0.7mm 0 0.5mm; }
+  .tags span { padding: 0.3mm 1.8mm; border: 1px solid #f3c7b4; border-radius: 99px; background: #fff5f0; font-size: 6.9pt; font-weight: 600; color: #b3361a; }
+
+  aside section + section { margin-top: 3.3mm; }
+  .skill + .skill { margin-top: 1.5mm; }
+  .skill strong { display: block; font-size: 8.3pt; color: var(--ink); }
+  .skill p { color: var(--muted); font-size: 8pt; }
+  .card { padding: 2.6mm 3.2mm; border: 1px solid var(--line); border-radius: 2.4mm; background: var(--soft); }
+  .card strong { display: block; font-size: 8.4pt; color: var(--ink); }
+  .card p { color: var(--muted); font-size: 7.9pt; }
+  .pill { display: inline-block; margin-top: 1.2mm; padding: 0.4mm 2mm; border-radius: 99px; background: #ffe6db; font-size: 7.2pt; font-weight: 600; color: #b3361a; }
+
+  .foot { position: absolute; left: 12mm; right: 12mm; bottom: 7mm; display: flex; justify-content: space-between; padding-top: 2.4mm; border-top: 1px solid var(--line); font-size: 7.4pt; color: var(--muted); }
+  .foot b { color: var(--ember); }
+</style>
+</head>
+<body>
+  <header class="head">
+    <div>
+      <h1 class="name">CARLOS SERRA</h1>
+      <p class="role">Desenvolvedor Full Stack Júnior<br><b>Especialista em Claude Code</b></p>
+      <p class="avail">Disponível para início imediato · presencial, híbrido ou remoto</p>
+    </div>
+    <ul class="contact">
+      <li><span>●</span>Palhoça, SC · fácil acesso a Florianópolis</li>
+      <li><span>●</span>(48) 99617-0281 · WhatsApp</li>
+      <li><span>●</span>carlosserraap55@gmail.com</li>
+      <li><span>●</span>github.com/carlosserra-a11y</li>
+      <li><span>●</span>carlosserra-a11y.github.io/LeadPageDevCarlos</li>
+    </ul>
+  </header>
+
+  <div class="stats">
+    <div><strong>30+</strong><small>sites e sistemas desenvolvidos</small></div>
+    <div><strong>5</strong><small>sites no ar com clientes reais usando</small></div>
+    <div><strong>8</strong><small>projetos públicos com código aberto no GitHub</small></div>
+    <div><strong>2024</strong><small>atuando como freelancer até hoje</small></div>
+  </div>
+
+  <div class="body">
+    <main>
+      <section>
+        <h2>Resumo</h2>
+        <p class="lead">Desenvolvedor Full Stack Júnior com <b>mais de 30 sites desenvolvidos</b> e <b>5 em produção com clientes reais</b> (pizzaria, hamburgueria, chef de eventos, parrilla e videomaker). Construo do front-end à API: interfaces rápidas e acessíveis, integrações com WhatsApp e IA, regras de negócio cobertas por testes e publicação automatizada. Converso direto com o cliente, do briefing à entrega com demonstração ao vivo.</p>
+      </section>
+
+      <section class="claude">
+        <h2>Especialista em Claude Code</h2>
+        <ul class="bul">
+          <li>Desenvolvimento assistido por IA em todo o ciclo: planejamento, implementação, testes (TDD), revisão de código e documentação.</li>
+          <li>Configuração de agentes, hooks, comandos e servidores MCP para automatizar e padronizar o fluxo de trabalho.</li>
+          <li>Revisão humana de cada entrega: entendo, testo e respondo por cada linha que vai para produção.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Experiência</h2>
+        <div class="job-top"><strong>Desenvolvedor Full Stack · Freelancer</strong><em>2024 – atual</em></div>
+        <ul class="bul">
+          <li>Mais de 30 sites e sistemas entregues; 5 seguem no ar com clientes reais usando no dia a dia.</li>
+          <li>Cardápios digitais e sistemas de pedido que montam a mensagem pronta no WhatsApp (itens, total, taxa por bairro e troco), com regras de preço testadas.</li>
+          <li>Integrações com APIs externas (WhatsApp/Twilio, iFood, Gemini IA) com logs, tratamento de erros e contingência.</li>
+          <li>Publicação automatizada (CI/CD) com checagem de segurança e tipos; documentação técnica e guia de uso para o cliente.</li>
+          <li>Atendimento de ponta a ponta: briefing, proposta, desenvolvimento, demonstração ao vivo, treinamento e 30 dias de garantia.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projetos em destaque</h2>
+        <div class="proj">
+          <div class="proj-top"><strong>Figaro's Pizzaria 2.0 · delivery com checkout</strong><em>cliente real · no ar</em></div>
+          <div class="tags"><span>JavaScript</span><span>Node.js</span><span>Testes</span><span>WhatsApp</span></div>
+          <p>Cardápio com 57 sabores, checkout com CEP, taxa por bairro, pedido mínimo e troco; o pedido chega pronto no WhatsApp da loja.</p>
+        </div>
+        <div class="proj">
+          <div class="proj-top"><strong>São Cristóvão Burger 3.0 · cardápio com IA</strong><em>cliente real · no ar</em></div>
+          <div class="tags"><span>React 19</span><span>TypeScript</span><span>Vite</span><span>Tailwind</span><span>Gemini</span></div>
+          <p>Atendente com IA que responde sobre o cardápio, com resposta de contingência se a IA falhar.</p>
+        </div>
+        <div class="proj">
+          <div class="proj-top"><strong>Automação de atendimento e pedidos via WhatsApp</strong><em>back-end</em></div>
+          <div class="tags"><span>Node.js</span><span>APIs REST</span><span>Twilio</span><span>Gemini IA</span><span>SQL</span></div>
+          <p>API em camadas (rotas, controllers e tratadores de erro); o assistente monta o pedido e despacha pelo WhatsApp com timeout e contingência.</p>
+        </div>
+        <div class="proj">
+          <div class="proj-top"><strong>Smartech 3.0 · showroom 3D e calculadora técnica</strong><em>no ar</em></div>
+          <div class="tags"><span>WebGL</span><span>Cloudflare Workers</span><span>Python</span><span>Segurança</span></div>
+          <p>Calculadora NBR 14518 com funções puras testadas e proxy serverless que protege as chaves de API e limita requisições por IP.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>Competências</h2>
+        <div class="skill"><strong>Front-end</strong><p>HTML semântico, CSS, JavaScript, TypeScript, React 19, Vite, Tailwind, GSAP, Three.js</p></div>
+        <div class="skill"><strong>Back-end e integrações</strong><p>Node.js, Express, APIs REST, Webhooks, Cloudflare Workers, Twilio WhatsApp, Gemini API</p></div>
+        <div class="skill"><strong>Banco de dados</strong><p>SQL, modelagem relacional, Supabase, validação e integridade de dados</p></div>
+        <div class="skill"><strong>IA e low-code</strong><p>Claude Code (especialista), IA generativa, Lovable, n8n</p></div>
+        <div class="skill"><strong>Qualidade e entrega</strong><p>Testes automatizados, CI/CD (GitHub Actions), acessibilidade, LGPD, Git e GitHub</p></div>
+        <div class="skill"><strong>Linguagens</strong><p>JavaScript, TypeScript, Python, C#</p></div>
+      </section>
+
+      <section>
+        <h2>Formação</h2>
+        <div class="card"><strong>Análise e Desenvolvimento de Sistemas</strong><p>Faculdade Municipal de Palhoça (FMP)</p><span class="pill">Cursando · 3ª fase</span></div>
+      </section>
+
+      <section>
+        <h2>Cursos</h2>
+        <div class="card"><strong>Python 3</strong><p>Curso em Vídeo · Prof. Gustavo Guanabara</p><span class="pill">Concluído com certificado</span></div>
+      </section>
+
+      <section>
+        <h2>Diferenciais</h2>
+        <ul class="bul">
+          <li>Produto no ar, não só exercício: clientes usando todos os dias.</li>
+          <li>Celular primeiro, acessibilidade e desempenho.</li>
+          <li>Traduz negócio em requisito e explica o técnico de forma simples.</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <span>Carlos Serra · Desenvolvedor Full Stack Júnior</span>
+    <span>Projetos ao vivo: <b>carlosserra-a11y.github.io/LeadPageDevCarlos</b></span>
+  </footer>
+</body>
+</html>

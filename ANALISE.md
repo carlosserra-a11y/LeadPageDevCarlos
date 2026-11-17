@@ -83,6 +83,15 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 52. **Abertura nova**: terminal digitando, nome que decodifica, contador e anel que abre o hero. A abertura completa dura ~3 s (antes ~2,3 s).
 53. **Varredura automática** em 9 larguras (320 a 1920 px): sem rolagem lateral, sem erros no console, sem imagens faltando, sem âncoras quebradas, sem ids repetidos.
 
+### Pedido seguinte: números reais, pacotes, currículo, Google e ícone
+54. **Números genéricos** (100% e 360°) trocados por dados reais: **30+ sites feitos** e **5 no ar com clientes usando**.
+55. **Pacotes a partir de R$ 500**, com **30 dias de garantia** e **demonstração ao vivo**, também no processo, nas condições e no FAQ ("E se der algum problema depois da entrega?").
+56. **Currículo novo** (Full Stack Júnior, especialista em Claude Code, números reais, disponível já), em PDF de 1 página com botão de download.
+57. **Google Analytics 4 com consentimento (LGPD)**: nada carrega sem o ID no `config.js`; com ID, aparece o aviso e o Analytics só liga depois do "Aceitar". Eventos: WhatsApp, e-mail, Instagram, currículo, pacotes, serviços, orçamento enviado e avaliação. A CSP libera só os domínios do Google.
+58. **Avaliações no Google**: bloco "Já fez um site comigo?" e link no rodapé, que aparecem quando o link do Perfil da Empresa for colocado no `config.js`.
+59. **Ícone** trocado pelo perfil de óculos com o brilho laranja do site; endereços com `?v=3` para o navegador não mostrar o "CS" antigo guardado em cache.
+60. Testes: 31 unitários (pacote no orçamento e regras do Analytics com testes escritos antes do código).
+
 ## 3. Análise do prompt
 
 **Pontos fortes:** objetivo duplo claro (vaga + clientes), fatos reais do Carlos (sem números inventados), tokens de cor com contraste conferido, especificação detalhada do portfólio em anel com "uma única fonte de verdade" (a rolagem), lista de bugs conhecidos e critérios de aceite testáveis.
