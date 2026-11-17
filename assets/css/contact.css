@@ -117,11 +117,10 @@
 .field select,
 .field textarea {
   width: 100%;
-  padding: 0.85rem 0;
-  border: 0;
-  border-bottom: 1px solid var(--line-strong);
-  border-radius: 0;
-  background: transparent;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.035);
   font-size: 1.05rem;
   color: var(--paper);
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -130,7 +129,8 @@
 .field select {
   appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, var(--paper) 50%), linear-gradient(135deg, var(--paper) 50%, transparent 50%);
-  background-position: calc(100% - 12px) 55%, calc(100% - 7px) 55%;
+  background-position: calc(100% - 22px) 55%, calc(100% - 17px) 55%;
+  padding-right: 2.6rem;
   background-size: 5px 5px;
   background-repeat: no-repeat;
 }
@@ -155,7 +155,7 @@
 .field textarea:focus {
   outline: none;
   border-color: var(--ember);
-  box-shadow: 0 1px 0 var(--ember);
+  box-shadow: 0 0 0 3px rgba(255, 77, 26, 0.18);
 }
 
 .field.is-invalid input,
@@ -191,6 +191,320 @@
   min-height: 1.4em;
   font-size: 0.9rem;
   color: var(--paper-80);
+}
+
+/* ---------- orçamento em etapas ---------- */
+.quote__flow {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.quote__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.quote__steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  transition: color 0.3s;
+}
+
+.quote__steps span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.quote__steps .is-current,
+.quote__steps .is-done {
+  color: var(--paper);
+}
+
+.quote__steps .is-current span {
+  border-color: var(--ember);
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.quote__steps .is-done span {
+  border-color: rgba(255, 77, 26, 0.6);
+  color: var(--ember);
+}
+
+.quote__bar {
+  height: 2px;
+  margin-top: -0.6rem;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.quote__bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--crimson), var(--ember));
+  transform: scaleX(0.25);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.quote__step {
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.quote__step:not([hidden]) {
+  animation: quote-in 0.55s var(--ease-out) both;
+}
+
+@keyframes quote-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+.quote__q {
+  display: grid;
+  gap: 0.3rem;
+  margin-bottom: 0.2rem;
+  padding: 0;
+  font-family: var(--font-display);
+  font-stretch: 108%;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 1rem + 1vw, 1.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.quote__q:focus {
+  outline: none;
+}
+
+.quote__q small,
+.quote__hint {
+  font-family: var(--font-body);
+  font-stretch: normal;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+/* cartões de escolha (etapa 1) */
+.pick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.pick {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.pick--wide {
+  grid-column: 1 / -1;
+}
+
+.pick input,
+.chip-pick input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pick__box {
+  position: relative;
+  display: grid;
+  gap: 0.25rem;
+  height: 100%;
+  padding: 1rem 2.8rem 1rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.3s, background-color 0.3s, transform 0.4s var(--ease-out);
+}
+
+.pick__box::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.pick:hover .pick__box {
+  border-color: rgba(255, 77, 26, 0.5);
+  transform: translateY(-2px);
+}
+
+.pick__box strong {
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.pick__box small {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.pick input:checked + .pick__box {
+  border-color: var(--ember);
+  background: linear-gradient(150deg, rgba(255, 77, 26, 0.18), rgba(139, 13, 26, 0.12));
+}
+
+.pick input:checked + .pick__box::after {
+  border-color: var(--ember);
+  background: var(--ember)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230b0b0b' stroke-width='2.4'%3E%3Cpath d='m4 8.4 2.6 2.6L12 5.4'/%3E%3C/svg%3E") center / 0.8rem no-repeat;
+}
+
+.pick input:focus-visible + .pick__box,
+.chip-pick input:focus-visible + span {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* pílulas de escolha (etapa 3) */
+.quote__group {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.quote__group legend {
+  margin-bottom: 0.6rem;
+  padding: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.chip-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip-pick {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip-pick span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: border-color 0.25s, background-color 0.25s, color 0.25s;
+}
+
+.chip-pick:hover span {
+  border-color: rgba(255, 77, 26, 0.55);
+}
+
+.chip-pick input:checked + span {
+  border-color: var(--ember);
+  background: var(--ember);
+  color: var(--ink);
+}
+
+.quote__preview {
+  max-height: 22rem;
+  margin: 0;
+  padding: 1.2rem 1.3rem;
+  overflow: auto;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, rgba(37, 211, 102, 0.08), rgba(18, 18, 18, 0.9));
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--paper);
+}
+
+.quote__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.quote__nav [data-quote-next] {
+  margin-left: auto;
+}
+
+.quote__recruiter {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.form__actions[hidden] {
+  display: none;
+}
+
+.field__error:empty {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .pick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote__steps {
+    font-size: 0;
+  }
+
+  .quote__steps li {
+    justify-content: center;
+  }
+
+  .quote__nav .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote__step:not([hidden]) {
+    animation: none;
+  }
 }
 
 .contact__empty {

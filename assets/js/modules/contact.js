@@ -6,10 +6,14 @@ import {
   normalizePhone,
   safeHttpUrl,
   validateContact,
+  validateStep,
   whatsappUrl,
 } from '../lib/message.js';
 
 const SEND_LOCK_MS = 1500;
+const STEPS = ['servicos', 'negocio', 'detalhes', 'revisao'];
+const STEP_NAMES = ['O que você precisa', 'Seu negócio', 'Detalhes do projeto', 'Conferir e enviar'];
+const LIST_FIELDS = ['servicos', 'recursos', 'material'];
 
 function formatPhone(digits) {
   const local = digits.startsWith('55') ? digits.slice(2) : digits;
@@ -43,6 +47,16 @@ function renderChannels(links, labels) {
   });
 }
 
+/** Dados do formulário, com as opções marcadas (checkboxes) como listas. */
+function readForm(form) {
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  LIST_FIELDS.forEach((name) => {
+    data[name] = formData.getAll(name);
+  });
+  return data;
+}
+
 function togglePerfil(form, perfil) {
   form.querySelectorAll('[data-perfil-group]').forEach((group) => {
     const on = group.dataset.perfilGroup === perfil;
@@ -56,38 +70,128 @@ function togglePerfil(form, perfil) {
 function showErrors(form, errors) {
   form.querySelectorAll('.field').forEach((field) => {
     const input = field.querySelector('input, select, textarea');
+    if (!input || input.disabled) return;
     const slot = field.querySelector('.field__error');
-    const message = input ? errors[input.name] : '';
+    const message = errors[input.name] || '';
     field.classList.toggle('is-invalid', Boolean(message));
-    if (input) input.setAttribute('aria-invalid', String(Boolean(message)));
-    if (slot) slot.textContent = message || '';
+    input.setAttribute('aria-invalid', String(Boolean(message)));
+    if (slot) slot.textContent = message;
+  });
+  form.querySelectorAll('[data-error]').forEach((slot) => {
+    slot.textContent = errors[slot.dataset.error] || '';
+  });
+}
+
+function focusFirstError(form, errors) {
+  if (errors.servicos) form.querySelector('input[name="servicos"]:not(:disabled)')?.focus();
+  else form.querySelector('[aria-invalid="true"]')?.focus();
+}
+
+/** Mantém o topo do orçamento visível quando a etapa muda de altura. */
+function keepInView(element) {
+  const top = element.getBoundingClientRect().top;
+  if (top < 72) window.scrollBy(0, top - 96);
+}
+
+/**
+ * Orçamento do negócio em 4 etapas: o que precisa → negócio → detalhes → conferir.
+ * Cada etapa só avança com os campos obrigatórios dela preenchidos.
+ * @returns {{ go: (step: number, options?: { focus?: boolean }) => void, tryNext: () => void, isLast: () => boolean } | null}
+ */
+function initQuote(form, onStepChange) {
+  const flow = form.querySelector('[data-quote-flow]');
+  if (!flow) return null;
+  const steps = STEPS.map((name) => flow.querySelector(`[data-step="${name}"]`));
+  if (steps.some((step) => !step)) return null;
+  const dots = flow.querySelectorAll('[data-step-dot]');
+  const bar = flow.querySelector('[data-quote-bar]');
+  const live = flow.querySelector('[data-step-live]');
+  const prev = flow.querySelector('[data-quote-prev]');
+  const next = flow.querySelector('[data-quote-next]');
+  const preview = flow.querySelector('[data-quote-preview]');
+  let index = 0;
+
+  const go = (target, { focus = true } = {}) => {
+    index = Math.max(0, Math.min(STEPS.length - 1, target));
+    steps.forEach((step, i) => {
+      step.hidden = i !== index;
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-current', i === index);
+      dot.classList.toggle('is-done', i < index);
+    });
+    if (bar) bar.style.transform = `scaleX(${(index + 1) / STEPS.length})`;
+    if (prev) prev.hidden = index === 0;
+    if (next) next.hidden = index === STEPS.length - 1;
+    if (preview && STEPS[index] === 'revisao') preview.textContent = buildMessage(readForm(form));
+    if (live) live.textContent = `Etapa ${index + 1} de ${STEPS.length}: ${STEP_NAMES[index]}`;
+    onStepChange();
+    if (!focus) return;
+    steps[index].querySelector('.quote__q')?.focus({ preventScroll: true });
+    keepInView(flow);
+  };
+
+  const tryNext = () => {
+    const { ok, errors } = validateStep(STEPS[index], readForm(form));
+    showErrors(form, errors);
+    if (!ok) {
+      focusFirstError(form, errors);
+      return;
+    }
+    go(index + 1);
+  };
+
+  next?.addEventListener('click', tryNext);
+  prev?.addEventListener('click', () => {
+    showErrors(form, {});
+    go(index - 1);
+  });
+  flow.addEventListener('change', (event) => {
+    if (event.target.name === 'servicos') showErrors(form, {});
+  });
+  go(0, { focus: false });
+  return { go, tryNext, isLast: () => index === STEPS.length - 1 };
+}
+
+function initCounters(form) {
+  form.querySelectorAll('textarea[name="mensagem"]').forEach((textarea) => {
+    const counter = textarea.closest('.field')?.querySelector('[data-count]');
+    textarea.maxLength = LIMITS.mensagem;
+    if (!counter) return;
+    const update = () => {
+      counter.textContent = `${textarea.value.length}/${LIMITS.mensagem}`;
+    };
+    textarea.addEventListener('input', update);
+    update();
   });
 }
 
 /**
- * Contato: canais vindos do config.js e formulário que monta a mensagem
- * e abre o WhatsApp ou o e-mail. Nada é salvo nem enviado a servidor.
+ * Contato: canais vindos do config.js e o orçamento (negócio, em etapas) ou a
+ * mensagem para recrutadores. Monta o texto e abre o WhatsApp ou o e-mail.
+ * Nada é salvo nem enviado a servidor.
  * @param {{ whatsapp: string, email: string, linkedin: string, instagram: string, github: string }} contact
  * @param {{ negocio: string, recrutador: string }} subjects
  */
 export function initContact(contact, subjects) {
   const phone = normalizePhone(contact.whatsapp);
   const email = isValidEmail(contact.email) ? String(contact.email) : '';
-  const links = {
-    whatsapp: phone ? `https://wa.me/${phone}` : '',
-    email: email ? `mailto:${email}` : '',
-    linkedin: safeHttpUrl(contact.linkedin),
-    instagram: safeHttpUrl(contact.instagram),
-    github: safeHttpUrl(contact.github),
-  };
-  const labels = {
-    whatsapp: phone ? formatPhone(phone) : '',
-    email,
-    linkedin: 'Ver perfil',
-    instagram: 'Ver perfil',
-    github: 'carlosserra-a11y',
-  };
-  renderChannels(links, labels);
+  renderChannels(
+    {
+      whatsapp: phone ? `https://wa.me/${phone}` : '',
+      email: email ? `mailto:${email}` : '',
+      linkedin: safeHttpUrl(contact.linkedin),
+      instagram: safeHttpUrl(contact.instagram),
+      github: safeHttpUrl(contact.github),
+    },
+    {
+      whatsapp: phone ? formatPhone(phone) : '',
+      email,
+      linkedin: 'Ver perfil',
+      instagram: 'Ver perfil',
+      github: 'carlosserra-a11y',
+    },
+  );
 
   const form = document.querySelector('[data-contact-form]');
   const empty = document.querySelector('[data-contact-empty]');
@@ -107,48 +211,70 @@ export function initContact(contact, subjects) {
   if (sendEmail) sendEmail.hidden = !email;
 
   const status = form.querySelector('[data-form-status]');
-  const message = form.querySelector('textarea[name="mensagem"]');
-  const counter = form.querySelector('[data-count]');
+  const actions = form.querySelector('[data-form-actions]');
   const perfilInputs = Array.from(form.querySelectorAll('input[name="perfil"]'));
-
   const currentPerfil = () => perfilInputs.find((input) => input.checked)?.value ?? 'negocio';
-  togglePerfil(form, currentPerfil());
-  perfilInputs.forEach((input) => input.addEventListener('change', () => togglePerfil(form, currentPerfil())));
 
-  /* links "Falar sobre uma vaga" já escolhem o perfil */
+  let quote = null;
+  /* os botões de envio só aparecem na última etapa do orçamento (ou para recrutadores) */
+  const syncActions = () => {
+    if (actions) actions.hidden = currentPerfil() === 'negocio' && Boolean(quote) && !quote.isLast();
+  };
+  const setPerfil = (perfil) => {
+    const input = perfilInputs.find((item) => item.value === perfil);
+    if (input) input.checked = true;
+    togglePerfil(form, currentPerfil());
+    showErrors(form, {});
+    syncActions();
+  };
+
+  togglePerfil(form, currentPerfil());
+  quote = initQuote(form, syncActions);
+  syncActions();
+  initCounters(form);
+  perfilInputs.forEach((input) => input.addEventListener('change', () => setPerfil(currentPerfil())));
+
+  /* "Falar sobre uma vaga" já escolhe o perfil de recrutador */
   document.querySelectorAll('[data-set-perfil]').forEach((link) => {
+    link.addEventListener('click', () => setPerfil(link.dataset.setPerfil));
+  });
+
+  /* "Quero um orçamento disso" (serviços) já marca a opção no orçamento */
+  document.querySelectorAll('[data-quote]').forEach((link) => {
     link.addEventListener('click', () => {
-      const input = perfilInputs.find((item) => item.value === link.dataset.setPerfil);
-      if (!input) return;
-      input.checked = true;
-      togglePerfil(form, input.value);
+      setPerfil('negocio');
+      const box = Array.from(form.querySelectorAll('input[name="servicos"]')).find((input) => input.value === link.dataset.quote);
+      if (box) box.checked = true;
+      quote?.go(0, { focus: false });
     });
   });
 
-  if (message && counter) {
-    message.maxLength = LIMITS.mensagem;
-    const update = () => {
-      counter.textContent = `${message.value.length}/${LIMITS.mensagem}`;
-    };
-    message.addEventListener('input', update);
-    update();
-  }
+  bindSubmit(form, { phone, email, subjects, status, quote, currentPerfil });
+}
 
+function bindSubmit(form, { phone, email, subjects, status, quote, currentPerfil }) {
   let locked = false;
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (locked) return;
 
-    const channel = event.submitter?.dataset.send || (phone ? 'whatsapp' : 'email');
-    const data = Object.fromEntries(new FormData(form));
-    const { ok, errors } = validateContact(data);
-    showErrors(form, errors);
-
-    if (!ok) {
-      if (status) status.textContent = 'Confira os campos destacados.';
-      form.querySelector('[aria-invalid="true"]')?.focus();
+    /* Enter num campo do orçamento avança a etapa em vez de enviar */
+    if (currentPerfil() === 'negocio' && quote && !quote.isLast()) {
+      quote.tryNext();
       return;
     }
+
+    const channel = event.submitter?.dataset.send || (phone ? 'whatsapp' : 'email');
+    const data = readForm(form);
+    const { ok, errors } = validateContact(data);
+    if (!ok) {
+      if (quote && data.perfil === 'negocio') quote.go(errors.servicos ? 0 : 1);
+      showErrors(form, errors);
+      if (status) status.textContent = 'Confira os campos destacados.';
+      focusFirstError(form, errors);
+      return;
+    }
+    showErrors(form, {});
 
     const text = buildMessage(data);
     const url =

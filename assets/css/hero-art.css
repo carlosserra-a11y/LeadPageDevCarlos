@@ -144,6 +144,7 @@
   }
 
   /* ---------- textos por cima da arte (corrigidos) ---------- */
+  .hero-art__title,
   .hero-art__lead,
   .hero-art__slides,
   .hero-art__cap {
@@ -151,6 +152,46 @@
     margin: 0;
     font-family: var(--font-body);
     letter-spacing: -0.005em;
+  }
+
+  /* título novo no lugar do antigo (apagado da imagem) */
+  .hero-art__title {
+    left: 4.1%;
+    top: 18.2%;
+    width: 44%;
+    font-family: 'Montserrat', var(--font-display);
+    font-size: 4.7vw;
+    font-size: 4.85cqw;
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: #f7f3ee;
+    text-shadow: 0 0 22px rgba(255, 236, 220, 0.28);
+  }
+
+  .hero-art__title > span {
+    display: block;
+  }
+
+  .hero-art__title em {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #ffe1cc;
+    text-shadow: 0 0 26px rgba(255, 180, 130, 0.45);
+  }
+
+  /* foto nova sobre o quadrado do cartão da arte */
+  .hero-art__photo {
+    position: absolute;
+    left: 70.72%;
+    top: 15.45%;
+    width: 12.9%;
+    height: 24.1%;
+    object-fit: cover;
+    border-radius: 0.7cqw;
+    box-shadow: 0 0 0 1px rgba(255, 140, 90, 0.25), 0 12px 30px rgba(0, 0, 0, 0.35);
   }
 
   .hero-art__lead {

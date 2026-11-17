@@ -6,7 +6,7 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 
 | Verificação | Como | Resultado |
 |---|---|---|
-| Lógica pura (mensagem, validação, anel 3D) | `npm test` (20 testes, Node) | 20/20 passando · 100% das linhas e 94% dos ramos de `assets/js/lib` |
+| Lógica pura (mensagem, orçamento, validação, anel 3D) | `npm test` (27 testes, Node) | 27/27 passando · 100% das linhas e 94% dos ramos de `assets/js/lib` |
 | Desktop 1440 × 900 e Full HD 1920 × 1080 | navegador, seção por seção | hero, anel 3D, faixa, sobre, serviços, recrutadores, processo, FAQ, contato e rodapé ok |
 | Celular 375 × 812 | navegador | sem rolagem horizontal; hero, anel e painel cabem na tela |
 | Anel 3D | rolagem, botões, tecla End, arrasto com o mouse, âncora `#projetos` | gira, encaixa no projeto mais próximo e o painel acompanha |
@@ -62,6 +62,15 @@ Revisão feita antes de publicar, como pede a seção 14 do [PROMPT.md](PROMPT.m
 35. **Capturas dos projetos suaves em telas Retina/Full HD.** Recapturadas em 2× e servidas em 960 e 1600 px (`srcset`).
 36. **Projetos ficavam no meio da página.** O portfólio subiu para logo depois do hero (menu e numeração das seções acompanharam).
 37. **Hero com mais vida:** entrada em sequência por camadas, brilho que percorre o nome, luz que respira atrás da pessoa e profundidade com o mouse por camada (sem mexer na imagem nem no fundo).
+
+### Pedido seguinte: frase nova, foto, serviços, recrutadores e orçamento
+38. **Frase do hero trocada** por "Código que vira cliente." com a palavra final girando (pedido, venda, resultado). A frase antiga foi apagada da imagem por difusão (sem riscos) e a nova entra como texto nítido.
+39. **Foto do cartão trocada** pela foto de terno, com fundo removido no PC e posta sobre o laranja do site (no celular e por cima da arte no computador).
+40. **Serviços viraram vitrine**: lista numerada que abre um por vez com projeto real, "Você recebe", prazo e botão que já marca o serviço no orçamento.
+41. **Recrutadores logo depois dos projetos**, com destaque "Especialista em Claude Code".
+42. **Frase "Bonito é bom…" removida** do Sobre.
+43. **Formulário confuso** (campos soltos, mensagem obrigatória): virou orçamento em 4 etapas com cartões de escolha, validação por etapa e prévia da mensagem antes de enviar. Lógica nova coberta por testes (27 no total).
+44. **Rótulo do topo quebrava em duas linhas no celular**: "Especialista em Claude Code" virou um selo.
 
 ## 3. Análise do prompt
 

@@ -54,9 +54,17 @@ test('isValidEmail aceita e-mails comuns e recusa os quebrados', () => {
   assert.ok(!isValidEmail(''));
 });
 
-test('validateContact exige nome e mensagem com tamanho mínimo', () => {
+test('validateContact exige nome e o que o negócio precisa', () => {
   assert.deepEqual(validateContact(business), { ok: true, errors: {} });
   const result = validateContact({ perfil: 'negocio', nome: 'A', mensagem: 'curta' });
+  assert.equal(result.ok, false);
+  assert.ok(result.errors.nome);
+  assert.ok(result.errors.servicos);
+});
+
+test('validateContact do recrutador exige nome e mensagem com tamanho mínimo', () => {
+  assert.deepEqual(validateContact(recruiter), { ok: true, errors: {} });
+  const result = validateContact({ perfil: 'recrutador', nome: 'B', mensagem: 'curta' });
   assert.equal(result.ok, false);
   assert.ok(result.errors.nome);
   assert.ok(result.errors.mensagem);

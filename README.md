@@ -8,14 +8,16 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 
 ## O que tem na página
 
-- **Hero em Full HD com a sua imagem** (no computador), montado em camadas: fundo ampliado 4× com IA (Swin2SR, rodando no PC), o nome **CARLOS inteiro em vetor** (nítido em qualquer tela), você recortado na frente e o degradê continuando até o fim do hero. Menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem. Animações: entrada em sequência (fundo → nome → você), brilho que percorre o nome, luz que respira atrás de você, profundidade com o mouse (cada camada se move numa distância) e paralaxe na rolagem. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
+- **Hero em Full HD com a sua imagem** (no computador), montado em camadas: fundo ampliado 4× com IA (Swin2SR, rodando no PC), o nome **CARLOS inteiro em vetor** (nítido em qualquer tela), você recortado na frente e o degradê continuando até o fim do hero. Menu real por cima, textos corrigidos e áreas clicáveis sobre os botões da imagem. Título **"Código que vira cliente."** com a última palavra girando (pedido, venda, resultado) e a sua foto nova no cartão. Animações: entrada em sequência (fundo → nome → você), brilho que percorre o nome, luz que respira atrás de você, profundidade com o mouse (cada camada se move numa distância) e paralaxe na rolagem. No celular, a versão montada a partir dela (retrato de perfil na frente do nome **CARLOS**, cartão de destaques e **selo giratório** que acelera com a rolagem).
 - **Paralaxe** no hero (rolagem e mouse), faixa de tecnologias que inverte com a direção da rolagem, manifesto que acende palavra por palavra e fotos com revelação por máscara.
 - **Portfólio logo depois do hero**, em anel 3D giratório: a rolagem gira o anel com os 8 projetos reais (capturas dos sites no ar, em alta resolução 2×). Também gira com setas, teclado (← → Home End), clique e arrasto.
-- Seções para **clientes** (serviços, processo, condições, FAQ) e para **recrutadores** (stack e diferenciais).
+- **Para recrutadores logo depois dos projetos**, com o destaque **Especialista em Claude Code**, stack e diferenciais.
+- **Serviços como vitrine**: cada serviço abre mostrando um projeto real, o que vem incluso, prazo e o botão "Quero um orçamento disso".
+- Processo, condições e FAQ para **clientes**.
 - **WhatsApp (48) 99617-0281** no contato, no menu, no rodapé e num **botão flutuante** que abre a conversa com a mensagem pronta.
 - **Fundo vivo** em todo o site: luzes carmim flutuando e brasas subindo, que aceleram com a rolagem.
 - **No celular, o portfólio gira deslizando para os lados** (sem prender a rolagem); no computador, gira com a rolagem, o mouse ou o trackpad.
-- **Contato** que monta a mensagem e abre o WhatsApp ou o e-mail. Nada é salvo nem enviado a servidor.
+- **Orçamento em 4 etapas** (o que precisa → negócio → detalhes → conferir) que monta a mensagem organizada e abre o WhatsApp ou o e-mail. Recrutadores têm uma etapa só. Nada é salvo nem enviado a servidor.
 
 ## Como editar
 
@@ -30,7 +32,11 @@ Landing page pessoal de **Carlos Alberto Araújo Serra Nunes**, feita para dois 
 | Tempo de troca do cartão do hero | `heroCardInterval` em `assets/js/config.js` |
 | A imagem do hero no computador | camadas em `assets/img/hero/`: `hero-fundo-2560/1440.webp` (fundo sem as letras) e `hero-pessoa-1400/800.webp` (você recortado). O nome é texto vetorial no `index.html` (`hero-art__name`). Posições em `assets/css/hero-art.css` |
 | A foto do hero no celular | `assets/img/hero/carlos-perfil-1300.webp` e `-900.webp` |
-| Textos por cima da arte (subtítulo, cartão, legendas) | bloco `hero-art` no `index.html` |
+| Textos por cima da arte (título, subtítulo, cartão, legendas) | bloco `hero-art` no `index.html` |
+| Palavras que giram no título | `rotator__word` no `index.html` (duas vezes: computador e celular) |
+| Foto do cartão do hero | `assets/img/hero/carlos-card.webp` (600 × 600) |
+| Um serviço (texto, itens, captura) | `index.html`, seção `SERVIÇOS`: cada `<details class="offer">` |
+| Opções do orçamento | `index.html`, `<form data-contact-form>`; a mensagem é montada em `assets/js/lib/message.js` |
 | Prévia do link no WhatsApp/LinkedIn | `assets/img/og.jpg` (1200 × 630) e as tags `og:` no `<head>` |
 
 ## Rodar no computador

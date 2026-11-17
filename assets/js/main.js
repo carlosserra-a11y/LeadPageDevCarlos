@@ -10,6 +10,7 @@ import { initPointerFx } from './modules/pointer-fx.js';
 import { initRing } from './modules/ring.js';
 import { initContact } from './modules/contact.js';
 import { initEmbers, initWhatsFloat } from './modules/ambient.js';
+import { initRotator } from './modules/rotator.js';
 
 const root = document.documentElement;
 
@@ -49,6 +50,7 @@ async function start() {
   safely('contato', () => initContact(CONFIG.contact, CONFIG.emailSubject));
   safely('whatsapp', initWhatsFloat);
   safely('cartao', () => initHeroCard({ interval: CONFIG.heroCardInterval, autoplay: !reduced }));
+  safely('palavras', () => initRotator({ interval: 2600, autoplay: !reduced }));
 
   /* sem GSAP (bloqueado ou falhou): página estática, porém completa */
   if (!gsap || !ScrollTrigger) {
